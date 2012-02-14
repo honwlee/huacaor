@@ -1,0 +1,17 @@
+%h1 Listing genus
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @genus.each do |genu|
+    %tr
+      %td= link_to 'Show', genu
+      %td= link_to 'Edit', edit_genu_path(genu)
+      %td= link_to 'Destroy', genu, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Genu', new_genu_path

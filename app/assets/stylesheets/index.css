@@ -1,0 +1,889 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, /Users/edoctor/.rvm/gems/ruby-1.8.7-p352/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, /Users/edoctor/.rvm/gems/ruby-1.8.7-p352/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, /Users/edoctor/.rvm/gems/ruby-1.8.7-p352/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, /Users/edoctor/.rvm/gems/ruby-1.8.7-p352/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, /Users/edoctor/.rvm/gems/ruby-1.8.7-p352/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, /Users/edoctor/.rvm/gems/ruby-1.8.7-p352/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, /Users/edoctor/.rvm/gems/ruby-1.8.7-p352/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, /Users/edoctor/.rvm/gems/ruby-1.8.7-p352/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, /Users/edoctor/.rvm/gems/ruby-1.8.7-p352/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/**
+ * Reset
+ */
+/* line 11, /Users/edoctor/work/plini/sass/screen.scss */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 14, /Users/edoctor/work/plini/sass/screen.scss */
+body,
+button, input, select, textarea {
+  font: 12px/1.5 arial, sans-serif;
+}
+
+/* line 15, /Users/edoctor/work/plini/sass/screen.scss */
+button, input, select, textarea {
+  font-size: 100%;
+}
+
+/* line 16, /Users/edoctor/work/plini/sass/screen.scss */
+address, em {
+  font-style: normal;
+}
+
+/* line 17, /Users/edoctor/work/plini/sass/screen.scss */
+ul, ol {
+  list-style: none;
+}
+
+/* line 19, /Users/edoctor/work/plini/sass/screen.scss */
+a {
+  text-decoration: none;
+  color: #76b130;
+}
+/* line 22, /Users/edoctor/work/plini/sass/screen.scss */
+a:hover {
+  text-decoration: none;
+}
+/* line 25, /Users/edoctor/work/plini/sass/screen.scss */
+a img {
+  border: 0;
+}
+
+/* Clearfix */
+/* line 30, /Users/edoctor/work/plini/sass/screen.scss */
+.clearfix, header, header .topbar, #search .choosebox, .person-info, .plant-info, .catebar, .cate-lists, .main, .banner, .p-lists, .content, .comments li, .p-slide ul, .copyright .publisher, .single-main, #loginform ul li {
+  *zoom: 1;
+}
+
+/* line 31, /Users/edoctor/work/plini/sass/screen.scss */
+.clearfix:before, .clearfix:after, header:after, header .topbar:after, #search .choosebox:after, .person-info:after, .plant-info:after, .catebar:after, .cate-lists:after, .main:after, .banner:after, .p-lists:after, .content:after, .comments li:after, .p-slide ul:after, .copyright .publisher:after, .single-main:after, #loginform ul li:after, header:before, header .topbar:before, #search .choosebox:before, .person-info:before, .plant-info:before, .catebar:before, .cate-lists:before, .main:before, .banner:before, .p-lists:before, .content:before, .comments li:before, .p-slide ul:before, .copyright .publisher:before, .single-main:before, #loginform ul li:before {
+  content: '\20';
+  display: table;
+}
+
+/* line 35, /Users/edoctor/work/plini/sass/screen.scss */
+.clearfix:after, header:after, header .topbar:after, #search .choosebox:after, .person-info:after, .plant-info:after, .catebar:after, .cate-lists:after, .main:after, .banner:after, .p-lists:after, .content:after, .comments li:after, .p-slide ul:after, .copyright .publisher:after, .single-main:after, #loginform ul li:after {
+  clear: both;
+}
+
+/* line 40, /Users/edoctor/work/plini/sass/screen.scss */
+body {
+  background: #edebeb url(../images/bg.png) repeat;
+  color: #666;
+}
+
+/* header */
+/* line 46, /Users/edoctor/work/plini/sass/screen.scss */
+header {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border-bottom: 1px solid #dedede;
+  line-height: 45px;
+  color: #76b130;
+  font-size: 14px;
+}
+/* line 59, /Users/edoctor/work/plini/sass/screen.scss */
+header .topbar {
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
+}
+/* line 65, /Users/edoctor/work/plini/sass/screen.scss */
+header .lt {
+  float: left;
+}
+/* line 68, /Users/edoctor/work/plini/sass/screen.scss */
+header .rt {
+  float: right;
+}
+/* line 71, /Users/edoctor/work/plini/sass/screen.scss */
+header .rt a:hover {
+  background-color: #76b130;
+  color: #fff;
+}
+/* line 77, /Users/edoctor/work/plini/sass/screen.scss */
+header a {
+  display: block;
+  float: left;
+  padding: 0 10px;
+  color: #76b130;
+}
+/* line 83, /Users/edoctor/work/plini/sass/screen.scss */
+header .logo {
+  text-align: center;
+}
+/* line 85, /Users/edoctor/work/plini/sass/screen.scss */
+header .logo a {
+  float: none;
+  display: inline-block;
+  width: 74px;
+  height: 31px;
+  margin-top: 5px;
+  background: url(../images/logo.png) no-repeat 0 0;
+  text-indent: -9999px;
+}
+
+/* ICON */
+/* line 98, /Users/edoctor/work/plini/sass/screen.scss */
+.ico {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  vertical-align: text-bottom;
+  _vertical-align: inherit;
+  border: 1px solid #eaeaea;
+  border-radius: 3px;
+  background: transparent url(../images/icon.png) no-repeat;
+}
+
+/* line 108, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-h-1 {
+  background-position: 0 0;
+}
+
+/* line 109, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-h-2 {
+  background-position: -30px 0;
+}
+
+/* line 110, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-h-3 {
+  background-position: -60px 0;
+}
+
+/* line 111, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-h-4 {
+  background-position: -90px 0;
+}
+
+/* line 112, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-h-5 {
+  background-position: -120px 0;
+}
+
+/* line 113, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-fw-2 {
+  background-position: 0 -30px;
+}
+
+/* line 114, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-fw-3 {
+  background-position: -60px -30px;
+}
+
+/* line 115, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-fw-4 {
+  background-position: -90px -30px;
+}
+
+/* line 116, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-fw-5 {
+  background-position: -120px -30px;
+}
+
+/* line 117, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-fw-6 {
+  background-position: -150px -30px;
+}
+
+/* line 118, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-fw-fly {
+  background-position: -180px -30px;
+}
+
+/* line 119, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-fw-mouth {
+  background-position: -210px -30px;
+}
+
+/* line 120, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-fw-g {
+  background-position: -240px -30px;
+}
+
+/* line 121, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-fw-h {
+  background-position: -270px -30px;
+}
+
+/* line 122, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-fw-no {
+  background-position: -300px -30px;
+}
+
+/* line 123, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-others {
+  background-position: -330px -30px;
+}
+
+/* line 124, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-red {
+  background: #de6454;
+}
+
+/* line 125, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-blue {
+  background: #5bbed0;
+}
+
+/* line 126, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-yellow {
+  background: #f5ef4a;
+}
+
+/* line 127, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-green {
+  background: #9bd05b;
+}
+
+/* line 128, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-white {
+  background: #fff;
+}
+
+/* line 129, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-pulp {
+  background: #926ce0;
+}
+
+/* line 130, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-weibo {
+  background-position: 0 -60px;
+}
+
+/* line 131, /Users/edoctor/work/plini/sass/screen.scss */
+.ico-douban {
+  background-position: -30px -60px;
+}
+
+/* line 132, /Users/edoctor/work/plini/sass/screen.scss */
+.ico:hover, .choose {
+  border-color: #ccc;
+  box-shadow: 1px 1px 3px #ccc;
+}
+
+/* search */
+/* line 139, /Users/edoctor/work/plini/sass/screen.scss */
+#search {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 60px;
+  padding: 10px;
+  width: 180px;
+  border: 1px solid #dedede;
+  border-top: 0;
+  background: #fff;
+}
+/* line 149, /Users/edoctor/work/plini/sass/screen.scss */
+#search #search-input {
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+}
+/* line 156, /Users/edoctor/work/plini/sass/screen.scss */
+#search #search-btn {
+  height: 32px;
+  width: 100%;
+  background: #76b130;
+  border: 1px solid #efefef;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* line 165, /Users/edoctor/work/plini/sass/screen.scss */
+#search #search-btn:hover {
+  background: #91ce48;
+}
+/* line 169, /Users/edoctor/work/plini/sass/screen.scss */
+#search p {
+  line-height: 20px;
+}
+/* line 172, /Users/edoctor/work/plini/sass/screen.scss */
+#search .choosebox {
+  margin-bottom: 4px;
+}
+/* line 175, /Users/edoctor/work/plini/sass/screen.scss */
+#search .choosebox a {
+  margin: 0 2px 2px 0;
+  padding: 0;
+}
+
+/* footer */
+/* line 183, /Users/edoctor/work/plini/sass/screen.scss */
+footer {
+  padding: 20px 0;
+  color: #999;
+  text-align: center;
+  text-shadow: 1px 1px #fff;
+}
+
+/* /// notebook /// */
+/* person's info */
+/* line 4, ../sass/index.scss */
+.person-info, .plant-info {
+  position: relative;
+  width: 1000px;
+  margin: 60px auto 10px auto;
+  border: 1px solid #dedede;
+  background: #fff;
+  height: 50px;
+  box-shadow: 0 0 5px #dedede;
+}
+/* line 13, ../sass/index.scss */
+.person-info .avar, .plant-info .avar {
+  float: left;
+  width: 50px;
+}
+/* line 17, ../sass/index.scss */
+.person-info .lt, .plant-info .lt {
+  float: left;
+}
+/* line 20, ../sass/index.scss */
+.person-info .rt, .plant-info .rt {
+  float: right;
+}
+/* line 23, ../sass/index.scss */
+.person-info ul, .plant-info ul {
+  float: left;
+  line-height: 1.8em;
+}
+/* line 26, ../sass/index.scss */
+.person-info ul li, .plant-info ul li {
+  float: left;
+  padding: 8px 15px 0 15px;
+  border-left: 1px dashed #dedede;
+  text-align: center;
+}
+/* line 31, ../sass/index.scss */
+.person-info ul li em, .plant-info ul li em {
+  display: block;
+  font-size: 20px;
+}
+/* line 37, ../sass/index.scss */
+.person-info h1, .plant-info h1 {
+  float: left;
+  padding: 0 10px 0 20px;
+  height: 50px;
+  font-size: 33px;
+  color: #333;
+}
+/* line 44, ../sass/index.scss */
+.person-info .contact, .plant-info .contact, .person-info .character, .plant-info .character {
+  float: left;
+  padding: 10px 0 0 20px;
+}
+/* line 47, ../sass/index.scss */
+.person-info .contact .ico, .plant-info .contact .ico, .person-info .character .ico, .plant-info .character .ico {
+  margin: 0 5px 0 0;
+}
+/* line 51, ../sass/index.scss */
+.person-info a.follow, .plant-info a.follow {
+  float: left;
+  padding: 0 20px;
+  height: 50px;
+  display: block;
+  line-height: 50px;
+  text-align: center;
+  color: #76b130;
+}
+/* line 59, ../sass/index.scss */
+.person-info a.follow:hover, .plant-info a.follow:hover {
+  background: #76b130;
+  color: #fff;
+}
+
+/* time & category */
+/* line 67, ../sass/index.scss */
+.catebar {
+  width: 1000px;
+  margin: 0 auto 10px auto;
+}
+/* line 71, ../sass/index.scss */
+.catebar a {
+  float: left;
+  margin: 0 20px 0 0;
+  padding: 5px 30px;
+  text-align: center;
+  background: #fff;
+  color: #666;
+}
+/* line 78, ../sass/index.scss */
+.catebar a:hover {
+  background: #76b130;
+  color: #fff;
+}
+/* line 84, ../sass/index.scss */
+.catebar .current a {
+  background: #76b130;
+  color: #fff;
+}
+
+/* category */
+/* line 92, ../sass/index.scss */
+.cate-lists {
+  width: 1000px;
+  margin: 0 auto 10px auto;
+}
+/* line 96, ../sass/index.scss */
+.cate-lists li {
+  float: left;
+  border-left: 1px dashed #dedede;
+}
+/* line 99, ../sass/index.scss */
+.cate-lists li:first-child {
+  border-left: 0;
+}
+/* line 101, ../sass/index.scss */
+.cate-lists a {
+  display: block;
+  padding: 5px 10px;
+  background: #fff;
+  color: #666;
+}
+/* line 106, ../sass/index.scss */
+.cate-lists a:hover {
+  background: #76b130;
+  color: #fff;
+}
+/* line 112, ../sass/index.scss */
+.cate-lists .current a {
+  background: #76b130;
+  color: #fff;
+}
+
+/* photo lists */
+/* line 120, ../sass/index.scss */
+.main, .banner {
+  margin: 0 auto;
+  padding: 10px 0 0 0;
+  width: 1000px;
+  background: #fff;
+  border: 1px solid #dedede;
+  box-shadow: 0 0 5px #dedede;
+}
+
+/* line 129, ../sass/index.scss */
+.p-lists {
+  padding: 0 0 10px 10px;
+}
+/* line 132, ../sass/index.scss */
+.p-lists li {
+  position: relative;
+  float: left;
+  padding: 0 5px 5px 0;
+}
+/* line 136, ../sass/index.scss */
+.p-lists li a {
+  display: block;
+  line-height: 0;
+}
+/* line 140, ../sass/index.scss */
+.p-lists li .p-top {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 220px;
+  padding: 10px;
+  background: #76b130;
+  color: #fff;
+}
+/* line 150, ../sass/index.scss */
+.p-lists li .p-top .class {
+  padding-top: 10px;
+}
+/* line 153, ../sass/index.scss */
+.p-lists li .p-top .name {
+  padding: 80px 0 0 0;
+  text-align: center;
+  font-size: 22px;
+}
+
+/* line 162, ../sass/index.scss */
+a.more {
+  color: #666;
+}
+
+/* line 165, ../sass/index.scss */
+.more {
+  display: block;
+  padding: 30px 0;
+  border-top: 1px dashed #efefef;
+  font-size: 30px;
+  text-align: center;
+}
+/* line 171, ../sass/index.scss */
+.more:hover {
+  background: #efefef;
+}
+
+/* /// plant /// */
+/* line 178, ../sass/index.scss */
+.title {
+  width: 980px;
+  margin: 60px auto 10px auto;
+  color: #ccc;
+}
+/* line 182, ../sass/index.scss */
+.title b {
+  padding-right: 10px;
+  font-size: 33px;
+  color: #333;
+}
+
+/* line 188, ../sass/index.scss */
+.plant {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  text-align: center;
+}
+
+/* line 194, ../sass/index.scss */
+.plant-info {
+  margin: 20px auto;
+}
+
+/* line 201, ../sass/index.scss */
+.content {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+/* line 206, ../sass/index.scss */
+.content-left {
+  width: 710px;
+  float: left;
+  background: #fff;
+  border: 1px solid #dedede;
+  box-shadow: 0 0 5px #dedede;
+}
+
+/* line 213, ../sass/index.scss */
+.content-right {
+  width: 270px;
+  float: right;
+  background: #fff;
+  border: 1px solid #dedede;
+  box-shadow: 0 0 5px #dedede;
+}
+
+/* line 220, ../sass/index.scss */
+article {
+  padding: 20px;
+  line-height: 1.6em;
+}
+
+/* line 224, ../sass/index.scss */
+.comment-title {
+  padding: 20px;
+  border-top: 1px dashed #dedede;
+  font-size: 14px;
+}
+
+/* line 229, ../sass/index.scss */
+.comments {
+  padding: 0 20px 10px 20px;
+}
+/* line 233, ../sass/index.scss */
+.comments li .lp {
+  float: left;
+  width: 60px;
+  padding: 0 0 10px 0;
+}
+/* line 238, ../sass/index.scss */
+.comments li .rp {
+  padding-left: 60px;
+}
+/* line 241, ../sass/index.scss */
+.comments li .date {
+  color: #ccc;
+}
+
+/* line 246, ../sass/index.scss */
+.p-slide {
+  position: relative;
+}
+/* line 248, ../sass/index.scss */
+.p-slide .p-t {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+/* line 253, ../sass/index.scss */
+.p-slide ul {
+  padding-bottom: 20px;
+}
+/* line 256, ../sass/index.scss */
+.p-slide ul li {
+  float: left;
+  width: 50px;
+  height: 50px;
+  padding: 0 0 5px 5px;
+}
+/* line 261, ../sass/index.scss */
+.p-slide ul li .p-top {
+  display: none;
+}
+/* line 265, ../sass/index.scss */
+.p-slide ul li:nth-child(5n+1) {
+  padding-left: 0;
+}
+
+/* line 270, ../sass/index.scss */
+.copyright {
+  padding: 10px 10px 20px 10px;
+}
+/* line 272, ../sass/index.scss */
+.copyright .publisher {
+  height: 50px;
+}
+/* line 275, ../sass/index.scss */
+.copyright .publisher .lp {
+  float: left;
+}
+/* line 276, ../sass/index.scss */
+.copyright .publisher .rp {
+  padding-left: 60px;
+}
+
+/* line 280, ../sass/index.scss */
+.slide-nav {
+  position: absolute;
+  width: 1000px;
+  top: 50%;
+  left: 50%;
+  margin-left: -500px;
+}
+
+/* line 288, ../sass/index.scss */
+.left-nav, .right-nav {
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 0;
+  margin-left: 0;
+  border: 20px solid transparent;
+  cursor: pointer;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+/* line 301, ../sass/index.scss */
+.left-nav {
+  border-right-color: #ccc;
+  left: 0;
+}
+
+/* line 306, ../sass/index.scss */
+.left-nav:hover {
+  border-right-color: #76b130;
+}
+
+/* line 310, ../sass/index.scss */
+.right-nav {
+  border-left-color: #ccc;
+  right: 0;
+}
+
+/* line 315, ../sass/index.scss */
+.right-nav:hover {
+  border-left-color: #76b130;
+}
+
+/* line 319, ../sass/index.scss */
+.p-slide-nav {
+  position: absolute;
+  width: 270px;
+  top: 10px;
+  left: 50%;
+  margin-left: -135px;
+}
+/* line 325, ../sass/index.scss */
+.p-slide-nav .left-nav, .p-slide-nav .right-nav {
+  border-width: 10px;
+}
+
+/* /// index /// */
+/* line 331, ../sass/index.scss */
+.banner {
+  margin-top: 60px;
+}
+
+/* line 335, ../sass/index.scss */
+.intro {
+  width: 485px;
+  height: 240px;
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+}
+/* line 341, ../sass/index.scss */
+.intro p {
+  height: 240px;
+  background: #76b130;
+  line-height: 240px;
+}
+
+/* line 348, ../sass/index.scss */
+.single-main {
+  margin: 80px auto 0 auto;
+  padding: 100px;
+  width: 800px;
+  background: #fff;
+  border: 1px solid #dedede;
+  box-shadow: 0 0 5px #dedede;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* /// add /// */
+/* line 361, ../sass/index.scss */
+.upload {
+  display: inline-block;
+  height: 80px;
+  line-height: 80px;
+  width: 300px;
+  margin-bottom: 20px;
+  background: #76b130;
+  border: 1px solid #efefef;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+/* line 375, ../sass/index.scss */
+.tip {
+  color: #ccc;
+}
+
+/* /// login /// */
+/* line 381, ../sass/index.scss */
+#loginform ul {
+  margin: 100px auto 0 auto;
+  width: 350px;
+  text-align: left;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #dedede;
+  background: #fff;
+}
+/* line 389, ../sass/index.scss */
+#loginform ul li {
+  height: 40px;
+  line-height: 40px;
+  padding: 20px;
+  border-bottom: 1px solid #dedede;
+  font-size: 20px;
+}
+/* line 396, ../sass/index.scss */
+#loginform ul li label {
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+}
+/* line 402, ../sass/index.scss */
+#loginform ul li input {
+  float: left;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #fff;
+}
+/* line 408, ../sass/index.scss */
+#loginform ul li input:focus {
+  outline: none;
+}
+/* line 414, ../sass/index.scss */
+#loginform ul li.submit button {
+  display: block;
+  width: 310px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ccc;
+  background: #76b130;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+/* line 425, ../sass/index.scss */
+#loginform ul li.submit button:hover {
+  background: #91ce48;
+}

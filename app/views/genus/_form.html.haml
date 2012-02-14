@@ -1,0 +1,10 @@
+= form_for @genu do |f|
+  -if @genu.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@genu.errors.count, "error")} prohibited this genu from being saved:"
+      %ul
+        - @genu.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

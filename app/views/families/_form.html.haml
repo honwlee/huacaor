@@ -1,0 +1,10 @@
+= form_for @family do |f|
+  -if @family.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@family.errors.count, "error")} prohibited this family from being saved:"
+      %ul
+        - @family.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'
