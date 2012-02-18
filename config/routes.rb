@@ -19,4 +19,5 @@ Huacaor::Application.routes.draw do
  
   match "/login" => "home#login"
   match "/about" => "home#about"
+  match "/register" => "home#register"
 end

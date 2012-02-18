@@ -1,0 +1,79 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title 花草儿 huacaor
+    = stylesheet_link_tag "index.css"
+    = yield :headers
+
+    - ga = "#"
+    - if !ga.blank? && Rails.env == "production"
+      %script
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '#{ga}']);
+        _gaq.push(['_addIgnoredOrganic', '#{host_uri}']);
+        _gaq.push(['_addOrganic', 'baidu', 'wd']);
+        _gaq.push(['_addOrganic', 'soso', 'w']);
+        _gaq.push(['_addOrganic', 'sogou', 'query']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    /[if lt IE 9]
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  %body
+    %header
+      .topbar
+        .lt
+          = link_to "做笔记", "/add"
+          %a#search-link{:href => "javascript:void(0);"} 搜植物
+          / search beginning
+          #search
+            %input#search-input.search-input{:placeholder => "名称、科属", :type => "text", :value => ""}/
+            %p 类型
+            #height.choosebox
+              %a.ico-h-1.ico{:href => "jacascript:void(0);", :title => "乔木"}
+              %a.ico-h-2.ico{:href => "jacascript:void(0);", :title => "灌木"}
+              %a.ico-h-3.ico{:href => "jacascript:void(0);", :title => "草本"}
+              %a.ico-h-4.ico{:href => "jacascript:void(0);", :title => "蕨类"}
+              %a.ico-h-5.ico{:href => "jacascript:void(0);", :title => "藤本"}
+            %p 花形
+            #flowers.choosebox
+              %a.ico-fw-2.ico{:href => "jacascript:void(0);", :title => "两瓣"}
+              %a.ico-fw-3.ico{:href => "jacascript:void(0);", :title => "三瓣"}
+              %a.ico-fw-4.ico{:href => "jacascript:void(0);", :title => "四瓣"}
+              %a.ico-fw-5.ico{:href => "jacascript:void(0);", :title => "五瓣"}
+              %a.ico-fw-6.ico{:href => "jacascript:void(0);", :title => "六瓣"}
+              %a.ico-fw-fly.ico{:href => "jacascript:void(0);", :title => "蝶形"}
+              %a.ico-fw-mouth.ico{:href => "jacascript:void(0);", :title => "唇形"}
+              %a.ico-fw-g.ico{:href => "jacascript:void(0);", :title => "穗状"}
+              %a.ico-fw-h.ico{:href => "jacascript:void(0);", :title => "头状"}
+              %a.ico-fw-no.ico{:href => "jacascript:void(0);", :title => "花小而不明显"}
+              %a.ico-others.ico{:href => "jacascript:void(0);", :title => "其它"}
+            %p 花色
+            #flower-color.choosebox
+              %a.ico-red.ico{:href => "jacascript:void(0);", :title => "红花"}
+              %a.ico-yellow.ico{:href => "jacascript:void(0);", :title => "黄花"}
+              %a.ico-blue.ico{:href => "jacascript:void(0);", :title => "蓝花"}
+              %a.ico-pulp.ico{:href => "jacascript:void(0);", :title => "紫花"}
+              %a.ico-green.ico{:href => "jacascript:void(0);", :title => "绿花"}
+              %a.ico-white.ico{:href => "jacascript:void(0);", :title => "白花"}
+            %input#search-btn{:type => "submit", :value => "搜索"}/
+          / search finished
+        .rt
+          = link_to "关于", "/about"
+          = link_to "加入","/login"
+
+        .logo
+          %a{:href => "/"} Plini
+
+    = yield
+    
+    %footer © 2012 huacaor.com
+
+    = javascript_include_tag "jquery-1.7.min", "index"
+
+    = yield :footers
