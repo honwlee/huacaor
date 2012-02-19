@@ -1,10 +1,5 @@
 .single-main
-  %p plini是一个关于植物的网站。
-  %p 网站名称变形自普林尼（Pliny the Elder）的名字。
-  %br/
-  %br/
-  %p
-    有任何问题烦请联系
-    %a{:href => "http://www.smalloranges.net"}> 九间
-    ：
-    %a{:href => "mailto:smalloranges.lee@gmail.com"} smalloranges.lee@gmail.com
+  %form
+    %label{:for => "login"} 请输入注册邮箱，我们会把新密码发送到邮箱：
+    %input.i-text{:name => "login", :required => "required", :type => "email"}/
+    %input{:type => "submit"} 确 定

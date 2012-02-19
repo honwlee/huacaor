@@ -1,4 +1,14 @@
 = form_for @plant do |f|
+  %dl.form
+    %dt
+      = f.label :name, "名称："
+    %dd
+      = f.text_field :name
+    %dd
+      
+    %dd.submit
+      = f.submit '添加'
+
   -if @plant.errors.any?
     #error_explanation
       %h2= "#{pluralize(@plant.errors.count, "error")} prohibited this plant from being saved:"
@@ -6,5 +16,3 @@
         - @plant.errors.full_messages.each do |msg|
           %li= msg
 
-  .actions
-    = f.submit 'Save'

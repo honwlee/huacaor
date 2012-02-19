@@ -2,11 +2,11 @@
   %ul
     %li
       %label{:for => "login"} 邮箱：
-      %input.i-text{:name => "login", :required => "required", :type => "text"}/
+      %input.i-text{:name => "login", :required => "required", :type => "email"}/
     %li
       %label{:for => "password"} 密码：
       %input.i-text{:name => "password", :required => "required", :type => "password"}/
     %li.submit
       %button{:type => "submit"} 登 录
-      %a.forgot-pwd{:href => "/forgot-pwd"} 忘记密码？
+      %a.forgot-pwd{:href => "/forgot_pwd"} 忘记密码？
       %a.reg{:href => "/register"} 还没注册？

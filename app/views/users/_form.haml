@@ -1,0 +1,37 @@
+= form_for @user do |f|
+  %dl.form
+    %dt
+      = f.label :name, "名字："
+    %dd
+      %input{:type => "text"}
+      /= f.text_field :name
+    %dt
+      = f.label :url, "自定义URL："
+    %dd
+      huacao/people/
+      %input{:type => "text"}
+      /= f.text_field :url
+    %dt
+      = f.label :douban, "关联豆瓣："
+    %dd
+      douban.com/people/
+      %input{:type => "text"}
+      /= f.text_field :douban
+    %dt
+      = f.label :sina, "关联新浪："
+    %dd
+      weibo.com/people/
+      %input{:type => "text"}
+      /= f.text_field :sina
+    %dt
+      = link_to "修改密码", "#"
+      
+    %dd.submit
+      = f.submit '保 存'
+
+  -if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg

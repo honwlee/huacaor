@@ -28,7 +28,7 @@
     %header
       .topbar
         .lt
-          = link_to "做笔记", "/add"
+          = link_to "做笔记", new_plant_path
           %a#search-link{:href => "javascript:void(0);"} 搜植物
           / search beginning
           #search
@@ -68,7 +68,7 @@
           = link_to "加入","/login"
 
         .logo
-          %a{:href => "/"} Plini
+          = link_to "花草儿", "/"
 
     = yield
     

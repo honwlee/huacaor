@@ -1,195 +1,27 @@
-.title
-  %b 木兰
-  English | Latin
-.plant
-  %img{:alt => "名称", :src => "http://placehold.it/700x500"}/
-  .slide-nav
-    .left-nav
-    .right-nav
-.plant-info
+.person-info
   .lt
-    .character
-      .ico-h-1.ico{:title => "乔木"}
-      .ico-fw-mouth.ico{:title => "唇形"}
-      .ico-red.ico{:title => "红花"}
+    %h1 全部（或搜索关键词）
   .rt
     %ul
       %li
-        %em> 木兰科
-        latin
-      %li
-        %em> 其它属
-        latin
-      %li
-        %em> 783
-        喜爱
-    %a.follow{:href => "jacascript:void(0);"} 喜爱
-.content
-  .content-left
-    .photo-info
-      .lp
-        %a{:title => "人名", :href => "notebook.html"}
-          %img{:alt => "九间", :src => "http://placehold.it/50x50"}/
-      .rp
-        %p
-          = link_to "人名", "notebook.html"
-          2012-1-22 LX5 于上海
-        %div
-          发布者说明
-    %article
-      %p
-        描述文字。植物介绍神马的。
-        = link_to "[编辑]", "/plants/edit"
-    %h3.comment-title 评论
-    %ul.comments
-      %li
-        .lp
-          %a{:href => "notebook.html", :title => "九间"}
-            %img{:alt => "九间", :src => "http://placehold.it/50x50"}/
-        .rp
-          %p
-            = link_to "人名", "/users"
-            ：我的妈呀。
-          %p.date 2012-12-29
-      %li
-        .lp
-          %a{:href => "notebook.html", :title => "九间"}
-            %img{:alt => "九间", :src => "http://placehold.it/50x50"}/
-        .rp
-          %p
-            = link_to "人名", "/users"
-            ：我的妈呀。
-          %p.date 2012-12-29
+        %em 783
+        照片
 
-  .content-right
-    .p-slide
-      .p-slide-nav
-        .left-nav
-        .right-nav
-      .p-t 发布者的其它笔记
-      /repeat 10
-      %ul
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
+.main
+  %ul.p-lists
+    - @plants.each do |p|
+      %li
+        %a{:href => p}
+          .p-top
+            .class 科属
+            .name 蔷薇
+          = image_tag("http://placehold.it/240X240", :alt => "花名")
 
-    .p-slide
-      .p-slide-nav
-        .left-nav
-        .right-nav
-      .p-t 同科植物
-      /repeat 10
-      %ul
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
+    %li
+      %a{:href => "/plants/show"}
+        .p-top
+          .class 科属
+          .name 蔷薇
+        = image_tag("http://placehold.it/240X240", :alt => "花名")
 
-    .copyright
-      .publisher
-        .lp
-          %a{:href => "notebook.html", :title => "九间"}
-            %img{:alt => "九间", :src => "http://placehold.it/50x50"}/
-        .rp
-          来自
-          %a{:href => "notebook.html", :title => "九间"}> 九间
-          的笔记
-          %br/
-          共同编辑：
-          %a{:href => "notebook.html", :title => "九间"}> 九间
-          、
-          %a{:href => "notebook.html", :title => "九间"} 九间
-          /= succeed "\u{7248}\u{6743}\u{6240}\u{6709}\u{ff0c}\u{4e0d}\u{5f97}\u{80e1}\u{6765}" do
+  = link_to "更多", "#", :class => "more"
