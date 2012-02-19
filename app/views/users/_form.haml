@@ -5,6 +5,12 @@
     %dd
       %input{:type => "text"}
       /= f.text_field :name
+      = link_to "修改密码", "#"
+    %dt
+      = f.label :email, "邮箱："
+    %dd
+      %input{:type => "email"}
+      /= f.text_field :email
     %dt
       = f.label :url, "自定义URL："
     %dd
@@ -20,13 +26,15 @@
     %dt
       = f.label :sina, "关联新浪："
     %dd
-      weibo.com/people/
+      weibo.com/
       %input{:type => "text"}
       /= f.text_field :sina
     %dt
-      = link_to "修改密码", "#"
+      = f.label :info, "简介："
+    %dd
+      %textarea
       
-    %dd.submit
+    %dt.submit
       = f.submit '保 存'
 
   -if @user.errors.any?

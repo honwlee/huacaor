@@ -456,3 +456,44 @@ article{
     }
   }
 }
+
+/* setting */
+.setting .form{
+  width:350px;
+  text-align:left;
+  margin:0 auto;
+  dt{
+    padding-top:20px;
+  }
+  input{
+    width:200px;
+    height:30px;
+    margin-right:10px;
+    line-height:30px;
+    border:1px solid #ccc;
+    border-radius:5px;
+  }
+  textarea{
+    width:350px;
+    height:150px;
+    border:1px solid #ccc;
+    border-radius:5px;    
+  }
+  .submit input{
+    display:block;
+    margin:0 auto;
+    width:350px;
+    height:40px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-shadow:0 0 5px #ccc;
+    background:#76b130;
+    color:#fff;
+    text-align:center;
+    cursor:pointer;
+    font-size:20px;
+    &:hover{
+      background:#91ce48;
+    }
+  }
+}
