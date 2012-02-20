@@ -457,6 +457,29 @@ article{
   }
 }
 
+/* forgot-password */
+#forgot-pwd-form{
+  @extend #loginform;
+  ul{
+    width:450px;
+    padding:10px 0 10px 20px;
+    li{
+      border:none;
+      padding:10px 20px;
+      input{
+        width:380px;
+        border-color:#ccc;
+        border-radius:5px;
+      }
+    }
+    li.submit{
+      button{
+        width:380px;
+      }
+    }
+  }
+}
+
 /* setting */
 .setting .form{
   width:350px;

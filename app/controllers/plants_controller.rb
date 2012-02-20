@@ -1,5 +1,4 @@
 class PlantsController < ApplicationController
-  layout 'index'
   # GET /plants
   # GET /plants.json
   def index

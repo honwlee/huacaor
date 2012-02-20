@@ -1,6 +1,9 @@
-.single-main
-  %form
-    %label{:for => "login"} 请输入注册邮箱，我们会把新密码发送到邮箱：
-    %input.i-text{:name => "login", :required => "required", :type => "email"}/
-    %input{:type => "submit", :value => "确 定"}
+%form#forgot-pwd-form{:method => "post"}
+  %ul
+    %li
+      请输入注册邮箱，新密码会被发送到该邮箱：
+    %li
+      %input.i-text{:name => "login", :required => "required", :type => "email"}/
+    %li.submit
+      %button{:type => "submit"} 发 送 邮 件
 
