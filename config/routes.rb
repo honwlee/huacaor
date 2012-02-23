@@ -23,6 +23,7 @@ Huacaor::Application.routes.draw do
   match "/forgot_pwd" => "home#forgot_pwd"
 
   # 临时
-  match "/plant" => "plants#show"
+  # match "/plant" => "plants#show"
+  # match "/plant/edit" => "plants#edit"
 
 end

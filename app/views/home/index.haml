@@ -1,31 +1,27 @@
 .banner
   %ul.p-lists
+    - @plants.each do |p|
+      %li
+        %a{:href => p}
+          .p-top
+            .class 科属
+            .name 蔷薇
+          = image_tag("http://placehold.it/240X240", :alt => "花名")
+
     %li
-      %a{:href => "/plants"}
+      %a{:href => "/plant"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
         %img{:alt => "", :src => "http://placehold.it/240x240"}/
     %li
-      %a{:href => "/plants"}
+      %a{:href => "/plant"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
         %img{:alt => "", :src => "http://placehold.it/240x240"}/
     %li
-      %a{:href => "/plants"}
-        .p-top
-          .class 蔷薇科蔷薇属
-          .name 蔷薇
-        %img{:alt => "", :src => "http://placehold.it/240x240"}/
-    %li
-      %a{:href => "/plants"}
-        .p-top
-          .class 蔷薇科蔷薇属
-          .name 蔷薇
-        %img{:alt => "", :src => "http://placehold.it/240x240"}/
-    %li
-      %a{:href => "/plants"}
+      %a{:href => "/plant"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
@@ -33,31 +29,31 @@
     %li.intro
       %p 笔记自然，发现植物之趣
     %li
-      %a{:href => "/plants"}
+      %a{:href => "/plant"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
         %img{:alt => "", :src => "http://placehold.it/240x240"}/
     %li
-      %a{:href => "/plants"}
+      %a{:href => "/plant"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
         %img{:alt => "", :src => "http://placehold.it/240x240"}/
     %li
-      %a{:href => "/plants"}
+      %a{:href => "/plant"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
         %img{:alt => "", :src => "http://placehold.it/240x240"}/
     %li
-      %a{:href => "/plants"}
+      %a{:href => "/plant"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
         %img{:alt => "", :src => "http://placehold.it/240x240"}/
     %li
-      %a{:href => "/plants"}
+      %a{:href => "/plant"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
