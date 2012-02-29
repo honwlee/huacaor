@@ -1,0 +1,57 @@
+= form_for @plant do |f|
+  %dl.form
+    %dt
+      = f.label :name, "中文名称："
+    %dd
+      = f.text_field :name
+      待选
+    
+    %dt
+      = f.label :english_name, "英文名称："
+    %dd
+      /= f.text_filed :english_name
+      %input{:type => "text"}
+      待选
+    
+    %dt
+      = f.label :latin_name, "拉丁学名："
+    %dd
+      /= f.text_field :latin_name
+      %input{:type => "text"}
+
+    %dt
+      = f.label :family, "属性："
+    %dd
+      门
+      %select
+      纲
+      %select
+      目
+      %select
+      科
+      %select
+      亚科
+      %select
+      属
+      %select
+
+    %dt
+      = f.label :character, "特征："
+    %dd
+      此处待定，为点击选择图标即可
+
+    %dt
+      = f.label :info, "介绍："
+    %dd
+      %textarea
+      
+    %dd.submit
+      = f.submit '保 存'
+
+  -if @plant.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@plant.errors.count, "error")} prohibited this plant from being saved:"
+      %ul
+        - @plant.errors.full_messages.each do |msg|
+          %li= msg
+

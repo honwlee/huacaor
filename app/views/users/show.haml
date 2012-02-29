@@ -1,0 +1,49 @@
+.person-info
+  .lt
+    .avar
+      = image_tag("http://placehold.it/50x50", :alt => "人名")
+    %h1 人名
+    .contact
+      %a.ico-douban.ico{:href => "#", :target => "_blank", :rel => "nofollow"}
+      %a.ico-weibo.ico{:href => "#", :target => "_blank", :rel => "nofollow"}
+  .rt
+    %ul
+      %li
+        %em 2011-9
+        至今
+      %li
+        %em 783
+        笔记
+      %li
+        %em 23
+        解答
+      %li
+        %em 33
+        喜爱
+      %li
+        %em 33
+        关注
+      %li
+        %em 33
+        被关注
+      = link_to "关注", "javascript:void(0)", :class => "follow"
+%nav.catebar
+  %ul
+    %li.current
+      = link_to "日期", "#"
+    %li
+      = link_to "品种", "#"
+    %li
+      = link_to "求名", "#"
+.main
+  %ul.p-lists
+    %li
+      %a{:href => "#"}
+        .p-top
+          .class 科属
+          .name 蔷薇
+        = image_tag("http://placehold.it/240X240", :alt => "花名")
+
+  = link_to "更多", "#", :class => "more"
+
+%p#notice= notice

@@ -1,0 +1,20 @@
+.person-info
+  .lt
+    %h1 全部（或搜索关键词）
+  .rt
+    %ul
+      %li
+        %em 783
+        照片
+
+.main
+  %ul.p-lists
+    - @plants.each do |p|
+      %li
+        %a{:href => p}
+          .p-top
+            .class 科属
+            .name 蔷薇
+          = image_tag("http://placehold.it/240X240", :alt => "花名")
+
+  = link_to "更多", "#", :class => "more"

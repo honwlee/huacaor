@@ -15,7 +15,7 @@ gem 'kaminari'
 gem 'haml'
 gem 'haml-rails'
 gem 'sass'
-#gem 'compass-rails'
+gem 'compass-rails'
 
 gem 'nokogiri'
 
