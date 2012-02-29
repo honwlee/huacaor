@@ -5,7 +5,7 @@ class Plant
   has_and_belongs_to_many :users
   has_many :pictures
   embeds_one :brief
-  validates_presence_of :title
+  # validates_presence_of :title
   field :name, :type => Hash
 end
 

@@ -19,4 +19,11 @@ Huacaor::Application.routes.draw do
  
   match "/login" => "home#login"
   match "/about" => "home#about"
+  match "/register" => "home#register"
+  match "/forgot_pwd" => "home#forgot_pwd"
+
+  # 临时
+  # match "/plant" => "plants#show"
+  # match "/plant/edit" => "plants#edit"
+
 end
