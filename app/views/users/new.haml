@@ -1,5 +1,12 @@
-%h1 New user
-
-= render 'form'
-
-= link_to 'Back', users_path
+-#%form#loginform{:method => "post"}
+= form_tag(users_path, :method => 'post', :id => 'loginform') do
+  %ul
+    %li
+      %label{:for => "login"} 邮箱：
+      %input.i-text{:name => "login", :required => "required", :type => "email"}/
+    %li
+      %label{:for => "password"} 密码：
+      %input.i-text{:name => "password", :required => "required", :type => "password"}/
+    %li.submit
+      %button{:type => "submit"} 注 册
+      %a.reg{:href => "/login"} 已经注册？

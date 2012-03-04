@@ -1,4 +1,5 @@
-%form#loginform{:method => "post"}
+-#%form#loginform{:method => "post"}
+= form_tag(sessions_path, :method => "post", :id => "loginform") do
   %ul
     %li
       %label{:for => "login"} 邮箱：
