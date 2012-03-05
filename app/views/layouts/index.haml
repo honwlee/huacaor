@@ -65,7 +65,11 @@
           / search finished
         .rt
           = link_to "关于", "/about"
-          = link_to "加入","/login"
+          - if current_user
+            = link_to current_user.email, ""
+            = link_to "退出", logout_path
+          - else
+            = link_to "加入", login_path
 
         .logo
           = link_to "花草儿", "/"

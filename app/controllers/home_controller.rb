@@ -8,10 +8,6 @@ class HomeController < ApplicationController
     end
   end
 
-  def login
-
-  end
-
   def about
 
   end

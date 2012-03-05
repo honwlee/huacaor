@@ -1,4 +1,12 @@
 Huacaor::Application.routes.draw do
+  get "sessions/new"
+
+  get 'register' => 'users#new', :as => 'register'
+  get 'login' => 'sessions#new', :as => 'login'
+  get 'logout' => 'sessions#destroy', :as => 'logout'
+
+  resources :sessions, :only => [:new, :create, :destroy]
+
   resources :users
 
   resources :genus
@@ -17,9 +25,9 @@ Huacaor::Application.routes.draw do
 
   root :to => 'home#index'
  
-  match "/login" => "home#login"
+  #match "/login" => "home#login"
   match "/about" => "home#about"
-  match "/register" => "home#register"
+  #match "/register" => "home#register"
   match "/forgot_pwd" => "home#forgot_pwd"
   match "/images/uploads/*path" => "gridfs#serve"
 
