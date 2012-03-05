@@ -13,3 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/nbproject/private/
+/nbproject/
+/test/
+/log/
+public/uploads/.DS_Store

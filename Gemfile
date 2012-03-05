@@ -24,6 +24,7 @@ gem 'httpclient'
 gem 'solr-ruby'
 
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 

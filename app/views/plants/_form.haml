@@ -1,23 +1,22 @@
-= form_for @plant do |f|
+= form_for(@plant,:html =>{:multipart => true}) do |f|
   %dl.form
     %dt
-      = f.label :name, "中文名称："
+      = f.label :zh_name, "中文名称："
     %dd
-      = f.text_field :name
+      = f.text_field :zh_name
       待选
     
     %dt
       = f.label :english_name, "英文名称："
     %dd
-      /= f.text_filed :english_name
-      %input{:type => "text"}
+      = f.text_field :english_name
       待选
     
     %dt
       = f.label :latin_name, "拉丁学名："
     %dd
-      /= f.text_field :latin_name
-      %input{:type => "text"}
+      = f.text_field :latin_name
+ 
 
     %dt
       = f.label :family, "属性："
@@ -36,22 +35,24 @@
       %select
 
     %dt
-      = f.label :character, "特征："
+      = f.label :characteristic, "特征："
     %dd
+      = f.text_area :characteristic
       此处待定，为点击选择图标即可
 
     %dt
-      = f.label :info, "介绍："
+      = f.label :description, "介绍："
     %dd
-      %textarea
+      = f.text_area :description
+
+    %dt
+      %em *
+      附图：
+    %dd
+      = file_field_tag "filedata"
+      %p.tips<
+        图片尺寸：288px × 180px
       
     %dd.submit
       = f.submit '保 存'
-
-  -if @plant.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@plant.errors.count, "error")} prohibited this plant from being saved:"
-      %ul
-        - @plant.errors.full_messages.each do |msg|
-          %li= msg
 
