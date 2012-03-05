@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.new(:email => params[:login], 
                      :password => params[:password])
     if @user.save
-      redirect_to root_url, :notice => "注册成功！"
+      redirect_to root_url
     else
       render "new"
     end
