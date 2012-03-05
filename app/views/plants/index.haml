@@ -15,8 +15,7 @@
           .p-top
             .class 科属
             .name #{p.zh_name}
-          /= image_tag("http://placehold.it/240X240", :alt => p.zh_name)
-
+            
           = image_tag("#{p.picture_path("thumb")}", :alt => p.zh_name)
 
   = link_to "更多", "#", :class => "more"
