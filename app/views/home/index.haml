@@ -1,31 +1,32 @@
 .banner
   %ul.p-lists
+
     - @plants.each do |p|
       %li
-        %a{:href => p}
+        %a{:href => "/plants/#{p.id}"}
           .p-top
             .class 科属
-            .name 蔷薇
-          = image_tag("http://placehold.it/240X240", :alt => "花名")
+            .name #{p.zh_name}
+          = image_tag("#{p.picture_path("thumb")}", :alt => p.zh_name)
 
     %li
       %a{:href => "/plants"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
-        %img{:alt => "", :src => "http://placehold.it/240x240"}/
+        %img{:alt => "", :src => "/images/placehold.gif"}/
     %li
       %a{:href => "/plants"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
-        %img{:alt => "", :src => "http://placehold.it/240x240"}/
+        %img{:alt => "", :src => "/images/placehold.gif"}/
     %li
       %a{:href => "/plants"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
-        %img{:alt => "", :src => "http://placehold.it/240x240"}/
+        %img{:alt => "", :src => "/images/placehold.gif"}/
     %li.intro
       %p 笔记自然，发现植物之趣
     %li
@@ -33,28 +34,28 @@
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
-        %img{:alt => "", :src => "http://placehold.it/240x240"}/
+        %img{:alt => "", :src => "/images/placehold.gif"}/
     %li
       %a{:href => "/plants"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
-        %img{:alt => "", :src => "http://placehold.it/240x240"}/
+        %img{:alt => "", :src => "/images/placehold.gif"}/
     %li
       %a{:href => "/plants"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
-        %img{:alt => "", :src => "http://placehold.it/240x240"}/
+        %img{:alt => "", :src => "/images/placehold.gif"}/
     %li
       %a{:href => "/plants"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
-        %img{:alt => "", :src => "http://placehold.it/240x240"}/
+        %img{:alt => "", :src => "/images/placehold.gif"}/
     %li
       %a{:href => "/plants"}
         .p-top
           .class 蔷薇科蔷薇属
           .name 蔷薇
-        %img{:alt => "", :src => "http://placehold.it/240x240"}/
+        %img{:alt => "", :src => "/images/placehold.gif"}/

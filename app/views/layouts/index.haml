@@ -65,8 +65,8 @@
           / search finished
         .rt
           = link_to "关于", "/about"
-          - if current_user
-            = link_to current_user.email, ""
+          - if User.first
+            = link_to User.first.email, ""
             = link_to "退出", logout_path
           - else
             = link_to "加入", login_path
