@@ -1,8 +1,18 @@
 .title
-  %b 木兰
-  English | Latin
+  - if @plant.zh_name.blank?
+    %b 未知
+  - else
+    %b= @plant.zh_name
+
+  - if @plant.english_name.blank?
+  - else
+    = @plant.english_name
+  - if @plant.latin_name.blank?
+  - else
+    | 
+    = @plant.latin_name
 .plant
-  = link_to image_tag(@plant.picture_path, :alt => "名称"), "#"
+  = link_to image_tag(@plant.picture_path, :alt => "@plant.zh_name"), "#"
   .slide-nav
     .left-nav
     .right-nav
@@ -37,7 +47,10 @@
           发布者说明
     %article
       %p
-        描述文字。植物介绍神马的。
+        - if @plant.description.blank?
+          暂无介绍噢。
+        - else
+          = @plant.description
         = link_to "[编辑]", edit_plant_path(@plant)
     %h3.comment-title 评论
     %ul.comments
@@ -66,11 +79,6 @@
       .p-t 发布者的其它笔记
       /repeat 10
       %ul
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            = image_tag("http://placehold.it/50x50", :alt => "花名")
         %li
           %a{:href => "/plant"}
             .p-top
