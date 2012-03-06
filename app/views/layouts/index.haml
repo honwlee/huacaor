@@ -11,7 +11,7 @@
       %script
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', '#{ga}']);
-        _gaq.push(['_addIgnoredOrganic', '1']);
+        _gaq.push(['_addIgnoredOrganic', '#{host_uri}']);
         _gaq.push(['_addOrganic', 'baidu', 'wd']);
         _gaq.push(['_addOrganic', 'soso', 'w']);
         _gaq.push(['_addOrganic', 'sogou', 'query']);
@@ -27,7 +27,7 @@
   %body
     %header
       .topbar
-        .lt
+        .function-menu
           = link_to "做笔记", new_plant_path
           %a#search-link{:href => "javascript:void(0);"} 搜植物
           / search beginning
@@ -65,8 +65,8 @@
           / search finished
         .rt
           = link_to "关于", "/about"
-          - if User.first
-            = link_to User.first.email, ""
+          - if current_user
+            = link_to current_user.email, ""
             = link_to "退出", logout_path
           - else
             = link_to "加入", login_path

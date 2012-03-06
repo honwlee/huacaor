@@ -1,12 +1,14 @@
--#%form#loginform{:method => "post"}
 = form_tag(users_path, :method => 'post', :id => 'loginform') do
   %ul
     %li
+      %label{:for => "name"} 名字：
+      %input.i-text{:name => "name", :type => "text"}
+    %li
       %label{:for => "login"} 邮箱：
-      %input.i-text{:name => "login", :required => "required", :type => "email"}/
+      %input.i-text{:name => "login", :required => "required", :type => "email"}
     %li
       %label{:for => "password"} 密码：
-      %input.i-text{:name => "password", :required => "required", :type => "password"}/
+      %input.i-text{:name => "password", :required => "required", :type => "password"}
     %li.submit
       %button{:type => "submit"} 注 册
       %a.reg{:href => "/login"} 已经注册？

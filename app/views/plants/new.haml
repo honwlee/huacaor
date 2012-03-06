@@ -1,20 +1,33 @@
 .single-main
-  %h2= link_to "返回列表", plants_path
-  = render 'form'
+  %h1 上传植物图片
+  = form_for(@plant,:html =>{:multipart => true}) do |f|
+
+    %dl.form
+      %dt
+        = f.label :zh_name, "中文名称："
+      %dd
+        = f.text_field :zh_name
+        待选
+    
+
+      %dt
+      %dd
+        = file_field_tag "filedata"
+        %p.tips<
+          尺寸不小于500 x 500 px，请以植物图为主，无关图片会被无情删除，谢谢合作。
+      %dt
+      %dd.submit
+        = f.submit '保 存'
+
+
   -#
     = form_for @plant do |f|
       = link_to "上传植物照片", "javascript:void(0)", :class => 'upload'
-      %p.tips
-        尺寸不小于500 x 500 px，请以植物图为主，无关图片会被无情删除，谢谢合作。
-      
-      /类似照片简介，但是是在上传照片后再进入编写，此处js支持。
       
       %dl.form
         %dt
           = f.label :info, "你的心得："
         %dd
           %textarea
-      
-        %dd.submit
-          = f.submit '保 存'
+
 
