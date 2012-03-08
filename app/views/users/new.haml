@@ -1,14 +1,14 @@
-= form_tag(users_path, :method => 'post', :id => 'loginform') do
+= form_for(@user, :html => {:id => 'loginform'}) do |f|
   %ul
     %li
-      %label{:for => "name"} 名字：
-      %input.i-text{:name => "name", :type => "text"}
+      = f.label :name, "名字："
+      = f.text_field :name, :class => "i-text"
     %li
-      %label{:for => "login"} 邮箱：
-      %input.i-text{:name => "login", :required => "required", :type => "email"}
+      = f.label :email, "邮箱："
+      = f.text_field :email, :class => "i-text", :requried => "required"
     %li
-      %label{:for => "password"} 密码：
-      %input.i-text{:name => "password", :required => "required", :type => "password"}
+      = f.label :password, "密码："
+      = f.password_field :password, :class => "i-text", :requried => "required"
     %li.submit
       %button{:type => "submit"} 注 册
       %a.reg{:href => "/login"} 已经注册？

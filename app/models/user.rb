@@ -5,15 +5,23 @@ class User
   field :password_salt, :type => String
   field :name, :type => String
   field :username, :type => String
-  field :douban, :type => String
-  field :weibo, :type => String
-  field :profie, :type => String
+  field :douban_name, :type => String
+  field :sina_name, :type => String
+  field :desc, :type => String
 
   attr_accessor :password
   before_save :encrypt_password
-  validates_presence_of :password, :on => :create
-  validates_presence_of :email
-  validates_uniqueness_of :email
+  #validates_presence_of :password, :on => :create
+  #validates_presence_of :email
+  #validates_uniqueness_of :email
+
+  validates :password, :presence => true, :on => :create
+  validates :email, :presence => true
+  validates :email, :uniqueness => true
+
+  validates :name, :presence => {:message => "请输入名字"}
+  validates :name, :uniqueness => true
+  validates :username, :uniqueness => {:message => "此自定义URL已存在，请重新输入", :unless => "username.blank?"}
 
   def encrypt_password  
     if password.present?  

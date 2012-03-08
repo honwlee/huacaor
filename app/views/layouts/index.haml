@@ -66,7 +66,7 @@
         .rt
           = link_to "关于", "/about"
           - if current_user
-            = link_to current_user.email, ""
+            = link_to current_user.email, edit_user_path(current_user)
             = link_to "退出", logout_path
           - else
             = link_to "加入", login_path
@@ -81,3 +81,4 @@
     = javascript_include_tag "jquery-1.7.min", "index"
 
     = yield :footers
+    = flash[:notice]

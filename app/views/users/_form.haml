@@ -3,36 +3,31 @@
     %dt
       = f.label :name, "名字："
     %dd
-      %input{:type => "text"}
-      /= f.text_field :name
+      = f.text_field :name
       = link_to "修改密码", "#"
     %dt
       = f.label :email, "邮箱："
     %dd
-      %input{:type => "email"}
-      /= f.text_field :email
+      = f.text_field :email
     %dt
       = f.label :url, "自定义URL："
     %dd
       huacao/people/
-      %input{:type => "text"}
-      /= f.text_field :url
+      = f.text_field :username
     %dt
-      = f.label :douban, "关联豆瓣："
+      = f.label :douban_name, "关联豆瓣："
     %dd
       douban.com/people/
-      %input{:type => "text"}
-      /= f.text_field :douban
+      = f.text_field :douban_name
     %dt
-      = f.label :sina, "关联新浪："
+      = f.label :sina_name, "关联新浪："
     %dd
       weibo.com/
-      %input{:type => "text"}
-      /= f.text_field :sina
+      = f.text_field :sina_name
     %dt
-      = f.label :info, "简介："
+      = f.label :desc, "简介："
     %dd
-      %textarea
+      = f.text_area :desc
       
     %dt.submit
       = f.submit '保 存'

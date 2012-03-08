@@ -23,11 +23,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(:email => params[:login], 
-                     :password => params[:password])
-    if @user.save!
-      redirect_to root_url
+    @user = User.new(params[:user])
+
+    if @user.save
+      session[:user_id] = @user.id
+      flash[:notice] = "操作成功"
+      redirect_to edit_user_path(@user)
     else
+      flash.now.notice = @user.errors.full_messages.join(',')
       render "new"
     end
   end
@@ -36,8 +39,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-
+      flash[:notice] = "操作成功"
+      redirect_to edit_user_path(@user)
     else
+      flash.now.notice = @user.errors[:last_name]
       render :action => "edit"
     end
   end
