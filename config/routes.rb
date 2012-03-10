@@ -23,6 +23,11 @@ Huacaor::Application.routes.draw do
     resources :comments
   end
 
+  get '/settings/password' => 'settings#password'
+  post '/settings/update_password' => 'settings#update_password'
+  get '/settings/profile' => 'settings#profile'
+  put '/settings/update_profile' => 'settings#update_profile'
+
   root :to => 'home#index'
  
   #match "/login" => "home#login"

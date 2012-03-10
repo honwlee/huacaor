@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "操作成功"
-      redirect_to edit_user_path(@user)
+      redirect_to settings_profile_path
     else
       flash.now.notice = @user.errors.full_messages.join(',')
       render "new"

@@ -1,0 +1,43 @@
+.single-main.setting
+  %h1 编辑个人信息
+    
+  = form_for @user, {:url => "update_profile"} do |f|
+    %dl.form
+      %dt
+        = f.label :name, "名字："
+      %dd
+        = f.text_field :name
+        = link_to "修改密码", "#"
+      %dt
+        = f.label :email, "邮箱："
+      %dd
+        = f.text_field :email
+      %dt
+        = f.label :url, "自定义URL："
+      %dd
+        huacao/people/
+        = f.text_field :username
+      %dt
+        = f.label :douban_name, "关联豆瓣："
+      %dd
+        douban.com/people/
+        = f.text_field :douban_name
+      %dt
+        = f.label :sina_name, "关联新浪："
+      %dd
+        weibo.com/
+        = f.text_field :sina_name
+      %dt
+        = f.label :desc, "简介："
+      %dd
+        = f.text_area :desc
+        
+      %dt.submit
+        = f.submit '保 存'
+  
+    -if @user.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
