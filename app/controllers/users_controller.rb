@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "操作成功"
+      flash[:notice] = flash_success("操作成功")
       redirect_to settings_profile_path
     else
       flash.now.notice = @user.errors.full_messages.join(',')
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-      flash[:notice] = "操作成功"
+      flash[:notice] = flash_success("操作成功")
       redirect_to edit_user_path(@user)
     else
       flash.now.notice = @user.errors[:last_name]

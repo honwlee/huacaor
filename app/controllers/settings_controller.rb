@@ -9,7 +9,7 @@ class SettingsController < ApplicationController
     @user = current_user
 
     if @user.update_attributes(params[:user])
-      flash[:notice] = "操作成功"
+      flash[:notice] = flash_success("操作成功")
       redirect_to settings_profile_path
     else
       flash.now.notice = @user.errors[:last_name]
@@ -30,10 +30,10 @@ class SettingsController < ApplicationController
 
     current_user.password = params[:new_password]
     current_user.save!
-    flash[:notice] = "操作成功"
+    flash[:notice] = flash_success("操作成功")
     redirect_to settings_password_path
   rescue => e
-    flash.now.notice = e.to_s
+    flash[:notice] = flash_error(e.to_s)
     render :action => "password"
   end
   

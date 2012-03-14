@@ -36,8 +36,6 @@ Huacaor::Application.routes.draw do
   match "/forgot_pwd" => "home#forgot_pwd"
   match "/images/uploads/*path" => "gridfs#serve"
 
-  # 临时
-  # match "/plant" => "plants#show"
-  # match "/plant/edit" => "plants#edit"
+  root :to => 'home#index'
 
 end

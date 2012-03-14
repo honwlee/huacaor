@@ -16,5 +16,8 @@ $(function () {
     $(this).find('img').fadeTo(400, 1);
   });
 
+  //hide notice
+  $('#flash-notice').delay(3000).fadeOut('slow');
+
 
 });

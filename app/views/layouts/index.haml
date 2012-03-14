@@ -81,4 +81,5 @@
     = javascript_include_tag "jquery-1.7.min", "index"
 
     = yield :footers
-    = flash[:notice]
+    
+    != flash[:notice]

@@ -18,4 +18,21 @@ class ApplicationController < ActionController::Base
       return true
     end
   end
+
+  ############################## 输出处理结果信息给用户 ############################
+  def flash_html(*args)
+    opts = args.extract_options!
+    status = args[0] || opts[:status]
+    msg = args[1] || opts[:msg]
+    
+    '<div id="flash-notice"><div class="' + status + '">' + msg + '</div></div>'
+  end
+  
+  def flash_success(msg = "恭喜您，操作成功")
+      flash_html('success', msg)
+  end
+  
+  def flash_error(msg = "出错啦~")
+      flash_html('error', msg)
+  end 
 end
