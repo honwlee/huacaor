@@ -36,3 +36,12 @@ class ApplicationController < ActionController::Base
       flash_html('error', msg)
   end 
 end
+
+class String
+  def self.random(len=6)
+    chars = ("a".."z").to_a + ("0".."9").to_a
+    new_str = ""
+    1.upto(len){|i| new_str << chars[rand(chars.size-1)] }
+    return new_str 
+  end
+end

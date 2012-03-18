@@ -23,15 +23,16 @@ Huacaor::Application.routes.draw do
     resources :comments
   end
 
-  get '/settings/password' => 'settings#password'
-  post '/settings/update_password' => 'settings#update_password'
-  get '/settings/profile' => 'settings#profile'
-  put '/settings/update_profile' => 'settings#update_profile'
+  get '/settings/password'
+  post '/settings/update_password'
+  get '/settings/profile'
+  put '/settings/update_profile'
+  post '/settings/reset_pwd'
 
   root :to => 'home#index'
  
   match "/about" => "home#about"
-  match "/forgot_pwd" => "home#forgot_pwd"
+  match "/forgot_pwd" => "settings#forget_pwd"
   match "/images/uploads/*path" => "gridfs#serve"
 
   root :to => 'home#index'

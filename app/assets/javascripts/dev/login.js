@@ -31,13 +31,13 @@ $(function(){
   // 忘记密码验证
   $('#forgot-pwd-form').validate({
     rules: {
-      'login': {
+      'email': {
         required: true,
         email:true
       }
     },
     messages: {
-      'login': {
+      'email': {
         required: '请输入邮箱',
         email: '邮箱格式不正确'
       }

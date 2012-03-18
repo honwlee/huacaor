@@ -67,7 +67,7 @@
         .rt
           - if current_user
             = link_to current_user.name, user_path(current_user)
-            = link_to "设置", edit_user_path(current_user)
+            = link_to "设置", "/settings/profile"
             = link_to "退出", logout_path
           - else
             = link_to "关于", "/about"
