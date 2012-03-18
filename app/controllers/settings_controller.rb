@@ -1,5 +1,5 @@
 class SettingsController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => [:forget_pwd]
 
   def profile
     @user = current_user
@@ -35,6 +35,33 @@ class SettingsController < ApplicationController
   rescue => e
     flash[:notice] = flash_error(e.to_s)
     render :action => "password"
+  end
+
+  def forget_pwd
+    #@title = "重置密码"
+  end
+
+  def reset_pwd
+    if params[:email].blank?
+      flash[:notice] = flash_error('请输入注册邮箱')
+      return render :action => :forget_pad
+    end
+
+    user = User.where(:email => params[:email]).first
+    if user.blank?
+      flash[:notice] = flash_error('该用户不存在')
+      return render :action => :forget_pad
+    end
+
+    new_pwd = String.random(6)
+    user.password = new_pwd
+    user.save
+    
+    # 发送邮件
+    UserMail.reset_pwd(user, new_pwd).deliver
+
+    flash[:notice] = flash_success("密码已通过短信发送，请重新登录")
+    redirect_to login_path 
   end
   
 

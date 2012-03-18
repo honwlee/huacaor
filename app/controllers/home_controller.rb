@@ -12,6 +12,4 @@ class HomeController < ApplicationController
 
   end
 
-  def forgot_pwd
-  end
 end
