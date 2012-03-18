@@ -405,6 +405,7 @@ article{
     background:#fff;
     li{
       @extend .clearfix;
+      position:relative;
       line-height:40px;
       padding:20px;
       border-bottom:1px solid #dedede;
@@ -459,6 +460,36 @@ article{
     }
   }
 }
+.tips{
+  display:block;
+  position:absolute;
+  top:10px;
+  right:-20px;
+  font-size:14px;
+}
+
+.tips label{
+  position:relative;
+  display:block;
+  padding:0 10px;
+  background:#fafa54;
+  height:40px;
+  line-height:40px;
+}
+.tips label::after{
+  content: "";
+  position: absolute;
+  bottom: -19px;
+  right: 0;
+  border-width: 19px 19px 0 0;
+  border-style: solid;
+  border-color: #ebeb37 transparent;
+  display: block;
+  width: 0;
+}
+#loginform ul li .tips label{
+  width:auto;
+}
 
 /* forgot-password */
 #forgot-pwd-form{
@@ -479,20 +510,33 @@ article{
       button{
         width:380px;
       }
+      .login{
+        float:right;
+        font-size:16px;
+        padding-right:28px;
+      }
     }
   }
 }
 
 /* setting */
-.form{
-  width:350px;
+.setting{
+  @extend .single-main;
+  padding:40px 0 40px 40px;
   text-align:left;
-  margin:0 auto;
+}
+.form{
   dt{
     padding-top:20px;
+    label{
+      color:#999;
+    }
+  }
+  dd{
+    position:relative;
   }
   input{
-    width:200px;
+    width:350px;
     height:30px;
     margin-right:10px;
     line-height:30px;
@@ -501,13 +545,12 @@ article{
   }
   textarea{
     width:350px;
-    height:150px;
+    height:200px;
     border:1px solid #ccc;
     border-radius:5px;    
   }
   .submit input{
     display:block;
-    margin:0 auto;
     width:350px;
     height:40px;
     border:1px solid #ccc;

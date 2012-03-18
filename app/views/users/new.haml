@@ -1,14 +1,20 @@
 = form_for(@user, :html => {:id => 'loginform'}) do |f|
   %ul
     %li
-      = f.label :name, "名字："
+      = f.label :name, "名字：", :requried => "required"
       = f.text_field :name, :class => "i-text"
+      %p.tips
     %li
       = f.label :email, "邮箱："
       = f.text_field :email, :class => "i-text", :requried => "required"
+      %p.tips
     %li
       = f.label :password, "密码："
       = f.password_field :password, :class => "i-text", :requried => "required"
+      %p.tips
     %li.submit
       %button{:type => "submit"} 注 册
       %a.reg{:href => "/login"} 已经注册？
+
+- content_for :footers do
+  = javascript_include_tag "plugin/validate", "dev/register"

@@ -1,3 +1,6 @@
-.single-main.setting
+.setting
   %h1 编辑个人信息
   = render 'form'
+
+- content_for :footers do
+  = javascript_include_tag "plugin/validate", "dev/setting"

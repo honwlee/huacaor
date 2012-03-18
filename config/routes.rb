@@ -30,9 +30,7 @@ Huacaor::Application.routes.draw do
 
   root :to => 'home#index'
  
-  #match "/login" => "home#login"
   match "/about" => "home#about"
-  #match "/register" => "home#register"
   match "/forgot_pwd" => "home#forgot_pwd"
   match "/images/uploads/*path" => "gridfs#serve"
 

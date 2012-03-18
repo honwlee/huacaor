@@ -23,7 +23,8 @@
         })();
 
     /[if lt IE 9]
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      = javascript_include_tag "html5"
+
   %body
     %header
       .topbar
@@ -64,11 +65,12 @@
             %input#search-btn{:type => "submit", :value => "搜索", :onclick => "window.location.href='/plants'"}/
           / search finished
         .rt
-          = link_to "关于", "/about"
           - if current_user
-            = link_to current_user.email, edit_user_path(current_user)
+            = link_to current_user.name, user_path(current_user)
+            = link_to "设置", edit_user_path(current_user)
             = link_to "退出", logout_path
           - else
+            = link_to "关于", "/about"
             = link_to "加入", login_path
 
         .logo
@@ -78,7 +80,7 @@
     
     %footer © 2012 huacaor.com
 
-    = javascript_include_tag "jquery-1.7.min", "index"
+    = javascript_include_tag "plugin/jquery-1.7.min", "dev/index"
 
     = yield :footers
     

@@ -2,11 +2,16 @@
   %ul
     %li
       %label{:for => "login"} 邮箱：
-      %input.i-text{:name => "login", :required => "required", :type => "email"}/
+      %input.i-text{:name => "login", :required => "required", :type => "email"}
+      %p.tips
     %li
       %label{:for => "password"} 密码：
-      %input.i-text{:name => "password", :required => "required", :type => "password"}/
+      %input.i-text{:name => "password", :required => "required", :type => "password"}
+      %p.tips
     %li.submit
       %button{:type => "submit"} 登 录
       %a.forgot-pwd{:href => "/forgot_pwd"} 忘记密码？
       %a.reg{:href => "/register"} 还没注册？
+
+- content_for :footers do
+  = javascript_include_tag "plugin/validate", "dev/login"
