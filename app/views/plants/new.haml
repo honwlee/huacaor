@@ -11,12 +11,14 @@
     
 
       %dt
+        = f.label "filedata","上传图片"
       %dd
         = file_field_tag "filedata"
         %p.tips<
-          尺寸不小于500 x 500 px，请以植物图为主，无关图片会被无情删除，谢谢合作。
+          尺寸不小于500 x 500px，请以植物图为主，
+          无关图片会被无情删除，谢谢合作。
       %dt
-      %dd.submit
+      %dd.submit{:style => "margin-left:26%;"}
         = f.submit '保 存'
 
 
