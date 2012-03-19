@@ -37,21 +37,13 @@
     %dt
       = f.label :characteristic, "特征："
     %dd
-      = f.text_area :characteristic
-      此处待定，为点击选择图标即可
+      = render '/widgets/category'
+      //= f.text_area :characteristic
 
     %dt
       = f.label :description, "介绍："
     %dd
-      = f.text_area :description
-
-    / %dt
-    /   %em *
-    /   附图：
-    / %dd
-    /   = file_field_tag "filedata"
-    /   %p.tips<
-    /     图片尺寸：288px × 180px
+      = f.text_area :description, :style => "width:90%", :autocomplete => "off"
       
     %dd.submit
       = f.submit '保 存'
