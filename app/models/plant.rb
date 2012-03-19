@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Plant
   NAME_KINDS = ['latin', 'english', 'zh']
   include Mongoid::Document
@@ -20,8 +21,6 @@ class Plant
   def update_by_params_data(plant_data)
     self.name = {:zh => plant_data[:zh_name], :latin => plant_data[:latin_name], :english => plant_data[:english_name]}
     Plant.fields.keys.each do |field|
-      p field
-      p "1111111111111"
       # instance_eval("self.#{field} = #{plant_data[field.to_sym].to_s}") unless plant_data[field.to_sym].blank?
       write_attribute(field.to_sym, plant_data[field.to_sym]) unless plant_data[field.to_sym].blank?
     end

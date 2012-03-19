@@ -1,3 +1,4 @@
+# encoding: utf-8
 class User
   include Mongoid::Document
   field :email, :type => String
@@ -42,6 +43,4 @@ class User
   def self.encrypt(password, salt)
     BCrypt::Engine.hash_secret(password, salt)
   end
-  
-  
 end

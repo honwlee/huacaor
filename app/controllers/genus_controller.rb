@@ -1,3 +1,4 @@
+# encoding: utf-8
 class GenusController < ApplicationController
   # GET /genus
   # GET /genus.json
