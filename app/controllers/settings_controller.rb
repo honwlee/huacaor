@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SettingsController < ApplicationController
   before_filter :login_required, :except => [:forget_pwd]
 

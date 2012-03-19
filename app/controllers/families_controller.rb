@@ -1,3 +1,4 @@
+# encoding: utf-8
 class FamiliesController < ApplicationController
   # GET /families
   # GET /families.json

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Picture
   FOR_PLANTS = 0 
   FOR_USER = 1
