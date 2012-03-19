@@ -1,3 +1,4 @@
+# encoding: utf-8
 class User
   include Mongoid::Document
   field :email, :type => String
@@ -19,7 +20,7 @@ class User
   validates :email, :presence => true
   validates :email, :uniqueness => true
 
-  #validates :name, :presence => {:message => "请输入名字"}
+  validates :name, :presence => {:message => "请输入名字"}
   validates :name, :uniqueness => true
   validates :username, :uniqueness => {:message => "此自定义URL已存在，请重新输入", :unless => "username.blank?"}
 
