@@ -1,3 +1,6 @@
 .single-main.setting
-  %h1 编辑植物信息
+  %h1 鉴定植物
   = render 'form'
+
+- content_for :footers do
+  = javascript_include_tag "plugin/validate", "dev/setting"

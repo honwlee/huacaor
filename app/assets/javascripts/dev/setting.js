@@ -68,5 +68,12 @@ $(function(){
     }
   });
 
+  // 添加表单项目
+  $('a.add-item').live('click', function(){
+    var by = $(this);
+    by.parent().after('<dd><input type="text" /><a href="javascript:void(0)" class="add-item">+</a></dd>');
+    by.hide();
+  });
+
 });
 
