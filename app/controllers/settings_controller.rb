@@ -1,6 +1,6 @@
 # encoding: utf-8
 class SettingsController < ApplicationController
-  before_filter :login_required, :except => [:forget_pwd]
+  before_filter :login_required, :except => [:forget_pwd, :reset_pwd]
 
   def profile
     @user = current_user
@@ -59,7 +59,7 @@ class SettingsController < ApplicationController
     user.save
     
     # 发送邮件
-    UserMail.reset_pwd(user, new_pwd).deliver
+    UserMailer.reset_pwd(user, new_pwd).deliver
 
     flash[:notice] = flash_success("密码已通过短信发送，请重新登录")
     redirect_to login_path 
