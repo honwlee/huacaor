@@ -4,21 +4,8 @@ class ApplicationController < ActionController::Base
   layout "index"
 
   helper_method :current_user
-  private
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
   helper_method :login_required
-  def login_required
-    if current_user.blank?
-      session[:return_to] = request.fullpath
-      flash[:notice] = "请先登录"
-      redirect_to new_session_path and return
-    else
-      return true
-    end
-  end
+  helper_method :admin_required
 
   ############################## 输出处理结果信息给用户 ############################
   def flash_html(*args)
@@ -36,6 +23,35 @@ class ApplicationController < ActionController::Base
   def flash_error(msg = "出错啦~")
       flash_html('error', msg)
   end 
+
+  private
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def login_required
+    if current_user.blank?
+      base_login_condition("请先登录",new_session_path)
+    else
+      return true
+    end
+  end
+
+  def admin_required
+    if current_user.blank?
+      base_login_condition("请先登录",new_admin_session_path)
+    elsif !current_user.is_admin 
+      base_login_condition("对不起，权限不够",new_admin_session_path)
+    else
+      redirect_to ''
+    end
+  end
+
+  def base_login_condition(notice,redirect_path)
+    session[:return_to] = request.fullpath
+    flash[:notice] = notice
+    return redirect_to redirect_path 
+  end
 end
 
 class String

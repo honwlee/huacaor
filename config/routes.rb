@@ -23,6 +23,14 @@ Huacaor::Application.routes.draw do
     resources :comments
   end
 
+  namespace :admin do
+    resources :users
+    resources :tags
+    resources :plants do
+      resources :pictures
+    end
+  end
+
   get '/settings/password'
   post '/settings/update_password'
   get '/settings/profile'
@@ -34,7 +42,5 @@ Huacaor::Application.routes.draw do
   match "/about" => "home#about"
   match "/forgot_pwd" => "settings#forget_pwd"
   match "/images/uploads/*path" => "gridfs#serve"
-
-  root :to => 'home#index'
 
 end

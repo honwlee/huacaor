@@ -1,6 +1,7 @@
 # encoding: utf-8
 class User
   include Mongoid::Document
+  has_many :pictures 
   field :email, :type => String
   field :password_hash, :type => String
   field :password_salt, :type => String
@@ -9,7 +10,10 @@ class User
   field :douban_name, :type => String
   field :sina_name, :type => String
   field :desc, :type => String
+  field :is_admin, :type => Boolean
 
+  index :is_admin
+  index :name
   attr_accessor :password
   before_save :encrypt_password
   #validates_presence_of :password, :on => :create
