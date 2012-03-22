@@ -1,0 +1,22 @@
+.single-main
+
+  %table.table
+    %thead
+      %tr
+        %th 用户名
+        %th 邮箱
+        %th 操作
+    
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= link_to user.name, user, :target => "_blank"
+          %td= user.email
+          %td
+            = link_to '编辑', edit_admin_user_path(user)
+            |
+            = link_to '删除', user, :confirm => '确定删除吗？', :method => :delete
+
+  %br
+
+  = link_to '创建新用户 +', new_user_path

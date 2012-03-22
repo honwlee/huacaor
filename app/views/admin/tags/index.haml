@@ -1,0 +1,24 @@
+.single-main
+
+  %table.table
+    %thead
+      %tr
+        %th 名称
+        %th 类型
+        %th 操作
+  
+    %tbody
+      - @tags.each do |tag|
+        %tr
+          %td
+            = link_to tag.name, tag, :target => "_blank"
+          %td
+            某类型
+          %td
+            = link_to '编辑', edit_admin_tag_path(tag)
+            ｜
+            = link_to '删除', tag, :confirm => '你确定吗', :method => :delete
+
+  %br
+
+  = link_to '添加新标签 +', new_admin_tag_path

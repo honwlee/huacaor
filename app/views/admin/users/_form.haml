@@ -1,0 +1,29 @@
+= form_for @user do |f|
+  %dl.form
+    %dt
+      = f.label :name, "名字："
+    %dd
+      = f.text_field :name, :required => "required"
+      %p.tips
+
+    %dt
+      = f.label :email, "邮箱："
+    %dd
+      = f.email_field :email, :required => "required"
+      %p.tips
+
+    %dt
+      = f.label :url, "个性域名："
+    %dd
+      http://huacao/people/
+      = f.text_field :username, :style => "width:212px;"
+      %p.tips
+
+    %dt
+      = f.label :desc, "简介："
+    %dd
+      = f.text_area :desc
+      %p.tips
+      
+    %dt.submit
+      = f.submit '保 存'
