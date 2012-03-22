@@ -1,5 +1,9 @@
-@import "screen";
-/* /// notebook /// */
+@import "_base/_mixins";
+@import "_base/_reset";
+@import "_base/_flash-notice";
+@import "_base/_header";
+
+/* /// notebooks /// */
 /* person's info */
 .person-info{
   @extend .clearfix;
@@ -10,6 +14,10 @@
   background:#fff;
   height:50px;
   box-shadow: 0 0 5px #dedede;
+  .ico{
+    height:30px;
+    width:30px;
+  }
   .avar{
     float:left;
     width:50px;
@@ -50,19 +58,9 @@
   }
   a.follow{
     float:left;
-    padding:0 20px;
+    width:50px;
     height:50px;
     display:block;
-    line-height:50px;
-    text-align:center;
-    color:#76b130;
-    &:hover{
-      background:#76b130;
-      color:#fff;
-    }
-  }
-  a.unfollow{
-    color:#ccc;
   }
 }
 

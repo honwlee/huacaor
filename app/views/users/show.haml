@@ -3,9 +3,10 @@
     .avar
       = image_tag("http://placehold.it/50x50", :alt => "人名")
     %h1 人名
-    .contact
-      %a.ico-douban.ico{:href => "#", :target => "_blank", :rel => "nofollow"}
-      %a.ico-weibo.ico{:href => "#", :target => "_blank", :rel => "nofollow"}
+    /
+      .contact
+        %a.ico-douban.ico{:href => "#", :target => "_blank", :rel => "nofollow"}
+        %a.ico-weibo.ico{:href => "#", :target => "_blank", :rel => "nofollow"}
   .rt
     %ul
       %li
@@ -26,7 +27,7 @@
       %li
         %em 33
         被关注
-      = link_to "关注", "javascript:void(0)", :class => "follow"
+      = link_to "", "javascript:void(0)", :class => "follow ico-ui-follow"
 %nav.catebar
   %ul
     %li.current

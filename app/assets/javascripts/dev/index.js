@@ -30,9 +30,12 @@ $(function () {
 
   // follow
   $('a.follow').live('click', function(){
-    var by = $(this),
-        text = by.text() == '取消' ? '关注' : '取消';
-    $(this).text(text).toggleClass('unfollow');
+    var by = $(this);
+    if (by.hasClass('ico-ui-follow')){
+      by.removeClass('ico-ui-follow').addClass('ico-ui-unfollow');
+    }else{
+      by.removeClass('ico-ui-unfollow').addClass('ico-ui-follow');
+    }
   });
 
 });

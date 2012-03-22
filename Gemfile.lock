@@ -166,7 +166,6 @@ DEPENDENCIES
   nokogiri
   rails (= 3.2.1)
   rake
-  sass
   sass-rails (~> 3.2.3)
   solr-ruby
   uglifier (>= 1.0.3)

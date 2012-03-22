@@ -19,9 +19,9 @@
 .plant-info
   .lt
     .character
-      .ico-h-1.ico{:title => "乔木"}
-      .ico-fw-mouth.ico{:title => "唇形"}
-      .ico-red.ico{:title => "红花"}
+      .ico-flower-h6.ico{:title => "乔木"}
+      .ico-flower-fwmouth.ico{:title => "唇形"}
+      .ico-flower-red.ico{:title => "红花"}
   .rt
     %ul
       %li
@@ -33,7 +33,7 @@
       %li
         %em> 783
         喜爱
-    %a.follow{:href => "jacascript:void(0);"} 关注
+    %a.ico-ui-follow.follow{:href => "jacascript:void(0);"}
 .content
   .content-left
     .photo-info
@@ -54,22 +54,8 @@
         = link_to "[编辑]", edit_plant_path(@plant)
     %h3.comment-title 评论
     %ul.comments
-      %li
-        .lp
-          = link_to image_tag("http://placehold.it/50x50", :alt => "九间"), "/user"
-        .rp
-          %p
-            = link_to "人名", "/users"
-            ：我的妈呀。
-          %p.date 2012-12-29
-      %li
-        .lp
-          = link_to image_tag("http://placehold.it/50x50", :alt => "九间"), "/user"
-        .rp
-          %p
-            = link_to "人名", "/users"
-            ：我的妈呀。
-          %p.date 2012-12-29
+      = render 'comm'
+
 
   .content-right
     .p-slide
@@ -79,51 +65,7 @@
       .p-t 发布者的其它笔记
       /repeat 10
       %ul
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
+        = render 'slide'
 
     .p-slide
       .p-slide-nav
@@ -132,56 +74,7 @@
       .p-t 同科植物
       /repeat 10
       %ul
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
-        %li
-          %a{:href => "/plant"}
-            .p-top
-              .name 蔷薇
-            %img{:alt => "", :src => "http://placehold.it/50x50"}/
+        = render 'slide'
 
     .copyright
       .publisher
