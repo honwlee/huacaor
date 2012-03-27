@@ -17,4 +17,5 @@
 /nbproject/
 /test/
 /log/
-public/uploads/.DS_Store
+#public/uploads/.DS_Store
+.DS_Store
