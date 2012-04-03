@@ -2,6 +2,8 @@
 class User
   include Mongoid::Document
   has_many :pictures 
+  has_many :comments
+
   field :email, :type => String
   field :password_hash, :type => String
   field :password_salt, :type => String

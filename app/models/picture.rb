@@ -13,10 +13,11 @@ class Picture
 
   index :kinds
 
-  def self.create_picture(filedata,usage=FOR_PLANTS)
+  def self.create_picture(filedata, user_id, usage=FOR_PLANTS)
     picture = self.new
     picture.usage = usage
     picture.image = filedata
+    picture.user_id = user_id
     picture.save!
     #FileUtils.rm_rf("#{Rails.root}/public/uploads")
     return picture
