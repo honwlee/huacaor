@@ -8,16 +8,26 @@ class Picture
   belongs_to :user
 
   field :usage, :type => Integer, :default => FOR_PLANTS 
+  field :desc, :type => String
 
   mount_uploader :image, ImageUploader
 
   index :kinds
 
-  def self.create_picture(filedata, user_id, usage=FOR_PLANTS)
-    picture = self.new
-    picture.usage = usage
-    picture.image = filedata
-    picture.user_id = user_id
+  #def self.create_picture(filedata, user_id, usage=FOR_PLANTS)
+  def self.create_picture(opts={})
+    picture = self.new(
+      :usage => params[:usage] || FOR_PLANTS,
+      :image => params[:filedata],
+      :user_id => params[:user_id]
+    )
+
+
+    # picture.usage = params[:usage] || FOR_PLANTS
+
+    # picture.usage = usage
+    # picture.image = filedata
+    # picture.user_id = user_id
     picture.save!
     #FileUtils.rm_rf("#{Rails.root}/public/uploads")
     return picture

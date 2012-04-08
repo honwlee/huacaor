@@ -36,8 +36,13 @@ class PlantsController < ApplicationController
   def create
     plant = Plant.new
     #plant.update_by_params_data(params[:plant])
-    plant.save
-    plant.pictures << Picture.create_picture(params[:filedata], current_user.id) unless params[:filedata].blank?
+    #plant.save
+
+    unless params[:filedata].blank?
+      picture = Picture.create_picture(params[:filedata], current_user.id)
+      plant.pictures << picture
+    end
+
     redirect_to edit_plant_path(plant)
   end
 

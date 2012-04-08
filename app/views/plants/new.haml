@@ -16,7 +16,7 @@
       %dt
         = f.label :zh_name, "笔记：（选填）"
       %dd
-        %textarea{:style => "width:90%"}
+        = text_area_tag "desc", "", {:style => "width:90%"}
 
       %dt.submit
         = f.submit '保 存'

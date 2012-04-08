@@ -1,0 +1,22 @@
+.single-main.setting
+  %h1 上传植物图片
+  = form_tag(pictures_path, :method => :post, :multipart => true) do
+
+    %dl.form
+      %dt
+        = label_tag :filedata, "植物照片："
+      %dd
+        = file_field_tag "filedata"
+      
+      %dt
+        = label_tag :plant_zh_name, "中文名称：（选填）"
+      %dd
+        = text_field_tag :plant_zh_name, ""      
+
+      %dt
+        = label_tag :desc, "笔记：（选填）"
+      %dd
+        = text_area_tag "desc", "", {:style => "width:90%"}
+
+      %dt.submit
+        = submit_tag '保 存'
