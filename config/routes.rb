@@ -42,5 +42,5 @@ Huacaor::Application.routes.draw do
   match "/about" => "home#about"
   match "/forgot_pwd" => "settings#forget_pwd"
   match "/images/uploads/*path" => "gridfs#serve"
-
+  match ":user_name" => "users#show"
 end

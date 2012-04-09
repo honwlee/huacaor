@@ -31,6 +31,9 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+    @plant = @picture.plant
+    @user = @picture.user
+    @user_pictures = @user.pictures.limit(8)
   end
 
 end

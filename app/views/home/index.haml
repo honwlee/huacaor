@@ -1,8 +1,6 @@
 .banner
   %ul.p-lists
     - @pictures.each do |p|
-      = p.id
-      = p.plant.inspect
       %li
         %a{:href => picture_path(p.id)}
           .p-top
