@@ -8,10 +8,15 @@ class Plant
   has_many :pictures
   embeds_one :brief
   # validates_presence_of :title
-  field :name, :type => Hash, :default => {}
+  #field :name, :type => Hash, :default => {}
   field :characteristic, :type => String
   field :description, :type => String
+  field :zh_name, :type => String
+  field :latin_name, :type => String
+  field :english_name, :type => String
+  field :other_names, :type => String
   
+=begin
   NAME_KINDS.each do |n_k|
     define_method "#{n_k}_name" do
       self.name[n_k]
@@ -27,6 +32,7 @@ class Plant
       write_attribute(field.to_sym, plant_data[field.to_sym]) unless plant_data[field.to_sym].blank?
     end
   end
+=end
 
   def picture_path(thumb=nil)
     thumb.nil? ? pictures.first.image_url : pictures.first.image_url(thumb.to_sym) unless pictures.blank?

@@ -4,7 +4,7 @@ class Note
   include Mongoid::Timestamps
   belongs_to :user
   belongs_to :plant
-  embeds_many :comments
+  #embeds_many :comments
 
   field :content, :type => String
 
@@ -14,7 +14,7 @@ class Comment
   include Mongoid::Document
   include Mongoid::Timestamps
   belongs_to :user
-  embedded_to :note
+  #embedded_to :note
 
   field :content, :type => String
 

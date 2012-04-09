@@ -1,14 +1,12 @@
 # encoding: utf-8
 class PicturesController < ApplicationController
+  before_filter :login_required
 
   def new
 
   end
 
   def create
-    # plant = Plant.new
-    #plant.update_by_params_data(params[:plant])
-    #plant.save
     if params[:filedata].blank?
       flash[:notice] = flash_error("请选择图片")
       redirect_to new_picture_path and return
@@ -20,15 +18,19 @@ class PicturesController < ApplicationController
       :desc => params[:desc].strip || ""
     )
 
-    if params[:plant_zh_name]
-      
+    unless params[:plant_zh_name].blank?
+      n = params[:plant_zh_name]
+      plant = Plant.where(:zh_name => n).first
+      plant = Plant.create(:zh_name => n) if plant.blank?
+      plant.pictures << picture
+      redirect_to edit_plant_path(plant) and return
     end
 
-      # plant.pictures << picture
-
-
-    redirect_to edit_plant_path(plant)
+    redirect_to picture_path(picture) 
   end
 
+  def show
+    @picture = Picture.find(params[:id])
+  end
 
 end
