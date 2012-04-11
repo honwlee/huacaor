@@ -29,6 +29,8 @@ Huacaor::Application.routes.draw do
     resources :plants do
       resources :pictures
     end
+
+    resources :plant_base_info 
   end
 
   get '/settings/password'

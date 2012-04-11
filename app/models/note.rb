@@ -14,7 +14,7 @@ class Comment
   include Mongoid::Document
   include Mongoid::Timestamps
   belongs_to :user
-  embedded_to :note
+  embedded_in :note
 
   field :content, :type => String
 

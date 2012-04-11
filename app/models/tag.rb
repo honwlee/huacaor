@@ -4,6 +4,7 @@ class Tag
   has_and_belongs_to_many :plants
   field :name, :type => String
   field :usage, :type => Integer
+  field :description, :type => String
 
   index :name
 end
