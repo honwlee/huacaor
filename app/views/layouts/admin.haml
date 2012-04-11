@@ -1,0 +1,57 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title 花草儿 huacaor
+    = stylesheet_link_tag "admin.css"
+    = yield :headers
+
+    - ga = "#"
+    - if !ga.blank? && Rails.env == "production"
+      %script
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '#{ga}']);
+        //_gaq.push(['_addIgnoredOrganic', '#{host_uri}']);
+        _gaq.push(['_addOrganic', 'baidu', 'wd']);
+        _gaq.push(['_addOrganic', 'soso', 'w']);
+        _gaq.push(['_addOrganic', 'sogou', 'query']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    /[if lt IE 9]
+      = javascript_include_tag "html5"
+
+  %body
+    %header
+      .topbar
+        .rt
+          - if current_user
+            = link_to current_user.name, user_path(current_user)
+            = link_to "设置", "/settings/profile"
+            = link_to "退出", logout_path
+          - else
+            管理后台
+
+        .logo
+          = link_to "花草儿", "/"
+
+    %nav
+      %ul.nav.clearfix
+        %li<
+          %a.n1{:href => "/admin/users"} 用户
+        %li<
+          %a.n2{:href => "/admin/tags"} 标签管理
+
+    = yield
+    
+    %footer © 2012 huacaor.com
+
+    = javascript_include_tag "plugin/jquery-1.7.min", "dev/index"
+
+    = yield :footers
+    
+    != flash[:notice]

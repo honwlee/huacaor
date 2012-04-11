@@ -1,0 +1,6 @@
+.setting
+  %h1 添加用户
+  = render 'form'
+
+- content_for :footers do
+  = javascript_include_tag "plugin/validate", "dev/setting"

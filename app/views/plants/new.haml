@@ -3,25 +3,20 @@
   = form_for(@plant,:html =>{:multipart => true}) do |f|
 
     %dl.form
-      / %dt
-      /   = f.label :zh_name, "中文名称："
-      / %dd
-      /   = f.text_field :zh_name
-      /   待选
-
       %dt
-        = f.label :filedata, "你的植物照片："
+        = f.label :filedata, "植物照片："
       %dd
         = file_field_tag "filedata"
+      
+      %dt
+        = f.label :zh_name, "中文名称：（选填）"
+      %dd
+        = f.text_field :zh_name      
 
       %dt
-        = f.label :zh_name, "你的感想："
+        = f.label :zh_name, "笔记：（选填）"
       %dd
-        %textarea
+        = text_area_tag "desc", "", {:style => "width:90%"}
 
       %dt.submit
-        = f.submit '上 传'
-
-
-  -#
-    = link_to "上传植物照片", "javascript:void(0)", :class => 'upload'
+        = f.submit '保 存'

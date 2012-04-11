@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
 
   def base_login_condition(notice,redirect_path)
     session[:return_to] = request.fullpath
-    flash[:notice] = notice
+    flash[:notice] = flash_error(notice)
     return redirect_to redirect_path 
   end
 end

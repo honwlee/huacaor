@@ -1,0 +1,27 @@
+/* flash[:notice] */
+#flash-notice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index:200;
+  div {
+     display: inline-block;
+     padding: 0 20px;
+     border-radius: 4px;
+     font-size: 14px;
+     line-height: 40px;
+  }
+  .error {
+    border: 1px solid #EED3D7;
+    background: #F2DEDE;
+    color: #B94A48;
+  }
+  .success {
+    border: 1px solid #D6E9C6;
+    background: #DFF0D8;
+    color: #468847;
+  }
+}
+
