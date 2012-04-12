@@ -1,5 +1,7 @@
 # encoding: utf-8
+require 'lib/shared_methods/instance_methods.rb'
 class Plant 
+  include InstanceMethods
   include Mongoid::Document
   include Mongoid::Timestamps
   has_and_belongs_to_many :tags
