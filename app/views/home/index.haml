@@ -1,10 +1,10 @@
 .banner
   %ul.p-lists
-    - @plants.each do |p|
+    - @pictures.each do |p|
       %li
-        %a{:href => "/plants/#{p.id}"}
+        %a{:href => picture_path(p.id)}
           .p-top
             .class 科属
-            .name #{p.zh_name}
+            .name #{p.plant.zh_name}
 
-          = image_tag("#{p.picture_path("thumb")}", :alt => p.zh_name)
+          = image_tag(p.image.url(:thumb), :alt => p.plant.zh_name)

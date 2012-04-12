@@ -1,22 +1,22 @@
 # encoding: utf-8
-class Plant
-  NAME_KINDS = ['latin', 'english', 'zh']
+class Plant 
   include Mongoid::Document
   include Mongoid::Timestamps
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :users
   has_many :pictures
   embeds_one :brief
+
   # validates_presence_of :title
   field :name, :type => Hash, :default => {}
   field :characteristic, :type => String
   field :description, :type => String
+  # field :zh_name, :type => String
+  # field :latin_name, :type => String
+  # field :english_name, :type => String
+  # field :other_names, :type => String
   
-  NAME_KINDS.each do |n_k|
-    define_method "#{n_k}_name" do
-      self.name[n_k]
-    end
-  end
+
 
   def update_by_params_data(plant_data)
     self.name = {:zh => plant_data[:zh_name]||"",

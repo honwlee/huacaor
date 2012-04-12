@@ -1,0 +1,18 @@
+%h2 植物主要信息
+%table
+  %tr
+    %th 中文名
+    %th 英文名
+    %th huar_home_id
+    %th parent_id
+    %th 删除
+    %th 编辑
+  - @plant_base_info.each do |info|
+    %tr
+      %td= info.name['zh']
+      %td= info.name['en']
+      %td= info.huar_home_id
+      %td= info.parent_id
+      %td= link_to '编辑'
+      %td= link_to '删除'
+= paginate @plant_base_info, :outer_window => 1

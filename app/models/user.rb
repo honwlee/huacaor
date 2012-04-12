@@ -49,4 +49,16 @@ class User
   def self.encrypt(password, salt)
     BCrypt::Engine.hash_secret(password, salt)
   end
+
+  def link
+    if self.username
+      return "/" + self.username
+    else
+      return "/users/" + self.id.to_s
+    end
+  end
+
+  def avatar_path(mode=:medium)
+    return "http://placehold.it/50x50"
+  end
 end

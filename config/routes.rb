@@ -41,6 +41,8 @@ Huacaor::Application.routes.draw do
     resources :plants do
       resources :pictures
     end
+
+    resources :plant_base_info 
   end
 
   root :to => 'home#index'
@@ -48,5 +50,5 @@ Huacaor::Application.routes.draw do
   match "/about" => "home#about"
   match "/forgot_pwd" => "settings#forget_pwd"
   match "/images/uploads/*path" => "gridfs#serve"
-
+  match ":user_name" => "users#show"
 end
