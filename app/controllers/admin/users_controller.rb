@@ -1,15 +1,19 @@
 class Admin::UsersController < ApplicationController
   layout "admin"
-
+  Cls = "c1"
+  
   def index
+    @cls = Cls
     @users = User.all
   end
 
   def new
+    @cls = Cls
     @user = User.new
   end
 
   def edit
+    @cls = Cls
     @user = User.find(params[:id])
   end
 
