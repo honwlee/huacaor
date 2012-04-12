@@ -8,6 +8,7 @@
       %dd
         = f.text_field :name, :required => "required"
         = link_to "修改密码", "/settings/password"
+        = link_to "修改头像", "/settings/avatar"
         %p.tips
 
       %dt
@@ -17,7 +18,7 @@
         %p.tips
 
       %dt
-        = f.label :url, "个性域名："
+        = f.label :url, "个性域名：[唯一标识，填写后不能修改]"
       %dd
         http://huacao/people/
         = f.text_field :username, :style => "width:212px;"
