@@ -8,7 +8,6 @@
       %dd
         = f.text_field :name, :required => "required"
         = link_to "修改密码", "/settings/password"
-        = link_to "修改头像", "/settings/avatar"
         %p.tips
 
       %dt
@@ -32,6 +31,11 @@
         
       %dt.submit
         = f.submit '保 存'
+
+  .avatar-box
+    .avatar.normal<
+      %img{:src => @user.avatar_path(:normal)}/
+    = link_to "修改头像", "/settings/avatar"
 
 - content_for :footers do
   = javascript_include_tag "plugin/validate", "dev/setting"

@@ -35,6 +35,12 @@ Huacaor::Application.routes.draw do
     post :reset_pwd
   end
 
+  resource :upload do #上传
+    get :fetch_photo
+    post :avatar
+    post :photo
+  end
+
   namespace :admin do
     resources :users
     resources :tags
