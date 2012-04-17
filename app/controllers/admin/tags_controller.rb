@@ -1,12 +1,12 @@
-class Admin::TagsController < ApplicationController
-  layout "admin"
+class Admin::TagsController < Admin::BaseController
+  
   Cls = 'n2'
 
   # GET /tags
   # GET /tags.json
   def index
     @cls = Cls
-    @tags = Tag.all
+    @tags = Tag.page(params[:page] || 1).per(Pagesize)
 
     respond_to do |format|
       format.html # index.html.erb

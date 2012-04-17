@@ -38,13 +38,12 @@
       = link_to "求名", "#"
 .main
   %ul.p-lists
-    %li
-      %a{:href => "#"}
-        .p-top
-          .class 科属
-          .name 蔷薇
-        = image_tag("http://placehold.it/240X240", :alt => "花名")
+    - @pictures.each do |p|
+      %li
+        %a{:href => picture_path(p.id)}
+          .p-top
+            .class 科属
+            .name p.plant.zh_name
+          = image_tag(p.image.url(:thumb), :alt => p.plant.zh_name)
 
-  = link_to "更多", "#", :class => "more"
-
-%p#notice= notice
+  = paginate @pictures, :outer_window => 1

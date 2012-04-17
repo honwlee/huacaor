@@ -32,6 +32,7 @@ class PlantsController < ApplicationController
   def edit
     
     @plant = Plant.find(params[:id])
+    @phylum_name = plant_base_info.find(params[:phylum_name])
   end
 
   def create

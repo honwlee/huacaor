@@ -1,10 +1,10 @@
-class Admin::UsersController < ApplicationController
-  layout "admin"
-  Cls = "c1"
+class Admin::UsersController < Admin::BaseController
+
+  Cls = "n1"
   
   def index
     @cls = Cls
-    @users = User.all
+    @users = User.page(params[:page] || 1).per(Pagesize)
   end
 
   def new
