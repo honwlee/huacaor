@@ -1,22 +1,22 @@
 .single-main.setting
   %h1 上传植物图片
-  = form_for(@plant,:html =>{:multipart => true}) do |f|
+  = form_tag(@plant, :multipart => true) do
 
     %dl.form
       %dt
-        = f.label :filedata, "植物照片："
+        = label_tag :filedata, "植物照片："
       %dd
         = file_field_tag "filedata"
       
       %dt
-        = f.label :zh_name, "中文名称：（选填）"
+        = label_tag :zh_name, "中文名称：（选填）"
       %dd
-        = f.text_field :zh_name      
+        = text_field_tag :zh_name      
 
       %dt
-        = f.label :zh_name, "笔记：（选填）"
+        = label_tag :zh_name, "笔记：（选填）"
       %dd
         = text_area_tag "desc", "", {:style => "width:90%"}
 
       %dt.submit
-        = f.submit '保 存'
+        = submit_tag '保 存'

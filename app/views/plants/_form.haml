@@ -21,7 +21,7 @@
       = f.label :family, "属性："
     %dd
       门
-      %select
+      = f.select(:phylum_name, @phylum_name.map{|p| p },{:class => "i-text", :autocomplete => "off", :prompt => "---空---"})
       纲
       %select
       目
@@ -43,6 +43,8 @@
       = f.label :description, "介绍："
     %dd
       = f.text_area :description, :style => "width:90%", :autocomplete => "off"
+
+      = hidden_field_tag "version_id", params[:version_id]
       
     %dd.submit
       = f.submit '保 存'

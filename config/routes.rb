@@ -7,6 +7,8 @@ Huacaor::Application.routes.draw do
 
   resources :sessions, :only => [:new, :create, :destroy]
 
+  resources :plant_base_info, :only => [:show]
+
   resources :users
 
   resources :genus

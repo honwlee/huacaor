@@ -23,13 +23,6 @@ namespace :plants do
   	data = data - sub_phylum_datas
   	sub_class_datas = data.select{|p| p[0].delete('.').to_i > 8000}
   	class_datas = data - sub_class_datas
-  	puts phylum_datas.inspect
-  	puts 111111111111111111111
-  	puts sub_phylum_datas.inspect
-  	puts 222222222222222222222
-  	puts class_datas.inspect
-  	puts 33333333333333333
-  	puts sub_class_datas.inspect
 
   	phylum_datas.each do |p_d|
   		# phylum = Phylum.new
@@ -76,9 +69,7 @@ namespace :plants do
       hash_data = Hash[format_data.split(';').collect{|a|a.gsub(/:/,',').split(',')}]
       hash_data["JSData"] = hash_data["JSData"].gsub(/\.\./,"http://www.nature-museum.net") if hash_data.has_key?("JSData")
       name = hash_data["text"].split(' ')
-      puts "@" * 30
-      puts Iconv.iconv("GBK//IGNORE", "UTF-8//IGNORE", name[0]) 
-      puts "111111111111111111111111111111111111"
+
       plant_base_info = PlantBaseInfo.new
       plant_base_info.name = {:zh => name[0], :en => name[1]}
       plant_base_info.huar_home_id = i
