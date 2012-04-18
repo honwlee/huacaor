@@ -13,6 +13,7 @@ class User
   field :sina_name, :type => String
   field :desc, :type => String
   field :is_admin, :type => Boolean
+  field :douban_uid, :type => String
 
   index :is_admin
   index :name
