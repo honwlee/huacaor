@@ -17,7 +17,7 @@
         %p.tips
 
       %dt
-        = f.label :url, "个性域名："
+        = f.label :url, "个性域名：[唯一标识，填写后不能修改]"
       %dd
         http://huacao/people/
         = f.text_field :username, :style => "width:212px;"
@@ -31,6 +31,11 @@
         
       %dt.submit
         = f.submit '保 存'
+
+  .avatar-box
+    .avatar.normal<
+      %img{:src => @user.avatar_path(:normal)}/
+    = link_to "修改头像", "/settings/avatar"
 
 - content_for :footers do
   = javascript_include_tag "plugin/validate", "dev/setting"

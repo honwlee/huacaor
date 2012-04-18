@@ -64,6 +64,24 @@ class SettingsController < ApplicationController
     flash[:notice] = flash_success("密码已通过短信发送，请重新登录")
     redirect_to login_path 
   end
-  
+
+  #################### Avatar ####################
+  def avatar
+    #@photo = Photo.new
+    @title = "修改头像"
+  end
+
+  def update_avatar
+    raise "缺少头像ID" if params[:avatar_id].blank?
+    avatar = Photo.find(params[:avatar_id])
+    avatar.update_attributes(params[:photo])
+    if current_user.avatar_id.nil?
+      current_user.points += POINTS['upload_avatar'].to_i
+    end
+    current_user.avatar_id = avatar.id
+
+    flash[:notice] = current_user.save ? flash_success : flash_error
+    redirect_to '/settings/avatar'
+  end
 
 end

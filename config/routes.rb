@@ -25,6 +25,24 @@ Huacaor::Application.routes.draw do
     resources :comments
   end
 
+  resource :settings do #登录／登出 个人头像
+    get :password
+    put :update_password
+    get :profile
+    put :update_profile
+    get :avatar
+    post :upload_avatar
+    put :update_avatar
+    get :forget_pwd
+    post :reset_pwd
+  end
+
+  resource :upload do #上传
+    get :fetch_photo
+    post :avatar
+    post :photo
+  end
+
   namespace :admin do
     resources :users
     resources :tags
@@ -34,12 +52,6 @@ Huacaor::Application.routes.draw do
 
     resources :plant_base_info 
   end
-
-  get '/settings/password'
-  post '/settings/update_password'
-  get '/settings/profile'
-  put '/settings/update_profile'
-  post '/settings/reset_pwd'
 
   root :to => 'home#index'
  

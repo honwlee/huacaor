@@ -1,10 +1,12 @@
-class Admin::TagsController < ApplicationController
-  layout "admin"
+class Admin::TagsController < Admin::BaseController
   
+  Cls = 'n2'
+
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
+    @cls = Cls
+    @tags = Tag.page(params[:page] || 1).per(Pagesize)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +17,7 @@ class Admin::TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.json
   def show
+    @cls = Cls
     @tag = Tag.find(params[:id])
 
     respond_to do |format|
@@ -26,6 +29,7 @@ class Admin::TagsController < ApplicationController
   # GET /tags/new
   # GET /tags/new.json
   def new
+    @cls = Cls
     @tag = Tag.new
 
     respond_to do |format|
@@ -36,6 +40,7 @@ class Admin::TagsController < ApplicationController
 
   # GET /tags/1/edit
   def edit
+    @cls = Cls
     @tag = Tag.find(params[:id])
   end
 

@@ -1,15 +1,19 @@
-class Admin::UsersController < ApplicationController
-  layout "admin"
+class Admin::UsersController < Admin::BaseController
 
+  Cls = "n1"
+  
   def index
-    @users = User.all
+    @cls = Cls
+    @users = User.page(params[:page] || 1).per(Pagesize)
   end
 
   def new
+    @cls = Cls
     @user = User.new
   end
 
   def edit
+    @cls = Cls
     @user = User.find(params[:id])
   end
 
