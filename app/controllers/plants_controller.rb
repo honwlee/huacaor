@@ -37,7 +37,6 @@ class PlantsController < ApplicationController
     # @genus_name = Hash[PlantBaseInfo.genus_name]
     @phylum_name = PlantBaseInfo.format_phylum_name
     @plant = Plant.find(params[:id])
-    @phylum_name = plant_base_info.find(params[:phylum_name])
   end
 
   def create

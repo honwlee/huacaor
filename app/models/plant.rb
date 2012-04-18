@@ -66,7 +66,7 @@ class Version
       :latin => plant_data[:latin_name],
       :english => plant_data[:english_name]}
     self.user_id = plant_data[:user_id]
-    self.description = plant_data.description
+    self.description = plant_data[:description]
     self.base_info_ids = {:phylum_id => plant_data[:phylum_name]}
     # Version.fields.keys.each do |field|
     #   # instance_eval("self.#{field} = #{plant_data[field.to_sym].to_s}") unless plant_data[field.to_sym].blank?

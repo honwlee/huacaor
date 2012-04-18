@@ -12,11 +12,11 @@
         = label_tag :zh_name, "中文名称：（选填）"
       %dd
         = text_field_tag :zh_name      
-
-      %dt
-        = label_tag :zh_name, "笔记：（选填）"
-      %dd
-        = text_area_tag "desc", "", {:style => "width:90%"}
+      -#
+        %dt
+          = label_tag :zh_name, "笔记：（选填）"
+        %dd
+          = text_area_tag "desc", "", {:style => "width:90%"}
 
       %dt.submit
         = submit_tag '保 存'
