@@ -18,18 +18,18 @@ class User
   index :is_admin
   index :name
   attr_accessor :password
-  before_save :encrypt_password
+  before_save :encrypt_password, :unless => 'password.blank?'
   #validates_presence_of :password, :on => :create
   #validates_presence_of :email
   #validates_uniqueness_of :email
 
-  validates :password, :presence => true, :on => :create
-  validates :email, :presence => true
-  validates :email, :uniqueness => true
+  #validates :password, :presence => true, :on => :create
+  #validates :email, :presence => true
+  #validates :email, :uniqueness => true
 
-  validates :name, :presence => {:message => "请输入名字"}
-  validates :name, :uniqueness => true
-  validates :username, :uniqueness => {:message => "此自定义URL已存在，请重新输入", :unless => "username.blank?"}
+  #validates :name, :presence => {:message => "请输入名字"}
+  #validates :name, :uniqueness => true
+  #validates :username, :uniqueness => {:message => "此自定义URL已存在，请重新输入", :unless => "username.blank?"}
 
   def encrypt_password  
     if password.present?  

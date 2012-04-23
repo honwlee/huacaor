@@ -31,6 +31,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
+gem 'oauth'
+gem 'yajl-ruby' # json解析
 
 # Gems used only for assets and not required
 # in production environments by default.
