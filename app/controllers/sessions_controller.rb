@@ -21,4 +21,5 @@ class SessionsController < ApplicationController
     flash[:notice] = flash_success("成功退出")
   end
 
+  
 end

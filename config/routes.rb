@@ -6,6 +6,9 @@ Huacaor::Application.routes.draw do
   get 'logout' => 'sessions#destroy', :as => 'logout'
 
   resources :sessions, :only => [:new, :create, :destroy]
+  resource :douban_services do
+    get :login
+  end
 
   resources :plant_base_info, :only => [:show]
 
