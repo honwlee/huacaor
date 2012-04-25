@@ -433,6 +433,20 @@ article{
   color:#ccc;
 }
 
+.choose-class{
+  @extend .clearfix;
+  li{
+    float:left;
+    padding-right:2em;
+    select{
+      height:30px;
+      line-height:30px;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+  }
+}
+
 /* /// login /// */
 #loginform{
   ul{
@@ -628,7 +642,7 @@ article{
     margin-bottom:10px;
   }
 }
-/* 修改头像 */
+/* avatar */
 .avatar-goback{
   display:inline-block;
   margin-top:20px;

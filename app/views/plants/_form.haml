@@ -20,18 +20,21 @@
     %dt
       = f.label :family, "属性："
     %dd
-      门
-      = f.select(:phylum_name, @phylum_name.map{|p| p },{:class => "i-text", :autocomplete => "off", :prompt => "---空---"})
-      纲
-      %select
-      目
-      %select
-      科
-      %select
-      亚科
-      %select
-      属
-      %select
+      %ul.choose-class
+        %li
+          = f.select(:phylum_name, @phylum_name.map{|p| p },{:autocomplete => "off", :prompt => "－－"})
+        %li
+          %select#pclass{:style => 'display:none'}
+            %option －－
+        %li
+          %select#porder_name{:style => 'display:none'}
+            %option －－
+        %li
+          %select#class_name{:style => 'display:none'}
+            %option －－
+        %li
+          %select#genus_name{:style => 'display:none'}
+            %option －－
 
     %dt
       = f.label :characteristic, "特征："

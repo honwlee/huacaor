@@ -7,6 +7,11 @@ $(function () {
     $('#search').toggle();
   });
 
+  // choose plants' characters
+  $('.choosebox a').click(function(){
+    $(this).toggleClass('choose');
+  });
+
   // plants' name
   $('.p-lists li, .p-slide ul li').hover(function () {
     $(this).find('.p-top').fadeTo(400, 0.8);

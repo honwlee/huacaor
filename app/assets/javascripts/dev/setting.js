@@ -75,5 +75,29 @@ $(function(){
     by.hide();
   });
 
+  // 获取科属
+  $('ul.choose-class select').live('change',function(){
+    var $this = $(this),
+        target = $this.parent().next().find('select');
+    
+    $.ajax({
+      cache: false,
+      url: '/plant_base_info/' + $(this).val(),
+      dataType: 'json',
+      error: function(){
+        alert('系统忙');
+      },
+      success: function(data){
+        target.html('<option>－－</option>');
+        $.each(data, function(i){
+          target.append('<option value="' + data[i].id + '">' + data[i].name.zh + '</option>');
+        });
+        target.show();
+        target.parent().nextAll().find('select').html('<option>－－</option>').hide();     
+      }
+    });
+    return false;
+  });
+
 });
 
