@@ -1,6 +1,6 @@
 # encoding: utf-8
 class PlantsController < ApplicationController
-
+  before_filter :login_required, :only => ["create","update"]
   def index
     @plants = Plant.all
 
@@ -53,7 +53,7 @@ class PlantsController < ApplicationController
 
   def update
     plant = Plant.find(params[:id])
-    params[:plant][:user_id] = User.first.id
+    params[:plant][:user_id] = current_user.id
 
     plant.update_by_params_data(params[:plant],params[:version_id])
     plant.save

@@ -15,7 +15,7 @@ class PicturesController < ApplicationController
     picture = Picture.create_picture(
       :filedata => params[:filedata],
       :user_id => current_user.id,
-      :desc => params[:desc].strip || ""
+      :desc => params[:desc].strip
     )
 
     unless params[:plant_zh_name].blank?
