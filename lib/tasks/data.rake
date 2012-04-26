@@ -1,3 +1,4 @@
+# encoding: utf-8
 namespace :data do
   task :init => ['environment'] do
     puts "The current environment is #{Rails.env}"

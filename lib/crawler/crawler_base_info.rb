@@ -1,4 +1,4 @@
-require 'ftools'
+# encoding: utf-8
 require 'nokogiri'
 require "open-uri"
 require "pp"

@@ -1,5 +1,4 @@
 # encoding: utf-8
-# encoding: utf-8
 class DealWithDir
   def initialize(path)
     @path = path || `pwd`.chomp

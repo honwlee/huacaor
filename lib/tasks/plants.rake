@@ -1,5 +1,5 @@
-#coding: utf-8
-require 'ftools'
+# encoding: utf-8
+require 'fileutils'
 require 'nokogiri'
 require "open-uri"
 require "pp"

@@ -1,3 +1,4 @@
+# encoding: utf-8
 Huacaor::Application.routes.draw do
   get "sessions/new"
 

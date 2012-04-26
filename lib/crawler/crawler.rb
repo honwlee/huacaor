@@ -1,4 +1,5 @@
-require 'ftools'
+# encoding: utf-8
+require 'fileutils'
 require 'nokogiri'
 require "open-uri"
 require "pp"
@@ -21,7 +22,7 @@ require "httpclient"
 class Crawler
   def initialize(url)
     @path = "/Users/vitoli/myspace/ISpace/pictures/#{Time.now.strftime("%d")}"
-    File.makedirs @path unless File.exist? @path
+    FileUtils.mkdir @path unless File.exist? @path
     data = Nokogiri::HTML open(url + "&pn=0")
     #File.open(@path + "/data1.txt", "wb"){ |f| f.write data}
     data.search("div#resultInfo").each{ |d| @size = /(\w)(.)+(\w)/.match(d.content)[0].delete(',')}
