@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'lib/shared_methods/instance_methods.rb'
+require File.join(Rails.root,'lib/shared_methods/instance_methods.rb')
 class PlantBaseInfo
   include InstanceMethods
   include Mongoid::Document
