@@ -1,3 +1,4 @@
+# encoding: utf-8
 class PlantBaseInfoController < ApplicationController
   def index
     @plant_base_info = PlantBaseInfo.page(params[:page] || 1).per(Pagesize)
