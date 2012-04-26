@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::PlantBaseInfoController < Admin::BaseController
   layout "admin"
   Cls = 'n3'
