@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UploadsController < ApplicationController
   #include ProxiesHelper
   skip_before_filter :verify_authenticity_token
