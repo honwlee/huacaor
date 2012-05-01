@@ -14,10 +14,6 @@
   background:#fff;
   height:50px;
   box-shadow: 0 0 5px #dedede;
-  .ico{
-    height:30px;
-    width:30px;
-  }
   .avar{
     float:left;
     width:50px;
@@ -196,12 +192,19 @@ a.more{
   background:#fff;
   text-align:center;
 }
+.character{
+  @extend .contact;
+}
 .plant-info{
   @extend .person-info;
   margin:20px auto;
-}
-.character{
-  @extend .contact;
+  height:auto;
+  .character{
+    padding:3px 0 1px 20px;
+  }
+  ul li{
+    padding-bottom:8px;
+  }
 }
 .content{
   @extend .clearfix;
@@ -237,6 +240,9 @@ a.more{
 article{
   padding:20px;
   line-height:1.6em;
+}
+#description{
+  @extend #comment;
 }
 
 // comment

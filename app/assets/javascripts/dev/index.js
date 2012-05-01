@@ -12,7 +12,7 @@ $(function () {
     $(this).toggleClass('choose');
   });
 
-  // plants' name
+  // show plants' name
   $('.p-lists li, .p-slide ul li').hover(function () {
     $(this).find('.p-top').fadeTo(400, 0.8);
   }, function () {
@@ -39,6 +39,31 @@ $(function () {
     }else{
       by.removeClass('ico-ui-unfollow').addClass('ico-ui-follow');
     }
+  });
+
+  // edit photo's description
+  $('.edit-description').click(function(){
+    var by = $(this),
+        description = $('.description'),
+        text = description.text();
+    if(by.text() == "[编辑]"){
+      $(this).text('[取消]');
+      description.after('<div id="description"><textarea class="comm-content">'+ text +'</textarea>' + 
+                       '<button type="submit" id="save-descrption">保存</button></div>');
+      description.hide();
+    }else{
+      $(this).text('[编辑]');
+      $('#description').remove();
+      description.show();
+    }
+    
+    $('#save-descrption').click(function(){
+      var by = $(this);
+      description.html(by.prev().val()).show();
+      by.parent().remove();
+      $(this).text('[编辑]');
+    });
+    // 此处应为ajax，求后台数据支援
   });
 
 });
