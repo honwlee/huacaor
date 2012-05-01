@@ -20,8 +20,8 @@
           %a.cancel{:href => "/"} 取消
     
     %a.change-avatar{:href => ""} 换个新头像
-    = form_tag "/upload/photo", :multipart => true, :target =>"doIframe", :id => "upform" do
-      = file_field :photo, :image
+    = form_tag "/upload/avatar", :multipart => true, :target =>"doIframe", :id => "upform" do
+      = file_field :avatar, :image
     .uploading<
       %img{:src => "/loading.gif"}/
       正在上传...
