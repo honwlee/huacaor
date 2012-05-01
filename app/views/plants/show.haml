@@ -11,6 +11,9 @@
   - else
     | 
     = @plant.latin_name
+
+  = link_to "[鉴定]", edit_plant_path(@plant)
+
 .plant
   = link_to image_tag(@plant.picture_path, :alt => "@plant.zh_name"), "#"
   .slide-nav
@@ -20,15 +23,18 @@
   .lt
     .character
       .ico-flower-h6.ico{:title => "乔木"}
+        = link_to "乔木", "#"
       .ico-flower-fwmouth.ico{:title => "唇形"}
       .ico-flower-red.ico{:title => "红花"}
   .rt
     %ul
       %li
-        %em> 木兰科
+        %em> 
+          = link_to "木兰科", "#"
         latin
       %li
-        %em> 其它属
+        %em>
+          = link_to "木兰属", "#"
         latin
       %li
         %em> 783
@@ -43,8 +49,9 @@
         %p
           = link_to "人名", "/user"
           2012-1-22 LX5 于上海
-        %div
-          发布者说明
+          = link_to "[编辑]", "javascript:void(0);" , :class => "edit-description"
+        .description
+          发布者说明。
     %article
       %p
         - if @plant.description.blank?
@@ -60,8 +67,9 @@
   .content-right
     .p-slide
       .p-slide-nav
-        .left-nav
+        /.left-nav
         .right-nav
+          = link_to '', "#"
       .p-t 发布者的其它笔记
       /repeat 10
       %ul
@@ -69,12 +77,13 @@
 
     .p-slide
       .p-slide-nav
-        .left-nav
+        /.left-nav
         .right-nav
+          = link_to '','#'
       .p-t 同科植物
       /repeat 10
       %ul
-        /= render 'slide'
+        / = render 'slide'
 
     .copyright
       .publisher
@@ -87,9 +96,9 @@
           的笔记
           %br/
           共同编辑：
-          %a{:href => "notebook.html", :title => "九间"}> 九间
+          %a{:href => "/user", :title => "九间"}> 九间
           、
-          %a{:href => "notebook.html", :title => "九间"} 九间
+          %a{:href => "/user", :title => "九间"} 九间
           /= succeed "\u{7248}\u{6743}\u{6240}\u{6709}\u{ff0c}\u{4e0d}\u{5f97}\u{80e1}\u{6765}" do
 
 %p#notice= notice
