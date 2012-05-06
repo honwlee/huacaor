@@ -57,7 +57,7 @@ class PlantsController < ApplicationController
 
     plant.update_by_params_data(params[:plant],params[:version_id])
     plant.save
-    redirect_to plants_path
+    redirect_to plant_path(params[:id])
   end
 
   def destroy

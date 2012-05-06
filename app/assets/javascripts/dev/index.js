@@ -49,21 +49,29 @@ $(function () {
     if(by.text() == "[编辑]"){
       $(this).text('[取消]');
       description.after('<div id="description"><textarea class="comm-content">'+ text +'</textarea>' + 
-                       '<button type="submit" id="save-descrption">保存</button></div>');
+                       '<button type="submit" id="descrption-btn">保存</button></div>');
       description.hide();
     }else{
-      $(this).text('[编辑]');
       $('#description').remove();
       description.show();
+      $(this).text('[编辑]');
     }
     
-    $('#save-descrption').click(function(){
+    $('#descrption-btn').click(function(){
       var by = $(this);
       description.html(by.prev().val()).show();
       by.parent().remove();
-      $(this).text('[编辑]');
+      $('.edit-description').text('[编辑]');
     });
     // 此处应为ajax，求后台数据支援
   });
+
+  // comment
+  $('#comment-btn').click(function(){
+    var by = $(this);
+        text = by.prev().val();
+    // 此处应为ajax，求后台数据支援
+  });
+  
 
 });

@@ -67,14 +67,14 @@ class SettingsController < ApplicationController
 
   #################### Avatar ####################
   def avatar
-    #@photo = Photo.new
+    @avatar = Avatar.new
     @title = "修改头像"
   end
 
   def update_avatar
     raise "缺少头像ID" if params[:avatar_id].blank?
-    avatar = Photo.find(params[:avatar_id])
-    avatar.update_attributes(params[:photo])
+    avatar = Avatar.find(params[:avatar_id])
+    avatar.update_attributes(params[:avatar])
     if current_user.avatar_id.nil?
       current_user.points += POINTS['upload_avatar'].to_i
     end
