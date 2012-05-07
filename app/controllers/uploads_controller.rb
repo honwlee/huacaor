@@ -3,6 +3,26 @@ class UploadsController < ApplicationController
   #include ProxiesHelper
   skip_before_filter :verify_authenticity_token
 
+  def avatar
+    raise "需要头像图片" if params[:avatar].blank?
+    #return logger.debug request.raw_post
+    avatar = Avatar.new(params[:avatar])
+    avatar.save!
+
+    origin_path = avatar.image.url(:original)
+    origin_geometry = Paperclip::Geometry.from_file(avatar.image.path(:original))
+    origin = { :src => origin_path, :width => origin_geometry.width, :height => origin_geometry.height }
+
+    pagesize_path = avatar.image.url(:page_size)
+    pagesize_geometry = Paperclip::Geometry.from_file(avatar.image.path(:page_size))
+    pagesize = { :width => pagesize_geometry.width, :height => pagesize_geometry.height }
+
+    render :text => '{response}' + { :status => true, :id => avatar.id, :origin => origin, :page_size => pagesize }.to_json.to_s + '{/response}'
+  rescue StandardError => error
+    render :text => '{response}' + { :status => false, :message => error.to_s }.to_json.to_s + '{/response}'
+  end
+
+=begin
   def photo
     raise "需要头像图片" if params[:photo].blank?
 		#return logger.debug request.raw_post
@@ -34,5 +54,5 @@ class UploadsController < ApplicationController
   rescue StandardError => error
     render :text => '{response}' + { :status => false, :message => error }.to_json.to_s + '{/response}'
   end
-
+=end
 end

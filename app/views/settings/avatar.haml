@@ -8,22 +8,18 @@
       .avatar.normal<
         %img{:src => current_user.avatar_path(:normal)}/
     
-      = form_for "", :url => update_avatar_settings_path, :html => {:id => "up-avatar", :method => "put", :style => "display:none;"} do |f|
+      = form_for @avatar, :url => update_avatar_settings_path, :html => {:id => "up-avatar", :method => "put", :style => "display:none;"} do |f|
         = hidden_field_tag :avatar_id
-        = f.hidden_field :crop_x, :id => "crop_x"
-        = f.hidden_field :crop_y, :id => "crop_y"
-        = f.hidden_field :crop_w, :id => "crop_w"
-        = f.hidden_field :crop_h, :id => "crop_h"
+
         %p.submit
-          %span.ui-btn<
-            %button{:type => "submit"} 保 存
+          %button{:type => "submit"} 保 存
           %a.cancel{:href => "/"} 取消
     
     %a.change-avatar{:href => ""} 换个新头像
-    = form_tag "/upload/photo", :multipart => true, :target =>"doIframe", :id => "upform" do
-      = file_field :photo, :image
+    = form_tag "/upload/avatar", :multipart => true, :target =>"doIframe", :id => "upform" do
+      = file_field :avatar, :image
     .uploading<
-      %img{:src => "/loading.gif"}/
+      %img{:src => "/assets/loading.gif"}/
       正在上传...
 
   %iframe.hidden{:name => "doIframe"}
@@ -31,4 +27,4 @@
   = link_to "返回帐户设置", "/settings/profile" , :class => "avatar-goback"
   
 - content_for :footers do
-  = javascript_include_tag "dev/avatar"
+  = javascript_include_tag "plugin/jquery.jcrop.min", "dev/avatar"

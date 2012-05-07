@@ -1,10 +1,8 @@
 # encoding: utf-8
 class User
   include Mongoid::Document
-  has_many :pictures 
-  has_many :comments
-  has_many :plants
-
+  include Mongoid::Timestamps
+  
   field :email, :type => String
   field :password_hash, :type => String
   field :password_salt, :type => String
@@ -15,6 +13,11 @@ class User
   field :desc, :type => String
   field :is_admin, :type => Boolean
   field :douban_uid, :type => String
+
+  has_many :pictures 
+  has_many :comments
+  has_many :plants
+  has_one :avatar
 
   index :is_admin
   index :name
