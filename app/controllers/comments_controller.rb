@@ -1,77 +1,24 @@
 # encoding: utf-8
 class CommentsController < ApplicationController
-
-  def index
-    @comments = Comment.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @comments }
-    end
-  end
-
-  def show
-    @comment = Comment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @comment }
-    end
-  end
-
-  def new
-    @comment = Comment.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @comment }
-    end
-  end
-
-  def edit
-    @comment = Comment.find(params[:id])
-  end
-
+  before_filter :login_required
+  # plants/id/notes/id/
   def create
-    @comment = Comment.new(params[:comment])
-    @comment.user_id = current_user.id
-
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, :notice => 'Comment was successfully created.' }
-        format.json { render :json => @comment, :status => :created, :location => @comment }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @comment.errors, :status => :unprocessable_entity }
-      end
-    end
+    plant = Plant.find(params[:plant_id])
+    note = Note.find(params[:note_id])
+    comment = Comment.new(:content => params[:content])
+    comment.user = current_user
+    note.comments << comment
+    comment.save
+    note.save
+    render :partial => '/plants/comment_item', :locals => {:comment_item => comment}
   end
-
-  # PUT /comments/1
-  # PUT /comments/1.json
-  def update
-    @comment = Comment.find(params[:id])
-
-    respond_to do |format|
-      if @comment.update_attributes(params[:comment])
-        format.html { redirect_to @comment, :notice => 'Comment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @comment.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /comments/1
-  # DELETE /comments/1.json
+  
+  # plants/id/notes/id/comments/id
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-
-    respond_to do |format|
-      format.html { redirect_to comments_url }
-      format.json { head :no_content }
-    end
+    plant = Plant.find(params[:plant_id])
+    note = Note.find(params[:note_id]) 
+    comment = note.comments.find(params[:id])
+    comment.destroy
+    render :json => {:result => true}
   end
 end

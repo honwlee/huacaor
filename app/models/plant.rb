@@ -75,7 +75,7 @@ class Version
   end
 
   def base_info_name
-    base_info_ids.nil? ? [] : PlantBaseInfo.find(base_info_ids.values).only('name').collect{|p|p.name['zh']}
+    base_info_ids.nil? ? [] : PlantBaseInfo.where(:id.in => base_info_ids.values).only('name').collect{|p|p.name['zh']}
   end
 end
 
