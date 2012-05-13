@@ -1,0 +1,10 @@
+%li{:id => comment_item.id}
+  %p.cnt
+    = link_to comment_item.doc_user.user_realname, "#{host_uri['user_uri']}/users/#{comment_item.doc_user.user_id}/tweets"
+    != " - "
+    %em= comment_item.content
+  .pub-info
+    %span.time= date_time comment_item.updated_at
+    - if @doc_user.is_admin || @doc_user == comment_item.doc_user
+      %span.actions<
+        %a.del{:href => "#", :data => {:type => "comment"}} 删除

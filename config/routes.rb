@@ -26,7 +26,9 @@ Huacaor::Application.routes.draw do
   resources :pictures
 
   resources :plants do
-    resources :comments
+    resources :notes do
+      resources :comments, :only => ['create', 'destroy']
+    end
   end
 
   resource :settings do #登录／登出 个人头像
@@ -62,5 +64,5 @@ Huacaor::Application.routes.draw do
   match "/about" => "home#about"
   match "/forgot_pwd" => "settings#forget_pwd"
   match "/images/uploads/*path" => "gridfs#serve"
-  match ":user_name" => "users#show"
+  match "/h/:user_name" => "users#show"
 end

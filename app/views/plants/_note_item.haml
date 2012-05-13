@@ -1,0 +1,17 @@
+%li{:id => note_item.id}
+  .user-avatar
+    %a.avatar-32{:href => "#{host_uri['user_uri']}/users/#{note_item.doc_user.user_id}/tweets"}<
+      %img{:src => "#{note_item.doc_user.avatar_path}", :alt => note_item.doc_user.user_realname}
+  %p.cnt
+    %span
+      = link_to note_item.doc_user.user_realname, "#{host_uri['user_uri']}/users/#{note_item.doc_user.user_id}/tweets", :class => "nowrap"
+      != ":"
+    %em= note_item.note
+  %p.info
+    %span.time= date_time note_item.updated_at
+    来自网页
+    %span.actions<
+      - if @doc_user.is_admin || @doc_user == note_item.doc_user 
+        %a.del{:href => "#", :data => {:type => "note"}} 删除
+        = link_to "编辑", "#", :class => "edit"
+      = link_to sanitize("评论(<em>#{note_item.comments.count}</em>)"), "#", :class => "comment"
