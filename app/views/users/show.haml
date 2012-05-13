@@ -1,7 +1,7 @@
 .person-info
   .lt
     .avar
-      = image_tag("http://placehold.it/50x50", :alt => "人名")
+      = image_tag(@user.avatar_path(:medium), :alt => "人名")
     %h1 人名
     /
       .contact
