@@ -10,6 +10,10 @@
     
       = form_for @avatar, :url => update_avatar_settings_path, :html => {:id => "up-avatar", :method => "put", :style => "display:none;"} do |f|
         = hidden_field_tag :avatar_id
+        = f.hidden_field :crop_x, :id => "crop_x"
+        = f.hidden_field :crop_y, :id => "crop_y"
+        = f.hidden_field :crop_w, :id => "crop_w"
+        = f.hidden_field :crop_h, :id => "crop_h"
 
         %p.submit
           %button{:type => "submit"} 保 存

@@ -1,6 +1,6 @@
 source 'http://ruby.taobao.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '~>3.2.3'
 
 # 除Rails外，其余按字母顺序排列
 gem 'bcrypt-ruby', :require => 'bcrypt' #To use ActiveModel has_secure_password
@@ -23,7 +23,7 @@ gem 'mongoid','~> 2.4'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'nokogiri'
 gem 'oauth'
-# gem 'paperclip', "~> 3.0"
+gem 'paperclip', "~> 3.0"
 gem 'sass'
 gem 'solr-ruby'
 gem 'yajl-ruby' # json解析

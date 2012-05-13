@@ -13,11 +13,14 @@ class User
   field :desc, :type => String
   field :is_admin, :type => Boolean
   field :douban_uid, :type => String
+  field :avatar_id, :type => Integer
 
   has_many :pictures 
   has_many :comments
   has_many :plants
-  has_one :avatar
+  #has_one :avatar
+  #embeds_one :avatar
+  belongs_to :avatar
 
   index :is_admin
   index :name
@@ -64,6 +67,7 @@ class User
   end
 
   def avatar_path(mode=:medium)
-    return "http://placehold.it/50x50"
+    return "http://placehold.it/50x50"  if self.avatar.blank?
+    return self.avatar.image.url(mode)
   end
 end
