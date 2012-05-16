@@ -1,7 +1,8 @@
 # encoding: utf-8
 class HomeController < ApplicationController
   def index
-    @plants = Plant.order_by([:created_at, :desc]).limit(10)
+    #@plants = Plant.order_by([:created_at, :desc]).limit(10)
+    @pictures = Picture.all.includes(:plant).order_by([:created_at, :desc]).limit(10)
 
     respond_to do |format|
       format.html # index.html.erb
