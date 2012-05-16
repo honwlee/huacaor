@@ -5,6 +5,9 @@
         %a{:href => plant_path(p.id)}
           .p-top
             .class 
-            .name #{p.zh_name}
+            - if p.zh_name.blank?
+              .name 待鉴定
+            - else
+              .name #{p.zh_name}
 
           = image_tag(p.picture_path(:medium), :alt => p.zh_name)
