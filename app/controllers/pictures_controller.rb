@@ -12,11 +12,13 @@ class PicturesController < ApplicationController
       redirect_to new_picture_path and return
     end
 
-    picture = Picture.create_picture(
-      :filedata => params[:filedata],
+    picture = Picture.new(
+      :image => params[:filedata],
       :user_id => current_user.id,
-      :desc => params[:desc].strip
+      :desc => params[:desc].strip,
+      :usage => Picture::FOR_PLANTS
     )
+    picture.save
 
     unless params[:plant_zh_name].blank?
       n = params[:plant_zh_name]

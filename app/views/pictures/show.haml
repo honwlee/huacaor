@@ -1,18 +1,14 @@
 .title
-  - if @plant.zh_name.blank?
-    %b 未知
-  - else
-    %b= @plant.zh_name
-
-  - if @plant.english_name.blank?
+  %b= @picture.plant_name
+  - if @plant.blank? || @plant.english_name.blank?
   - else
     = @plant.english_name
-  - if @plant.latin_name.blank?
+  - if @plant.blank? || @plant.latin_name.blank?
   - else
     | 
     = @plant.latin_name
 .plant
-  = link_to image_tag(@picture.image.url, :alt => "@plant.zh_name"), "#"
+  = link_to image_tag(@picture.image.url(:page_size), :alt => "@plant.zh_name"), "#"
   .slide-nav
     .left-nav
     .right-nav
@@ -44,14 +40,17 @@
           = link_to @user.name, @user.link
           2012-1-22 LX5 于上海
         %div
-          -#= @picture.desc
+          = @picture.desc
     %article
       %p
         -# if @plant.descript.blank?
           暂无介绍噢。
         -# else
           -#= @plant.descript
-        = link_to "[编辑]", edit_plant_path(@plant)
+        - if @plant.blank?
+          = link_to "[编辑]", new_plant_path
+        - else
+          = link_to "[编辑]", edit_plant_path(@plant)
     %h3.comment-title 评论
     %ul.comments
       = render 'plants/comm'

@@ -2,13 +2,11 @@
   %ul.p-lists
     - @pictures.each do |p|
       - plant = p.plant
+
       %li
         %a{:href => picture_path(p.id)}
           .p-top
             .class 
-            - if plant.zh_name.blank?
-              .name 待鉴定
-            - else
-              .name #{plant.zh_name}
+              .name= p.plant_name
 
-          = image_tag(p.image.url(:medium), :alt => plant.zh_name)
+          = image_tag(p.image.url(:medium), :alt => p.plant_name)

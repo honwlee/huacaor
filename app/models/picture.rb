@@ -23,4 +23,15 @@ class Picture
     return picture
   end
 
+  def plant_name
+    plant = self.plant
+    if plant.blank?
+      return "待鉴定"
+    elsif plant.zh_name.blank?
+      return "未知"
+    else
+      return plant.zh_name
+    end
+  end
+
 end
