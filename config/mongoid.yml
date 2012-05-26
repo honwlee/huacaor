@@ -1,14 +1,17 @@
 development:
   host: localhost
   database: huacaor_development
+  identity_map_enabled: true
 
 test:
   host: localhost
   database: huacaor_test
+  identity_map_enabled: true
 
 # set these environment variables on your prod server
 production:
   uri: <%= ENV['MONGOHQ_URL'] %>
+  identity_map_enabled: true
   # slaves:
   #   - host: slave1.local
   #     port: 27018

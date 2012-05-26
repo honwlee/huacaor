@@ -45,7 +45,8 @@ class PlantsController < ApplicationController
     plant.save
 
     unless params[:filedata].blank?
-      picture = Picture.create_picture(params[:filedata])
+
+      picture = Picture.create_picture(params[:filedata], :user_id => current_user.id)
       plant.pictures << picture
     end
     redirect_to edit_plant_path(plant, :version_id => version_id) 
