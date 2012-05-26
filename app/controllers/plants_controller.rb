@@ -54,7 +54,6 @@ class PlantsController < ApplicationController
   def update
     plant = Plant.find(params[:id])
     params[:plant][:user_id] = current_user.id
-
     plant.update_by_params_data(params[:plant],params[:version_id])
     plant.save
     redirect_to plant_path(params[:id])
