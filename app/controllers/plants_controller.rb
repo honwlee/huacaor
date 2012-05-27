@@ -1,6 +1,6 @@
 # encoding: utf-8
 class PlantsController < ApplicationController
-  before_filter :login_required, :only => ["create","update"]
+  before_filter :login_required, :except => ['show','index']#, :only => ["new","create","update"]
   def index
     @plants = Plant.all
 
@@ -37,11 +37,13 @@ class PlantsController < ApplicationController
     # @genus_name = Hash[PlantBaseInfo.genus_name]
     @phylum_name = PlantBaseInfo.format_phylum_name
     @plant = Plant.find(params[:id])
+    @version_id = @plant.user_version_id(current_user.id)
   end
 
   def create
     plant = Plant.new
-    version_id = plant.update_by_params_data(params)
+    params[:plant][:user_id] = current_user.id
+    version_id = plant.update_by_params_data(params[:plant])
     plant.save
 
     unless params[:filedata].blank?

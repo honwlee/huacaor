@@ -3,7 +3,7 @@ require File.join(Rails.root,'lib/shared_methods/instance_methods.rb')
 class PlantBaseInfo
   include InstanceMethods
   include Mongoid::Document
-  # has_and_belongs_to_many :plants
+  has_and_belongs_to_many :plants
 	field :name, :type => Hash
 	field :usage, :type => Integer, :default => 0 #1(亚)
 	field :parent_id, :type => Integer

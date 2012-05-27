@@ -21,9 +21,7 @@ class PicturesController < ApplicationController
     picture.save
 
     unless params[:plant_zh_name].blank?
-      n = params[:plant_zh_name]
-      plant = Plant.where(:zh_name => n).first
-      plant = Plant.create(:zh_name => n) if plant.blank?
+      plant = Plant.find_or_create_by_user_id_and_name(params[:plant_zh_name],current_user.id,params[:desc])
       plant.pictures << picture
       redirect_to edit_plant_path(plant) and return
     end

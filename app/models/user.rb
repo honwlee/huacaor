@@ -17,7 +17,7 @@ class User
 
   has_many :pictures 
   has_many :comments
-  has_many :plants
+  #has_many :plants
   #has_one :avatar
   #embeds_one :avatar
   belongs_to :avatar
