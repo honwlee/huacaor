@@ -27,6 +27,9 @@ gem 'paperclip', "~> 3.0"
 gem 'sass'
 gem 'solr-ruby'
 gem 'yajl-ruby' # json解析
+gem 'capistrano'
+gem 'therubyracer'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

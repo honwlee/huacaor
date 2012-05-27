@@ -58,7 +58,7 @@ class Plant
 
   BASE_INFO.each do |b_i|
     define_method b_i[0] do 
-      instance_eval("self.hot_version && self.hot_version.base_info_name.select{|n| n.match(/b_i[1]$/)}")
+      instance_eval("self.hot_version && self.hot_version.base_info_name.select{|n| n.match(/#{b_i[1]}$/)}")
     end
   end
 
@@ -93,7 +93,7 @@ class Version
   end
 
   def base_info_name
-    base_info_ids.nil? ? [] : PlantBaseInfo.where(:id.in => base_info_ids.values).only('name').collect{|p|p.name['zh']}
+    base_info_ids.nil? ? [] : PlantBaseInfo.where(:_id.in => base_info_ids.values).only('name').collect{|p|p.name['zh']}
   end
 end
 
