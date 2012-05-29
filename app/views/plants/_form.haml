@@ -48,6 +48,7 @@
       = f.text_area :description, :style => "width:90%", :autocomplete => "off"
 
       = hidden_field_tag "version_id", @version_id
+      = hidden_field_tag "picture_id", params[:picture_id]
       
     %dd.submit
       = f.submit '保 存'

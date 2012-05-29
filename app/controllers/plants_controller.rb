@@ -46,12 +46,13 @@ class PlantsController < ApplicationController
     version_id = plant.update_by_params_data(params[:plant])
     plant.save
 
-    unless params[:filedata].blank?
-
-      picture = Picture.create_picture(params[:filedata], :user_id => current_user.id)
+    unless params[:picture_id].blank?
+      picture = Picture.find(params[:picture_id])
       plant.pictures << picture
     end
-    redirect_to edit_plant_path(plant, :version_id => version_id) 
+    return redirect_to picture_path(params[:picture_id]) unless params[:picture_id].blank?
+    redirect_to plant_path(params[:id])
+    # redirect_to edit_plant_path(plant, :version_id => version_id) 
   end
 
   def update
@@ -59,6 +60,7 @@ class PlantsController < ApplicationController
     params[:plant][:user_id] = current_user.id
     plant.update_by_params_data(params[:plant],params[:version_id])
     plant.save
+    return redirect_to picture_path(params[:picture_id]) unless params[:picture_id].blank?
     redirect_to plant_path(params[:id])
   end
 

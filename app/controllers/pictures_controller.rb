@@ -23,7 +23,7 @@ class PicturesController < ApplicationController
     unless params[:plant_zh_name].blank?
       plant = Plant.find_or_create_by_user_id_and_name(params[:plant_zh_name],current_user.id,params[:desc])
       plant.pictures << picture
-      redirect_to edit_plant_path(plant) and return
+      redirect_to edit_plant_path(plant,:picture_id => picture.id) and return
     end
 
     redirect_to picture_path(picture) 

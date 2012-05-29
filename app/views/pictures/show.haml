@@ -48,9 +48,9 @@
         -# else
           -#= @plant.descript
         - if @plant.blank?
-          = link_to "[编辑]", new_plant_path
+          = link_to "[编辑]", new_plant_path(:picture_id => @picture.id)
         - else
-          = link_to "[编辑]", edit_plant_path(@plant)
+          = link_to "[编辑]", edit_plant_path(@plant,:picture_id => @picture.id)
     %h3.comment-title 评论
     %ul.comments
       = render 'plants/comm'
