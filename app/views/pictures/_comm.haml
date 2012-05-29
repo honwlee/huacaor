@@ -1,15 +1,4 @@
 = render :partial => "pictures/comment_item", :collection => @picture.comments, :as => :comment
-- @picture.comments.each do |c|
-  - u = c.user
-  %li
-    .lp
-      = link_to image_tag(u.avatar_path, :alt => u.name), u.link
-    .rp
-      %p
-        = link_to u.name, u.link
-        = c.content
-      %p.date c.created_at
-
 
 %li#comment-li
   .lp
