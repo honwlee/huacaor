@@ -4,19 +4,19 @@ class Note
   include Mongoid::Timestamps
   belongs_to :user
   belongs_to :plant
-  embeds_many :comments
+  # embeds_many :comments
 
   field :content, :type => String
 
 end
 
-class Comment
-  include Mongoid::Document
-  include Mongoid::Timestamps
-  belongs_to :user
+# class Comment
+#   include Mongoid::Document
+#   include Mongoid::Timestamps
+#   belongs_to :user
 
-  embedded_in :note
+#   embedded_in :note
 
-  field :content, :type => String
+#   field :content, :type => String
 
-end
+# end

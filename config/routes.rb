@@ -23,11 +23,13 @@ Huacaor::Application.routes.draw do
 
   resources :users
 
-  resources :pictures
+  resources :pictures do
+    resources :comments, :only => [:creaet, :destroy]
+  end
 
   resources :plants do
     resources :notes do
-      resources :comments, :only => ['create', 'destroy']
+      # resources :comments, :only => ['create', 'destroy']
     end
   end
 

@@ -1,18 +1,22 @@
 # encoding: utf-8
 class Picture
-  FOR_PLANTS = 0 
-  FOR_USER = 1
   include Mongoid::Document
   include Mongoid::Timestamps
-  belongs_to :plant
-  belongs_to :user
+
+  FOR_PLANTS = 0 
+  FOR_USER = 1
 
   field :usage, :type => Integer, :default => FOR_PLANTS 
   # field :desc, :type => String
 
+  index :usage
+
+  belongs_to :plant
+  belongs_to :user
+  embeds_many :comments
+
   mount_uploader :image, ImageUploader
 
-  index :usage
 
   def self.create_picture(filedata,usage=0)
     picture = Picture.new
