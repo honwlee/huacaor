@@ -4,15 +4,17 @@
   - else
     %b= @plant.zh_name
 
-  - if @plant.english_name.blank?
-  - else
+  - if @plant.english_name
     = @plant.english_name
   - if @plant.latin_name.blank?
   - else
     | 
     = @plant.latin_name
 
-  = link_to "[鉴定]", edit_plant_path(@plant)
+  - if @plant.blank?
+    = link_to "[鉴定]", new_plant_path(:picture_id => @picture.id)
+  - else
+    = link_to "[鉴定]", edit_plant_path(@plant,:picture_id => @picture.id)
 
 .plant
   = link_to image_tag(@plant.picture_path, :alt => "@plant.zh_name"), "#"
@@ -44,21 +46,21 @@
   .content-left
     .photo-info
       .lp
-        = link_to image_tag("http://placehold.it/50x50", :alt => "人名"), "/user"
+        = link_to image_tag(@user.avatar_path, :alt => @user.name), @user.link
       .rp
         %p
-          = link_to "人名", "/user"
+          = link_to @user.name, @user.link
           2012-1-22 LX5 于上海
           &nbsp;
           = link_to "[编辑]", "javascript:void(0);" , :class => "edit-description"
         .description
-          发布者说明。
+          = @picture.desc
     %article
       %p
         - if @plant.description.blank?
           暂无介绍噢。
         - else
-          = @plant.descript
+          = @plant.description
         - if @plant.blank?
           = link_to "[编辑]", new_plant_path(:picture_id => @picture.id)
         - else
