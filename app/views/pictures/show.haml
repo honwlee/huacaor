@@ -1,14 +1,21 @@
 .title
-  %b= @picture.plant_name
-  - if @plant.blank? || @plant.english_name.blank?
+  - if @plant.zh_name.blank?
+    %b 待鉴定
+  - else
+    %b= @plant.zh_name
+
+  - if @plant.english_name.blank?
   - else
     = @plant.english_name
-  - if @plant.blank? || @plant.latin_name.blank?
+  - if @plant.latin_name.blank?
   - else
     | 
     = @plant.latin_name
+
+  = link_to "[鉴定]", edit_plant_path(@plant)
+
 .plant
-  = link_to image_tag(@picture.image.url(:page_size), :alt => "@plant.zh_name"), "#"
+  = link_to image_tag(@plant.picture_path, :alt => "@plant.zh_name"), "#"
   .slide-nav
     .left-nav
     .right-nav
@@ -16,15 +23,18 @@
   .lt
     .character
       .ico-flower-h6.ico{:title => "乔木"}
+        = link_to "乔木", "#"
       .ico-flower-fwmouth.ico{:title => "唇形"}
       .ico-flower-red.ico{:title => "红花"}
   .rt
     %ul
       %li
-        %em> 木兰科
+        %em> 
+          = link_to "木兰科", "#"
         latin
       %li
-        %em> 其它属
+        %em>
+          = link_to "木兰属", "#"
         latin
       %li
         %em> 783
@@ -34,19 +44,21 @@
   .content-left
     .photo-info
       .lp
-        = link_to image_tag(@user.avatar_path, :alt => @user.name), @user.link
+        = link_to image_tag("http://placehold.it/50x50", :alt => "人名"), "/user"
       .rp
         %p
-          = link_to @user.name, @user.link
+          = link_to "人名", "/user"
           2012-1-22 LX5 于上海
-        %div
-          = @picture.desc
+          &nbsp;
+          = link_to "[编辑]", "javascript:void(0);" , :class => "edit-description"
+        .description
+          发布者说明。
     %article
       %p
-        -# if @plant.descript.blank?
+        - if @plant.description.blank?
           暂无介绍噢。
-        -# else
-          -#= @plant.descript
+        - else
+          = @plant.descript
         - if @plant.blank?
           = link_to "[编辑]", new_plant_path(:picture_id => @picture.id)
         - else
@@ -55,25 +67,26 @@
     %ul.comments
       = render 'pictures/comm'
 
-
   .content-right
     .p-slide
       .p-slide-nav
-        .left-nav
+        /.left-nav
         .right-nav
+          = link_to '', "#"
       .p-t 发布者的其它笔记
       /repeat 10
       %ul
-        = render :partial => 'picture_item', :collection => @user_pictures
+        /= render 'slide'
 
     .p-slide
       .p-slide-nav
-        .left-nav
+        /.left-nav
         .right-nav
+          = link_to '','#'
       .p-t 同科植物
       /repeat 10
       %ul
-        -#= render 'plants/slide'
+        / = render 'slide'
 
     .copyright
       .publisher
@@ -86,9 +99,9 @@
           的笔记
           %br/
           共同编辑：
-          %a{:href => "notebook.html", :title => "九间"}> 九间
+          %a{:href => "/user", :title => "九间"}> 九间
           、
-          %a{:href => "notebook.html", :title => "九间"} 九间
+          %a{:href => "/user", :title => "九间"} 九间
           /= succeed "\u{7248}\u{6743}\u{6240}\u{6709}\u{ff0c}\u{4e0d}\u{5f97}\u{80e1}\u{6765}" do
 
 %p#notice= notice
