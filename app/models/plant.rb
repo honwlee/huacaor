@@ -1,27 +1,31 @@
 # encoding: utf-8
-require File.join(Rails.root,'lib/shared_methods/instance_methods.rb')
+require File.join(Rails.root,'lib/shared_methods/shared_methods.rb')
 class Plant 
-  include InstanceMethods
+  include SharedMethods
   include Mongoid::Document
   include Mongoid::Timestamps
+  BASE_INFO = PlantBaseInfo::HUAR_INFO.collect{|h_i| h_i[0..1]}
   has_and_belongs_to_many :tags
-  #belongs_to :user
   has_many :pictures
   embeds_many :versions
-  field :zh_name
-  index :zh_name
-  BASE_INFO = PlantBaseInfo::HUAR_INFO.collect{|h_i| h_i[0..1]}
-  def update_by_params_data(plant_data,version_id=nil)
+  field :name_list, :type => Array,:default => []
+  index :name_list
+
+  def self.update_by_params_data(plant_data,version_id=nil,plant_id=nil)
+    
+    plant = plant_id.nil? ? Plant.new : Plant.find(plant_id)
+
     unless version_id.blank?
-      version = self.versions.find(version_id) 
+      version = plant.versions.find(version_id) 
       version.update_by_params_data(plant_data)
     else
-      version = Version.new
+      version = plant.versions.new
       version.update_by_params_data(plant_data)
-      self.versions << version
     end
     version.save
-    version.id
+    plant.name_list = plant.versions.collect{|v|v.name[:zh].nil? ? v.name['zh'] : v.name[:zh]}.flatten.uniq
+    plant.save
+    plant
   end
 
   def picture_path(thumb=nil)
@@ -32,40 +36,48 @@ class Plant
     self.versions.order_by(["points, DESC"]).first
   end
   
+  ############################## 每个用户对应一个版本，没有就返回nil ##############################
   def user_version(user_id)
     versions.where(:user_id => user_id).first
   end
 
-  def user_version_id(user_id)
-    user_version(user_id).nil? ? nil : user_version(user_id).id
+  def name(user_id=nil)
+    return nil if !user_id.nil? && user_version(user_id).nil?
+    user_id.nil? ? hot_version.name : user_version(user_id).name
   end
 
-  def name
-    hot_version && hot_version.name
-  end
-
-  def description
-    hot_version && hot_version.description
+  def description(user_id=nil)
+    return nil if !user_id.nil? && user_version(user_id).nil?
+    user_id.nil? ? hot_version.description : user_version(user_id).description
   end
   
-  def self.find_or_create_by_user_id_and_name(name,user_id,description=nil)
-    plant = Plant.find_or_initialize_by(:zh_name => name)
-    version = plant.user_version(user_id)
-    plant.versions.create(:user_id => user_id,:description => description) if version.nil?
-    plant.save
-    plant
-  end
-
-  BASE_INFO.each do |b_i|
-    define_method b_i[0] do 
-      instance_eval("self.hot_version && self.hot_version.base_info_name.select{|n| n.match(/#{b_i[1]}$/)}")
+  BASE_INFO.each do |b_i| # 获取植物的“门纲目科属”的名称
+    define_method b_i[0] do |user_id=nil| # 加user_id为指定版本的信息，不加为准确信息
+      return nil if !user_id.nil? && user_version(user_id).nil?
+      instance_eval("(user_id.nil? ? self.hot_version : user_version(user_id)).base_info_name.select{|n| n.match(/#{b_i[1]}$/)}")
     end
+  end
+  ########################################## END ################################################
+
+  def self.find_or_create_by_user_id_and_name(name,user_id)
+    plant = Plant.where(:name.in => [name]).first
+    plant = Plant.new if plant.nil?
+    version = plant.user_version(user_id)
+    if version.nil?
+      version = plant.versions.new
+      version.user_id = user_id
+    end
+    version.name[:zh] = name
+    plant.save
+    version.save
+    plant.update_attributes(:name_list => plant.versions.collect{|v|v.name['zh']}.flatten.uniq)
+    plant
   end
 
 end
 
-class Version
-  include InstanceMethods
+class Version # 植物的不同版本
+  include SharedMethods
   include Mongoid::Document
   include Mongoid::Timestamps
   embedded_in :plant
@@ -86,10 +98,6 @@ class Version
     self.user_id = plant_data[:user_id]
     self.description = plant_data[:description]
     self.base_info_ids = {:phylum_id => plant_data[:phylum_name]}
-    # Version.fields.keys.each do |field|
-    #   # instance_eval("self.#{field} = #{plant_data[field.to_sym].to_s}") unless plant_data[field.to_sym].blank?
-    #   write_attribute(field.to_sym, plant_data[field.to_sym]) unless plant_data[field.to_sym].blank?
-    # end
   end
 
   def base_info_name

@@ -24,16 +24,16 @@
         %li
           = f.select(:phylum_name, @phylum_name.map{|p| p },{:autocomplete => "off", :prompt => "－－"})
         %li
-          %select#pclass{:style => 'display:none'}
+          %select#plant_pclass_name{:style => 'display:none'}
             %option －－
         %li
-          %select#porder_name{:style => 'display:none'}
+          %select#plant_porder_name{:style => 'display:none'}
             %option －－
         %li
-          %select#class_name{:style => 'display:none'}
+          %select#plant_class_name{:style => 'display:none'}
             %option －－
         %li
-          %select#genus_name{:style => 'display:none'}
+          %select#plant_genus_name{:style => 'display:none'}
             %option －－
 
     %dt

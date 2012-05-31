@@ -1,14 +1,9 @@
 .title
-  %b= @picture.plant_name
-  - if @plant.blank? || @plant.english_name.blank?
-  - else
-    = @plant.english_name
-  - if @plant.blank? || @plant.latin_name.blank?
-  - else
-    | 
-    = @plant.latin_name
+  %b= @picture.plant_name['zh']
+  %b= @picture.plant_name['english']
+  %b= @picture.plant_name['latin']
 .plant
-  = link_to image_tag(@picture.image.url(:page_size), :alt => "@plant.zh_name"), "#"
+  = link_to image_tag(@picture.image.url(:page_size), :alt => @picture.plant_name['zh']), "#"
   .slide-nav
     .left-nav
     .right-nav
@@ -21,10 +16,10 @@
   .rt
     %ul
       %li
-        %em> 木兰科
+        %em= @picture.plant_porder_name
         latin
       %li
-        %em> 其它属
+        %em= @picture.plant_genus_name
         latin
       %li
         %em> 783
@@ -40,13 +35,11 @@
           = link_to @user.name, @user.link
           2012-1-22 LX5 于上海
         %div
-          = @picture.desc
+          = @picture.plant_name['zh']
+          = @picture.describe_info['desc']
     %article
       %p
-        -# if @plant.descript.blank?
-          暂无介绍噢。
-        -# else
-          -#= @plant.descript
+        = @picture.plant_description
         - if @plant.blank?
           = link_to "[编辑]", new_plant_path(:picture_id => @picture.id)
         - else
