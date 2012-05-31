@@ -1,0 +1,9 @@
+- u = c.user
+%li{:id => comment.id}
+  .lp
+    = link_to image_tag(u.avatar_path, :alt => u.name), u.link
+  .rp
+    %p
+      = link_to u.name, u.link
+      = c.content
+    %p.date date_time c.updated_at

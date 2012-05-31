@@ -1,4 +1,4 @@
-%li{:id => comment_item.id}
+%li{:id => comment.id}
   %p.cnt
     = link_to comment_item.doc_user.user_realname, "#{host_uri['user_uri']}/users/#{comment_item.doc_user.user_id}/tweets"
     != " - "

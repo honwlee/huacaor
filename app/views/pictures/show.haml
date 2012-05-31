@@ -11,6 +11,7 @@
   .lt
     .character
       .ico-flower-h6.ico{:title => "乔木"}
+        = link_to "乔木", "#"
       .ico-flower-fwmouth.ico{:title => "唇形"}
       .ico-flower-red.ico{:title => "红花"}
   .rt
@@ -34,7 +35,7 @@
         %p
           = link_to @user.name, @user.link
           2012-1-22 LX5 于上海
-        %div
+        .description
           = @picture.plant_name['zh']
           = @picture.describe_info['desc']
     %article
@@ -46,27 +47,28 @@
           = link_to "[编辑]", edit_plant_path(@plant,:picture_id => @picture.id)
     %h3.comment-title 评论
     %ul.comments
-      = render 'plants/comm'
-
+      = render 'pictures/comm'
 
   .content-right
     .p-slide
       .p-slide-nav
-        .left-nav
+        /.left-nav
         .right-nav
+          = link_to '', "#"
       .p-t 发布者的其它笔记
       /repeat 10
       %ul
-        = render :partial => 'picture_item', :collection => @user_pictures
+        /= render 'slide'
 
     .p-slide
       .p-slide-nav
-        .left-nav
+        /.left-nav
         .right-nav
+          = link_to '','#'
       .p-t 同科植物
       /repeat 10
       %ul
-        -#= render 'plants/slide'
+        / = render 'slide'
 
     .copyright
       .publisher
@@ -79,9 +81,9 @@
           的笔记
           %br/
           共同编辑：
-          %a{:href => "notebook.html", :title => "九间"}> 九间
+          %a{:href => "/user", :title => "九间"}> 九间
           、
-          %a{:href => "notebook.html", :title => "九间"} 九间
+          %a{:href => "/user", :title => "九间"} 九间
           /= succeed "\u{7248}\u{6743}\u{6240}\u{6709}\u{ff0c}\u{4e0d}\u{5f97}\u{80e1}\u{6765}" do
 
 %p#notice= notice

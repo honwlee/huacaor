@@ -5,15 +5,21 @@ class Picture
   PLANT_METHODS = ['name','description','phylum_name','sub_phylum_name','pclass_name','sub_pclass_name','porder_name','genus_name']
   include Mongoid::Document
   include Mongoid::Timestamps
-  belongs_to :plant
-  belongs_to :user
+
+  FOR_PLANTS = 0 
+  FOR_USER = 1
 
   field :usage, :type => Integer, :default => FOR_PLANTS 
   field :describe_info, :type => Hash, :default => {}
 
+  index :usage
+
+  belongs_to :plant
+  belongs_to :user
+  embeds_many :comments
+
   mount_uploader :image, ImageUploader
 
-  index :usage
 
   def self.create_picture(data,usage=0)
     picture = Picture.new
