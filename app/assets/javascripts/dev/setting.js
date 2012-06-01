@@ -92,8 +92,9 @@ $(function(){
         $.each(data, function(i){
           target.append('<option value="' + data[i].id + '">' + data[i].name.zh + '</option>');
         });
-        target.show();
-        target.parent().nextAll().find('select').html('<option>－－</option>').hide();     
+        target.parent().show();
+        target.parent().nextAll().find('select').html('<option>－－</option>');
+        target.parent().nextAll().hide();     
       }
     });
     return false;

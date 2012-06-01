@@ -22,19 +22,18 @@
     %dd
       %ul.choose-class
         %li
-          = f.select(:phylum_name, @phylum_name.map{|p| p },{:autocomplete => "off", :prompt => "－－"})
-        %li
-          %select#pclass{:style => 'display:none'}
-            %option －－
-        %li
-          %select#porder_name{:style => 'display:none'}
-            %option －－
-        %li
-          %select#class_name{:style => 'display:none'}
-            %option －－
-        %li
-          %select#genus_name{:style => 'display:none'}
-            %option －－
+          = f.select :phylum_name, @phylum_name.map{|p| p}, {:selected => @plant.phylum_name}
+        
+        / %li{ :style => @plant.sub_phylum_name  ? '': 'display:none'}
+        /   = f.select :sub_phylum_name, @plant.sub_phylum_name      
+        / %li{:style => @plant.pclass_name == '[]' ? 'display:none' : ''}
+        /   = f.select :pclass_name, @plant.pclass_name
+        / %li{:style => @plant.sub_pclass_name ? '': 'display:none'}
+        /   = f.select :sub_pclass_name,@plant.sub_pclass_name   
+        / %li{:style => @plant.porder_name ? '': 'display:none'}
+        /   = f.select :porder_name, @plant.porder_name   
+        / %li{:style => @plant.genus_name ? '': 'display:none'}
+        /   = f.select :genus_name, @plant.genus_name   
 
     %dt
       = f.label :characteristic, "特征："
