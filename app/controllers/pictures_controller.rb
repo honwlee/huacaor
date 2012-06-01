@@ -11,18 +11,11 @@ class PicturesController < ApplicationController
       flash[:notice] = flash_error("请选择图片")
       redirect_to new_picture_path and return
     end
-
-    picture = Picture.new(
-      :image => params[:filedata],
-      :user_id => current_user.id,
-      :desc => params[:desc].strip,
-      :usage => Picture::FOR_PLANTS
-    )
-    picture.save
+    params[:user_id] = current_user.id
+    picture = Picture.create_picture(params)
 
     unless params[:plant_zh_name].blank?
-      plant = Plant.find_or_create_by_user_id_and_name(params[:plant_zh_name],current_user.id,params[:desc])
-      plant.pictures << picture
+      plant = picture.create_parent_plant(params[:plant_zh_name].strip)
       redirect_to edit_plant_path(plant,:picture_id => picture.id) and return
     end
 
@@ -30,6 +23,7 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @picture = Picture.includes(:plant).find(params[:id])
     @plant = @picture.plant
     @user = @picture.user

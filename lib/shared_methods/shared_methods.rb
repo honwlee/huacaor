@@ -1,4 +1,4 @@
-module InstanceMethods
+module SharedMethods
 	NAME_KINDS = ['latin', 'english', 'zh']
 	NAME_KINDS.each do |n_k|
     define_method "#{n_k}_name" do

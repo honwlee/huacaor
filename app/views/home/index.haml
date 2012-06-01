@@ -7,6 +7,6 @@
         %a{:href => picture_path(p.id)}
           .p-top
             .class 
-              .name= p.plant_name
+              .name= p.plant_name['zh']
 
-          = image_tag(p.image.url(:medium), :alt => p.plant_name)
+          = image_tag(p.image.url(:medium), :alt => p.plant_name['zh'])

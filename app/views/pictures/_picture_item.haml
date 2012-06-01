@@ -2,5 +2,5 @@
 %li
   %a{:href => picture_path(p.id)}
     .p-top
-      .name= p.plant.zh_name
+      .name= p.plant_name['zh']
     %img{:alt => "", :src => p.image.url(:thumb), :style => "width:50px;height:50px;"}/
