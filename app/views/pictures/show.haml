@@ -1,7 +1,13 @@
 .title
-  %b= @picture.plant_name['zh']
+  - if @picture.plant_name['zh'].blank?
+    %b 待鉴定
+  - else
+    %b= @picture.plant_name['zh']
   %b= @picture.plant_name['english']
-  %b= @picture.plant_name['latin']
+  - if @picture.plant_name['latin']
+    | 
+    %b= @picture.plant_name['latin']
+
 .plant
   = link_to image_tag(@picture.image.url(:page_size), :alt => @picture.plant_name['zh']), "#"
   .slide-nav
@@ -18,10 +24,10 @@
     %ul
       %li
         %em= @picture.plant_porder_name
-        latin
+        
       %li
         %em= @picture.plant_genus_name
-        latin
+        
       %li
         %em> 783
         喜爱
@@ -34,17 +40,17 @@
       .rp
         %p
           = link_to @user.name, @user.link
-          2012-1-22 LX5 于上海
+          2012-1-22
+          &nbsp;
+          = link_to "[编辑]", "javascript:void(0);" , :class => "edit-description"
         .description
-          = @picture.plant_name['zh']
           = @picture.describe_info['desc']
     %article
-      %p
+      - if @plant.blank?
+        = link_to "[编辑]", new_plant_path(:picture_id => @picture.id)
+      - else
         = @picture.plant_description
-        - if @plant.blank?
-          = link_to "[编辑]", new_plant_path(:picture_id => @picture.id)
-        - else
-          = link_to "[编辑]", edit_plant_path(@plant,:picture_id => @picture.id)
+        = link_to "[编辑]", edit_plant_path(@plant,:picture_id => @picture.id)
     %h3.comment-title 评论
     %ul.comments
       = render 'pictures/comm'

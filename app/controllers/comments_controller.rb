@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
     @picture.comments << comment
     comment.save
 
-    render :partial => "pictures/commment_item", :locals => {:comment => comment}
+    render :partial => "pictures/comment_item", :locals => {:comment => comment}
   end
 
   # DELETE /pictures/:picture_id/destroy

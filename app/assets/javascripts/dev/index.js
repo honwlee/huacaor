@@ -68,10 +68,43 @@ $(function () {
 
   // comment
   $('#comment-btn').click(function(){
-    var by = $(this);
-        text = by.prev().val();
-    // 此处应为ajax，求后台数据支援
+    var by = $(this),
+        commBox = by.prev(),
+        text = commBox.val(),
+        pid = $('#comment-li').attr('rel'),
+        url = '/pictures/'+ pid +'/comments';
+    
+    if ( text.length == 0 ){
+      by.before('<b>你还没有输入内容</b>').slideUp(50);
+      return false;
+    }
+
+    
+    $.ajax({
+      type: 'post',
+      cache: false,
+      url: url,
+      data: {
+        content: text
+      },
+      beforeSend: function(){
+        by.attr('disabled', 'disabled').addClass('disabled');
+        // $this.before('<img class="comm-load" src="' + loadingImg + '" />');
+      },
+      error: function(){
+        by.before('<b>错误</b>').slideUp();
+      },
+      success: function(data){
+        $(data).prependTo( by.parent('ul') ).hide().slideDown();
+        commBox.val('');
+      },
+      complete: function(){
+        by.removeAttr('disabled').removeClass('disabled');
+        //$this.prev('img').remove();
+      }
+    });
   });
-  
+
+
 
 });
