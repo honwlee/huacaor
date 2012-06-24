@@ -40,7 +40,7 @@
       .rp
         %p
           = link_to @user.name, @user.link
-          2012-1-22
+          = date_time(@picture.created_at)
           &nbsp;
           = link_to "[编辑]", "javascript:void(0);" , :class => "edit-description"
         .description

@@ -6,9 +6,6 @@ class Picture
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  FOR_PLANTS = 0 
-  FOR_USER = 1
-
   field :usage, :type => Integer, :default => FOR_PLANTS 
   field :describe_info, :type => Hash, :default => {}
 
@@ -16,10 +13,10 @@ class Picture
 
   belongs_to :plant
   belongs_to :user
-  embeds_many :comments
+  #embeds_many :comments
+  has_many :comments
 
   mount_uploader :image, ImageUploader
-
 
   def self.create_picture(data,usage=0)
     picture = Picture.new
@@ -40,7 +37,12 @@ class Picture
 
   PLANT_METHODS.each do |method|
     define_method "plant_#{method}" do |u_id=user_id|
-      plant.blank? ? "未知" : plant.send(method) #热门版本#plant.send(method,u_id) 个人版本
+      if plant.blank?
+        return "未知"
+      else
+        plant.send(method)
+      end
+      # plant.blank? ? "未知" : plant.send(method) #热门版本#plant.send(method,u_id) 个人版本
       #instance_eval("self.plant.#{method} user_id")
     end
   end

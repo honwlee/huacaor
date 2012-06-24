@@ -27,8 +27,7 @@ class CommentsController < ApplicationController
   # POST pictures/:picture_id/comments
   def create
     @picture = Picture.find(params[:picture_id])
-    comment = Comment.new(:content => params[:content])
-    @picture.user = current_user
+    comment = Comment.new(:content => params[:content], :user_id => current_user.id)
     @picture.comments << comment
     comment.save
 

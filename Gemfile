@@ -1,10 +1,11 @@
 source 'http://ruby.taobao.org'
 
 gem 'rails', '~>3.2.3'
+#gem 'rails', '~>3.2.6'
 
 # 除Rails外，其余按字母顺序排列
 gem 'bcrypt-ruby', :require => 'bcrypt' #To use ActiveModel has_secure_password
-gem 'bson_ext','~> 1.5'
+gem 'bson_ext','~> 1.6.2'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'capistrano' # Deploy with Capistrano

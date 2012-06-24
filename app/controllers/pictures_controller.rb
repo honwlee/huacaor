@@ -1,6 +1,6 @@
 # encoding: utf-8
 class PicturesController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :only => [:new, :create]
 
   def new
 

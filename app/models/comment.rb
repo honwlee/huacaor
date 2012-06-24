@@ -3,8 +3,9 @@ class Comment
   include Mongoid::Document
   include Mongoid::Timestamps
   
+  #embedded_in :picture
+  belongs_to :picture
   belongs_to :user
-  embedded_in :picture
 
   field :content, :type => String
   field :user_id, :type => Integer

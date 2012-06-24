@@ -165,7 +165,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
-  bson_ext (~> 1.5)
+  bson_ext (~> 1.6.2)
   capistrano
   carrierwave
   carrierwave-mongoid

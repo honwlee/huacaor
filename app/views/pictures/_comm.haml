@@ -1,9 +1,10 @@
 = render :partial => "pictures/comment_item", :collection => @picture.comments, :as => :comment
 
-%li#comment-li{:rel => @picture.id}
-  .lp
-    = link_to image_tag(current_user.avatar_path, :alt => current_user.name), current_user.link
-  .rp
-    #comment
-      %textarea.comm-content
-      %button{:type => "submit", :id => "comment-btn"} 保 存
+- if current_user
+  %li#comment-li{:rel => @picture.id}
+    .lp
+      = link_to image_tag(current_user.avatar_path, :alt => current_user.name), current_user.link
+    .rp
+      #comment
+        %textarea.comm-content
+        %button{:type => "submit", :id => "comment-btn"} 保 存

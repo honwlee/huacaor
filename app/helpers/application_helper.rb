@@ -17,7 +17,7 @@ module ApplicationHelper
     elsif d.abs <= 2
       return arr[d] << time.strftime(" %H:%M")
     elsif time.year == norm.year
-      return time.strftime(format[5..-1])
+      return time.strftime(format[3..-1])
     else
       return time.strftime(format)
     end

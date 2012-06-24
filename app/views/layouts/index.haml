@@ -4,6 +4,7 @@
     %meta{:charset => "utf-8"}/
     %title 花草儿 huacaor
     = stylesheet_link_tag "index.css"
+    = csrf_meta_tag
     = yield :headers
 
     - ga = "#"
@@ -53,7 +54,7 @@
     
     %footer © 2012 huacaor.com
 
-    = javascript_include_tag "plugin/jquery-1.7.min", "dev/index"
+    = javascript_include_tag "plugin/jquery-1.7.min", "dev/index", "plugin/jquery-snippet.js"
 
     = yield :footers
     

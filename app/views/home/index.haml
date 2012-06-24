@@ -1,12 +1,11 @@
 .banner
   %ul.p-lists
     - @pictures.each do |p|
-      - plant = p.plant
-
       %li
         %a{:href => picture_path(p.id)}
           .p-top
             .class 
-              .name= p.plant_name['zh']
+              -#.name= p.plant_name
 
-          = image_tag(p.image.url(:medium), :alt => p.plant_name['zh'])
+          = image_tag(p.image.url(:medium), :alt => "图片")
+          -#= image_tag(p.image.url(:medium), :alt => p.plant_name)
