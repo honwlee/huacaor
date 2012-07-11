@@ -1,8 +1,8 @@
 .person-info
   .lt
     .avar
-      = image_tag(@user.avatar_path(:medium), :alt => "人名")
-    %h1 人名
+      = image_tag(@user.avatar_path(:medium), :alt => @user.name)
+    %h1= @user.name
     /
       .contact
         %a.ico-douban.ico{:href => "#", :target => "_blank", :rel => "nofollow"}
@@ -42,7 +42,7 @@
       %li
         %a{:href => picture_path(p.id)}
           .p-top
-            .name= p.plant.zh_name
-          = image_tag(p.image.url(:thumb), :alt => p.plant.zh_name)
+            .name= p.plant_name['zh']
+          = image_tag(p.image.url(:medium), :alt => p.plant_name['zh'])
 
   = paginate @pictures, :outer_window => 1

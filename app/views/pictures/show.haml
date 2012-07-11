@@ -3,10 +3,11 @@
     %b 待鉴定
   - else
     %b= @picture.plant_name['zh']
-  %b= @picture.plant_name['english']
-  - if @picture.plant_name['latin']
+  = @picture.plant_name['english']
+  - if @picture.plant_name['latin'].blank?
+  - else
     | 
-    %b= @picture.plant_name['latin']
+    = @picture.plant_name['latin']
 
 .plant
   = link_to image_tag(@picture.image.url(:page_size), :alt => @picture.plant_name['zh']), "#"
@@ -79,11 +80,11 @@
     .copyright
       .publisher
         .lp
-          %a{:href => "/user", :title => "九间"}
-            %img{:alt => "九间", :src => "http://placehold.it/50x50"}/
+          %a{:href => @user.link, :title => @user.name}
+            %img{:alt => @user.name, :src => @user.avatar_path}
         .rp
           来自
-          %a{:href => "/user", :title => "九间"}> 九间
+          %a{:href => @user.link, :title => @user.name}= @user.name
           的笔记
           %br/
           共同编辑：
