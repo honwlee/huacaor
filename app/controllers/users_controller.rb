@@ -1,6 +1,6 @@
 # encoding: utf-8
 class UsersController < ApplicationController
-  Pagesize = 4
+  Pagesize = 12
 
   def index
     @users = User.all
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @pictures = Picture.page(params[:page] || 1).per(Pagesize)
+    @pictures = Picture.order_by([:created_at, :desc]).page(params[:page] || 1).per(Pagesize)
 
     respond_to do |format|
       format.html # show.html.erb

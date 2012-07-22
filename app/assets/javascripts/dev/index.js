@@ -95,7 +95,7 @@ $(function () {
         by.before('<b>错误</b>').slideUp();
       },
       success: function(data){
-        $(data).prependTo( by.parent('ul') ).hide().slideDown();
+        $(data).prependTo( by.closest('ul') ).hide().slideDown();
         commBox.val('');
       },
       complete: function(){

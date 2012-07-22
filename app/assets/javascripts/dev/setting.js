@@ -88,13 +88,18 @@ $(function(){
         alert('系统忙');
       },
       success: function(data){
-        target.html('<option>－－</option>');
-        $.each(data, function(i){
-          target.append('<option value="' + data[i].id + '">' + data[i].name.zh + '</option>');
-        });
-        target.parent().show();
-        target.parent().nextAll().find('select').html('<option>－－</option>');
-        target.parent().nextAll().hide();     
+        if(data == []){
+          
+        }else{
+          target.html('<option>－－</option>');
+          $.each(data, function(i){
+            target.append('<option value="' + data[i].id + '">' + data[i].name.zh + '</option>');
+          });
+          target.parent().show();
+          target.parent().nextAll().find('select').html('<option>－－</option>');
+          target.parent().nextAll().hide();            
+        }
+   
       }
     });
     return false;
