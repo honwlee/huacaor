@@ -69,4 +69,9 @@ class User
     return "http://placehold.it/50x50"  if self.avatar.blank?
     return self.avatar.image.url(mode)
   end
+
+  def other_pictures(picture_id, num=10)
+    self.pictures.where("pictures.id <> ?", picture_id).limit(num)
+  end
+
 end

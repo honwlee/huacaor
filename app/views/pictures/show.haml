@@ -9,7 +9,7 @@
     %b= @picture.plant_name['latin']
 
 .plant
-  = link_to image_tag(@picture.image.url(:page_size), :alt => @picture.plant_name['zh']), "#"
+  = link_to image_tag(@picture.image.url(:medium), :alt => @picture.plant_name['zh']), "#"
   .slide-nav
     .left-nav
     .right-nav
@@ -64,7 +64,7 @@
       .p-t 发布者的其它笔记
       /repeat 10
       %ul
-        /= render 'slide'
+        = render 'slide', :collection => @user.pictures.limit(10)
 
     .p-slide
       .p-slide-nav
