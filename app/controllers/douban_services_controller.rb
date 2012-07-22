@@ -5,6 +5,8 @@ require 'uri'
 require 'yajl'
 
 class DoubanServicesController < ApplicationController
+  #ApiKey = "035aeaad87c364fa0a10c008974a2eee"
+  #ApiKeySecret = "ea6c88ff40b8dd79"
   ApiKey = "0a0a3710889939f41e1ea53199cbaddc"
   ApiKeySecret = "9764b31f80a15c1b"
 
@@ -29,34 +31,17 @@ class DoubanServicesController < ApplicationController
     end
 
     @request_token=@@consumer.get_request_token
-    session[:request_token] = @request_token.token
-    session[:request_token_secret]=@request_token.secret
+    session[:request_token] = @request_token
 
-    callback_url = "http://localhost:3000/douban_services/login"
+    callback_url = "http://127.0.0.1:3000/douban_services/login"
 
     redirect_to @request_token.authorize_url(:oauth_callback => callback_url)
   end
 
   # 豆瓣登录
   def login
-    if session[:access_token].blank?
-      @request_token = OAuth::RequestToken.new(
-        @@consumer,
-        session[:request_token],
-        session[:request_token_secret]
-      )
+    @access_token = session[:request_token].get_access_token
 
-      @access_token = @request_token.get_access_token
-      session[:access_token] = @access_token.token
-      session[:access_token_secret] = @access_token.secret
-    end
-
-
-    @access_token = OAuth::AccessToken.new(
-                                          @@consumer,
-                                          session[:access_token],
-                                          session[:access_token_secret]
-                                      )
     url = "http://api.douban.com/people/@me?alt=json"
     url = URI.escape(url, '@')
     res = @access_token.get(url)
@@ -64,7 +49,7 @@ class DoubanServicesController < ApplicationController
     res = Yajl::Parser.parse(res.body)
 
     douban_uid = res["db:uid"]["$t"]
-    logger.debug "---res['title'] #{res['title']['$t']}----------"
+    #logger.debug "---res['title'] #{res['title']['$t']}----------"
     douban_name = res['title']['$t']
 
     u = User.where(:douban_uid => douban_uid).first
