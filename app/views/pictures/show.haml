@@ -65,7 +65,7 @@
       .p-t 发布者的其它笔记
       /repeat 10
       %ul
-        = render 'slide', :collection => @user.pictures.limit(10)
+        = render :partial => 'slide', :collection => @picture.user_other_pictures(10), :as => :picture
 
     .p-slide
       .p-slide-nav

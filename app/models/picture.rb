@@ -35,6 +35,14 @@ class Picture
     plant
   end
 
+  # 此图片的发布者的其他图片
+  def user_other_pictures(num=-1)
+    num = num.to_i
+    pictures = self.user.pictures.where(:id.ne => self.id)
+    return pictures.limit(num) if num > 0
+    return pictures 
+  end
+
   PLANT_METHODS.each do |method|
     define_method "plant_#{method}" do |u_id=user_id|
       if plant.blank?

@@ -1,6 +1,6 @@
 source 'http://ruby.taobao.org'
 
-gem 'rails', '~>3.2.3'
+gem 'rails', '~>3.2'
 #gem 'rails', '~>3.2.6'
 
 # 除Rails外，其余按字母顺序排列
@@ -20,7 +20,8 @@ gem 'kaminari'
 gem 'rake'
 gem 'mini_magick'
 gem 'mongo'
-gem 'mongoid','~> 2.4'
+gem 'mongoid'
+#gem 'mongoid','~> 2.4'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'nokogiri'
 gem 'oauth'

@@ -1,6 +1,5 @@
-= slide.inspect
-/ %li
-/   %a{:href => picture_path(slide.id)}
-/     .p-top
-/       .name= slide.plant_name['zh']
-/     %img{:alt => "", :src => slide.image.url(:thumb)}/
+%li
+  %a{:href => picture_path(picture.id)}
+    .p-top
+      .name= picture.plant_name['zh']
+    %img{:alt => "", :src => picture.image.url(:thumb)}/
