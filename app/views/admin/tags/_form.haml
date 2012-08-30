@@ -15,6 +15,10 @@
     %dd= f.select :usage, options_for_select(Tag.usages, @tag.usage)
     %p.tips
 
+    %dt= f.label :icon_name, "图标名称："
+    %dd= f.text_field :icon_name, :required => "required"
+    %p.tips
+
     %dt= f.label :description, "描述："
     %dd= f.text_area :description
     %p.tips

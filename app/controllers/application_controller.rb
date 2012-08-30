@@ -6,6 +6,16 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :login_required
   helper_method :admin_required
+  before_filter :get_tags
+
+  def get_tags
+    @tags = {}
+    # Tag.transaction do
+      @tags[:category] = Tag.category
+      @tags[:sharp] = Tag.sharp
+      @tags[:color] = Tag.color
+    # end
+  end
 
   ############################## 输出处理结果信息给用户 ############################
   def flash_html(*args)
@@ -22,7 +32,7 @@ class ApplicationController < ActionController::Base
   
   def flash_error(msg = "出错啦~")
       flash_html('error', msg)
-  end 
+  end
 
   private
   def current_user

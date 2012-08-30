@@ -5,7 +5,7 @@ class Tag
   field :name, :type => String
   field :usage, :type => Integer, :default => 0
   field :description, :type => String
-  field :icon, :type => String # 标签图标
+  field :icon_name, :type => String # 标签图标名称
 
   index :name
 
@@ -14,6 +14,10 @@ class Tag
   Category = 1 # 类型
   Sharp = 2 # 花型
   Color = 3 # 花色
+
+  scope :category, where(:usage => Category)
+  scope :sharp, where(:usage => Sharp)
+  scope :color, where(:usage => Color)
 
   def self.usages
   	[["普通", Normal], ["类型", Category], ["花型", Sharp], ["花色", Color]]
