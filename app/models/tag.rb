@@ -23,6 +23,12 @@ class Tag
   	[["普通", Normal], ["类型", Category], ["花型", Sharp], ["花色", Color]]
   end
 
+  def self.usages_except_normal
+    usages = self.usages
+    usages.delete_at(0)
+    return usages
+  end
+
   def usage_name
   	ua = self.class.usages.select{|u| u[1] == self.usage}
   	return nil if ua.blank?

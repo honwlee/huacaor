@@ -27,7 +27,9 @@
 /   %a.ico-flower-pulp.ico{:href => "jacascript:void(0);", :title => "紫花"}
 /   %a.ico-flower-green.ico{:href => "jacascript:void(0);", :title => "绿花"}
 /   %a.ico-flower-#fff.ico{:href => "jacascript:void(0);", :title => "白花"}
-%p 类型：
 #height.choosebox
-  - @tags[:category].each do |t|
-    = link_to t.name, "", :class => "ico-flower-#{t.icon_name} ico"
+  - Tag.usages_except_normal.each do |u|
+    %p= "#{u[0]}："
+    #flower-color.choosebox
+      - Tag.where(usage: u[1]).each do |tag|
+        = link_to tag.name, "#", :class => "ico-flower-#{tag.icon_name} ico"
