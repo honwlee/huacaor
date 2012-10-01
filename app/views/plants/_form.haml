@@ -10,36 +10,37 @@
     %dd
       = f.text_field :zh_name
       = link_to "+", "javascript:void(0)", :class => "add-item"
-    
+
     %dt
       = f.label :english_name, "英文名称："
     %dd
       = f.text_field :english_name
       = link_to "+", "javascript:void(0)", :class => "add-item"
 
-    %dt
-      = f.label :family, "分类："
-    %dd
-      %ul.choose-class
-        %li
-          = f.select :phylum_name, @phylum_name.map{|p| p}, {:selected => @plant.phylum_name}
-        
-        %li{ :style => @plant.sub_phylum_name  ? nil : 'display:none' }
-          = f.select :sub_phylum_name, @plant.sub_phylum_name      
-        %li{:style => @plant.pclass_name == '[]' ? nil : 'display:none'}
-          = f.select :pclass_name, @plant.pclass_name
-        %li{:style => @plant.sub_pclass_name ? 'display:none' : nil }
-          = f.select :sub_pclass_name,@plant.sub_pclass_name   
-        %li{:style => @plant.porder_name ? 'display:none' : nil }
-          = f.select :porder_name, @plant.porder_name   
-        %li{:style => @plant.genus_name ? 'display:none' : nil }
-          = f.select :genus_name, @plant.genus_name   
+    -#
+      %dt
+        = f.label :family, "分类："
+      %dd
+        %ul.choose-class
+          %li
+            = f.select :phylum_name, @phylum_name.map{|p| p}, {:selected => @plant.phylum_name}
+
+          %li{ :style => @plant.sub_phylum_name  ? nil : 'display:none' }
+            = f.select :sub_phylum_name, @plant.sub_phylum_name
+          %li{:style => @plant.pclass_name == '[]' ? nil : 'display:none'}
+            = f.select :pclass_name, @plant.pclass_name
+          %li{:style => @plant.sub_pclass_name ? 'display:none' : nil }
+            = f.select :sub_pclass_name,@plant.sub_pclass_name
+          %li{:style => @plant.porder_name ? 'display:none' : nil }
+            = f.select :porder_name, @plant.porder_name
+          %li{:style => @plant.genus_name ? 'display:none' : nil }
+            = f.select :genus_name, @plant.genus_name
 
     %dt
       = f.label :characteristic, "特征："
     %dd
       = render '/widgets/category'
-      //= f.text_area :characteristic
+      = hidden_field_tag :category_tag_ids
 
     %dt
       = f.label :description, "介绍："
@@ -48,7 +49,7 @@
 
       = hidden_field_tag "version_id", @version_id
       = hidden_field_tag "picture_id", params[:picture_id]
-      
+
     %dd.submit
       = f.submit '保 存'
 

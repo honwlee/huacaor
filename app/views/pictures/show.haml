@@ -6,7 +6,7 @@
   = @picture.plant_name['english']
   - if @picture.plant_name['latin'].blank?
   - else
-    | 
+    |
     = @picture.plant_name['latin']
 
 .plant
@@ -21,18 +21,21 @@
         = link_to "乔木", "#"
       .ico-flower-fwmouth.ico{:title => "唇形"}
       .ico-flower-red.ico{:title => "红花"}
-  .rt
-    %ul
-      %li
-        %em= @picture.plant_porder_name
-        
-      %li
-        %em= @picture.plant_genus_name
-        
-      %li
-        %em> 783
-        喜爱
-    %a.ico-ui-follow.follow{:href => "jacascript:void(0);"}
+  -#
+    .rt
+      %ul
+
+        %li
+          %em= @picture.plant_porder_name
+
+        %li
+          %em= @picture.plant_genus_name
+
+        %li
+          %em> 783
+          喜爱
+      %a.ico-ui-follow.follow{:href => "jacascript:void(0);"}
+
 .content
   .content-left
     .photo-info
@@ -59,9 +62,10 @@
   .content-right
     .p-slide
       .p-slide-nav
-        /.left-nav
-        .right-nav
-          = link_to '', "#"
+        -#
+          .left-nav
+          .right-nav
+            = link_to '', "#"
       .p-t 发布者的其它笔记
       /repeat 10
       %ul
@@ -69,13 +73,15 @@
 
     .p-slide
       .p-slide-nav
-        /.left-nav
-        .right-nav
-          = link_to '','#'
+        -#
+          .left-nav
+          .right-nav
+            = link_to '','#'
       .p-t 同科植物
       /repeat 10
       %ul
-        / = render 'slide'
+        -#
+          = render 'slide'
 
     .copyright
       .publisher

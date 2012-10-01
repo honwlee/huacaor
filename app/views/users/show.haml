@@ -3,31 +3,32 @@
     .avar
       = image_tag(@user.avatar_path(:medium), :alt => @user.name)
     %h1= @user.name
-    /
+    -#
       .contact
         %a.ico-douban.ico{:href => "#", :target => "_blank", :rel => "nofollow"}
         %a.ico-weibo.ico{:href => "#", :target => "_blank", :rel => "nofollow"}
   .rt
-    %ul
-      %li
-        %em 2011-9
-        至今
-      %li
-        %em 783
-        笔记
-      %li
-        %em 23
-        解答
-      %li
-        %em 33
-        喜爱
-      %li
-        %em 33
-        关注
-      %li
-        %em 33
-        被关注
-      = link_to "", "javascript:void(0)", :class => "follow ico-ui-follow"
+    -#
+      %ul
+        %li
+          %em 2011-9
+          至今
+        %li
+          %em 783
+          笔记
+        %li
+          %em 23
+          解答
+        %li
+          %em 33
+          喜爱
+        %li
+          %em 33
+          关注
+        %li
+          %em 33
+          被关注
+        = link_to "", "javascript:void(0)", :class => "follow ico-ui-follow"
 %nav.catebar
   %ul
     %li.current
