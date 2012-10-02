@@ -1,0 +1,21 @@
+/* pagination */
+.pagination {
+  margin:15px 0;
+  text-align:center;
+
+  span {
+    display:inline-block;
+    margin:0 3px;
+    padding:2px 8px;
+    border:1px solid $gray-light;
+    border-radius:3px;
+  }
+  span.current {
+    border:1px solid $gray-light;
+    background:$green-light;
+    color:$white;
+    font-weight:bold;
+  }
+  .gap { border:0; }
+  .disabled { color:$gray-light; }
+}

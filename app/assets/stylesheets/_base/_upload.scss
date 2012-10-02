@@ -1,0 +1,33 @@
+/* /// add /// */
+.upload{
+  display:inline-block;
+  height:80px;
+  line-height:80px;
+  width:300px;
+  margin-bottom:20px;
+  background:$green;
+  border:1px solid #efefef;
+  text-align:center;
+  color:$white;
+  border-radius:5px;
+  cursor:pointer;
+  font-size:40px;
+}
+.tip{
+  color:$gray-light;
+}
+
+.choose-class{
+  @extend .clearfix;
+  li{
+    float:left;
+    padding-right:2em;
+    select{
+      height:30px;
+      line-height:30px;
+      border:1px solid $gray-light;
+      border-radius:5px;
+    }
+  }
+}
+

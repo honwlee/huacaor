@@ -85,7 +85,7 @@
 
 
 // Set color for the placeholder text
-@mixin placeholder($color: #999) {
+@mixin placeholder($color: $gray) {
   :-moz-placeholder {
     color: $color;
   }

@@ -79,7 +79,7 @@ $(function(){
   $('ul.choose-class select').live('change',function(){
     var $this = $(this),
         target = $this.parent().next().find('select');
-    
+
     $.ajax({
       cache: false,
       url: '/plant_base_info/' + $(this).val(),
@@ -89,7 +89,7 @@ $(function(){
       },
       success: function(data){
         if(data == []){
-          
+
         }else{
           target.html('<option>－－</option>');
           $.each(data, function(i){
@@ -97,12 +97,26 @@ $(function(){
           });
           target.parent().show();
           target.parent().nextAll().find('select').html('<option>－－</option>');
-          target.parent().nextAll().hide();            
+          target.parent().nextAll().hide();
         }
-   
+
       }
     });
     return false;
+  });
+
+
+  // choose plants' characters
+  $('.character a').on('click', function(){
+    var tags = $('#category_tag_ids'),
+        $this = $(this);
+    if($this.hasClass('choose')){
+      if(tags.val().length == 0){
+        tags.val($this.data('id'));
+      }else{
+        tags.val(tags.val() + ',' + $this.data('id'));
+      }
+    }
   });
 
 });

@@ -1,6 +1,7 @@
 .title
   - if @picture.plant_name['zh'].blank?
     %b 待鉴定
+    = link_to "[鉴定植物]", new_plant_path(:picture_id => @picture.id)
   - else
     %b= @picture.plant_name['zh']
   = @picture.plant_name['english']
@@ -18,7 +19,6 @@
   .lt
     .character
       .ico-flower-h6.ico{:title => "乔木"}
-        = link_to "乔木", "#"
       .ico-flower-fwmouth.ico{:title => "唇形"}
       .ico-flower-red.ico{:title => "红花"}
   -#
@@ -46,15 +46,15 @@
           = link_to @user.name, @user.link
           = date_time(@picture.created_at)
           &nbsp;
-          = link_to "[编辑]", "javascript:void(0);" , :class => "edit-description"
+          = link_to "[做笔记]", "javascript:void(0);" , :class => "edit-description"
         .description
           = @picture.describe_info['desc']
     %article
       - if @plant.blank?
-        = link_to "[编辑]", new_plant_path(:picture_id => @picture.id)
+        = link_to "[鉴定植物]", new_plant_path(:picture_id => @picture.id)
       - else
         = @picture.plant_description
-        = link_to "[编辑]", edit_plant_path(@plant,:picture_id => @picture.id)
+        = link_to "[完善植物信息]", edit_plant_path(@plant,:picture_id => @picture.id)
     %h3.comment-title 评论
     %ul.comments
       = render 'pictures/comm'
@@ -67,9 +67,8 @@
           .right-nav
             = link_to '', "#"
       .p-t 发布者的其它笔记
-      /repeat 10
-      %ul
-        = render :partial => 'slide', :collection => @picture.user_other_pictures(10), :as => :picture
+      / %ul
+      /   = render :partial => 'slide', :collection => @picture.user_other_pictures(10), :as => :picture
 
     .p-slide
       .p-slide-nav
@@ -100,4 +99,3 @@
           /= succeed "\u{7248}\u{6743}\u{6240}\u{6709}\u{ff0c}\u{4e0d}\u{5f97}\u{80e1}\u{6765}" do
 
 %p#notice= notice
-
