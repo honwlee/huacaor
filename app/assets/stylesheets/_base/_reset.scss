@@ -11,7 +11,7 @@ ul, ol { list-style:none; }
 
 a {
   text-decoration:none;
-  color:#76b130;
+  color:$green;
   &:hover {
     text-decoration:none;
   }
@@ -36,3 +36,7 @@ body{
 }
 .hidden{display:none;}
 iframe{border:none;}
+
+input:focus{
+  outline:none;
+}

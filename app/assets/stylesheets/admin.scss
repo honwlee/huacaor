@@ -1,6 +1,8 @@
+@import "_base/_variables";
 @import "_base/_mixins";
 @import "_base/_reset";
 @import "_base/_flash-notice";
+@import "_base/_footer";
 
 /* admin */
 header .topbar,
@@ -14,10 +16,10 @@ header{
   @extend .clearfix;
   width:100%;
   height:45px;
-  background:#fff;
+  background:$white;
   border-bottom:1px solid #dedede;
   line-height:45px;
-  color:#76b130;
+  color:$green;
   font-size:14px;
   .topbar{
     @extend .clearfix;
@@ -27,8 +29,8 @@ header{
     float:right;
     a{
       &:hover{
-        background-color:#76b130;
-        color:#fff;
+        background-color:$green;
+        color:$white;
       }
     }
   }
@@ -36,7 +38,7 @@ header{
     display:block;
     float:left;
     padding:0 10px;
-    color:#76b130;
+    color:$green;
   }
   .logo{
     text-align:center;
@@ -52,13 +54,6 @@ header{
   }
 }
 
-/* footer */
-footer{
-  padding:20px 0;
-  color:#999;
-  text-align:center;
-  text-shadow:1px 1px #fff;
-}
 
 nav {
   padding:20px 0;
@@ -70,8 +65,8 @@ nav {
       height:28px;
       padding:0 19px;
       border:1px solid;
-      border-color:#fff #fff #ccc #ccc;
-      background:#fff;
+      border-color:$white $white $gray-light $gray-light;
+      background:$white;
       font-size:14px;
       font-weight:bold;
       line-height:28px;
@@ -82,7 +77,7 @@ nav {
 .n2 .n2,
 .n3 .n3,
 .nav li a:hover{
-  border-color:#ccc;
+  border-color:$gray-light;
   background:#f2f2f2;
   text-decoration:none;
 }
@@ -92,7 +87,7 @@ nav {
   margin:0 auto;
   padding:20px;
   width:960px;
-  background:#fff;
+  background:$white;
   border:1px solid #dedede;
   box-shadow: 0 0 5px #dedede;
   font-size:14px;
@@ -102,14 +97,14 @@ nav {
   width:100%;
   th{
     padding:4px;
-    border-bottom:1px solid #ccc;
-    border-top:1px solid #ccc;
+    border-bottom:1px solid $gray-light;
+    border-top:1px solid $gray-light;
     line-height:2em;
     background:#f2f2f2;
   }
   td{
     padding:4px;
-    border-bottom:1px solid #ccc;
+    border-bottom:1px solid $gray-light;
     line-height:1.6em;
   }
 }
@@ -124,7 +119,7 @@ nav {
   dt{
     padding-top:15px;
     label{
-      color:#999;
+      color:$gray;
     }
   }
   dd{
@@ -136,60 +131,40 @@ nav {
     height:30px;
     margin-right:10px;
     line-height:30px;
-    border:1px solid #ccc;
+    border:1px solid $gray-light;
     border-radius:5px;
     &:focus{
-      border-color:#999;
+      border-color:$gray;
       outline:none;
     }
   }
   textarea{
     width:350px;
     height:200px;
-    border:1px solid #ccc;
-    border-radius:5px;  
+    border:1px solid $gray-light;
+    border-radius:5px;
     resize:none;
     &:focus{
-      border-color:#999;
+      border-color:$gray;
       outline:none;
-    }  
+    }
   }
   .submit input{
     display:block;
     width:350px;
     height:40px;
-    border:1px solid #ccc;
+    border:1px solid $gray-light;
     border-radius:5px;
-    box-shadow:0 0 5px #ccc;
-    background:#76b130;
-    color:#fff;
+    box-shadow:0 0 5px $gray-light;
+    background:$green;
+    color:$white;
     text-align:center;
     cursor:pointer;
     font-size:20px;
     &:hover{
-      background:#91ce48;
+      background:$green;
     }
   }
 }
 
-/* pagination */
-.pagination {
-  margin-top:15px;
-  text-align:center;
-
-  span {
-    display:inline-block;
-    margin:0 3px;
-    padding:2px 8px;
-    border:1px solid #ccc;
-    border-radius:3px;
-  }
-  span.current {
-    border:1px solid #ccc;
-    background:#91ce48;
-    color:#fff;
-    font-weight:bold;
-  }
-  .gap { border:0; }
-  .disabled { color:#ccc; }
-}
+@import "_base/_pagination";

@@ -1,0 +1,125 @@
+/* /// login /// */
+#loginform{
+  ul{
+    margin:100px auto 0 auto;
+    width:350px;
+    text-align:left;
+    border:1px solid #dedede;
+    border-radius:5px;
+    box-shadow: 0 0 5px #dedede;
+    background:$white;
+    li{
+      @extend .clearfix;
+      position:relative;
+      line-height:40px;
+      padding:20px;
+      border-bottom:1px solid #dedede;
+      font-size:20px;
+      label{
+        width:80px;
+        height:40px;
+        line-height:40px;
+        float:left;
+      }
+      input{
+        float:left;
+        width:200px;
+        height:40px;
+        line-height:40px;
+        border:1px solid $white;
+        &:focus{
+          outline:none;
+        }
+      }
+    }
+    li.submit{
+      @extend .clearfix;
+      button{
+        display:block;
+        width:310px;
+        height:40px;
+        margin-bottom:15px;
+        border:1px solid $gray-light;
+        border-radius:5px;
+        box-shadow:0 0 5px $gray-light;
+        background:$green;
+        color:$white;
+        text-align:center;
+        cursor:pointer;
+        &:hover{
+          background:$green-light;
+        }
+      }
+      .forgot-pwd{
+        float:left;
+        color:$gray-light;
+        font-size:16px;
+        &:hover{
+          color:$green;
+        }
+      }
+      .reg{
+        float:right;
+        font-size:16px;
+      }
+    }
+  }
+}
+.tips{
+  display:block;
+  position:absolute;
+  top:10px;
+  right:-20px;
+  font-size:14px;
+}
+
+.tips label{
+  position:relative;
+  display:block;
+  padding:0 10px;
+  background:$yellow-light;
+  height:40px;
+  line-height:40px;
+}
+.tips label::after{
+  content: "";
+  position: absolute;
+  bottom: -19px;
+  right: 0;
+  border-width: 19px 19px 0 0;
+  border-style: solid;
+  border-color: $yellow transparent;
+  display: block;
+  width: 0;
+}
+#loginform ul li .tips label{
+  width:auto;
+}
+
+/* forgot-password */
+#forgot-pwd-form{
+  @extend #loginform;
+  ul{
+    width:450px;
+    padding:10px 0 10px 20px;
+    li{
+      border:none;
+      padding:10px 20px;
+      input{
+        width:380px;
+        border-color:$gray-light;
+        border-radius:5px;
+      }
+    }
+    li.submit{
+      button{
+        width:380px;
+      }
+      .login{
+        float:right;
+        font-size:16px;
+        padding-right:28px;
+      }
+    }
+  }
+}

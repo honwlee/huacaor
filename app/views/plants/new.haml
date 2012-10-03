@@ -1,22 +1,6 @@
 .single-main.setting
-  %h1 上传植物图片
-  = form_tag(@plant, :multipart => true) do
+  %h1 鉴定植物
+  = render 'form'
 
-    %dl.form
-      %dt
-        = label_tag :filedata, "植物照片："
-      %dd
-        = file_field_tag "filedata"
-      
-      %dt
-        = label_tag :zh_name, "中文名称：（选填）"
-      %dd
-        = text_field_tag :zh_name      
-      -#
-        %dt
-          = label_tag :zh_name, "笔记：（选填）"
-        %dd
-          = text_area_tag "desc", "", {:style => "width:90%"}
-
-      %dt.submit
-        = submit_tag '保 存'
+- content_for :footers do
+  = javascript_include_tag "plugin/validate", "dev/setting"

@@ -7,14 +7,14 @@
         = label_tag :filedata, "植物照片："
       %dd
         = file_field_tag "filedata"
-      
-      %dt
-        = label_tag :plant_name['zh'], "中文名称：（选填）"
-      %dd
-        = text_field_tag :plant_zh_name, ""      
 
       %dt
-        = label_tag :desc, "笔记：（选填）"
+        = label_tag :plant_zh_name, "中文名称："
+      %dd
+        = text_field_tag :plant_zh_name, ""
+
+      %dt
+        = label_tag :desc, "笔记："
       %dd
         = text_area_tag "desc", "", {:style => "width:90%"}
 

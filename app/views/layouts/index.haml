@@ -35,7 +35,7 @@
           / search beginning
           #search
             %input#search-input.search-input{:placeholder => "名称、科属", :type => "text", :value => ""}/
-            = render '/widgets/category'
+            - #= render '/widgets/category'
             %input#search-btn{:type => "submit", :value => "搜索", :onclick => "window.location.href='/plants'"}/
           / search finished
         .rt
@@ -51,11 +51,11 @@
           = link_to "花草儿", "/"
 
     = yield
-    
+
     %footer © 2012 huacaor.com
 
     = javascript_include_tag "plugin/jquery-1.7.min", "dev/index", "plugin/jquery-snippet.js"
 
     = yield :footers
-    
+
     != flash[:notice]

@@ -2,4 +2,4 @@
   %a{:href => picture_path(picture.id)}
     .p-top
       .name= picture.plant_name['zh']
-    %img{:alt => "", :src => picture.image.url(:thumb)}/
+    %img{:alt => picture.plant_name['zh'], :src => picture.image.url(:thumb)}/

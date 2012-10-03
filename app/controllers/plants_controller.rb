@@ -20,19 +20,17 @@ class PlantsController < ApplicationController
   end
 
 
-  # def new
-  #   @plant = Plant.new
-  #   respond_to do |format|
-  #     format.html
-  #     format.json { render :json => @plant }
-  #   end
-  # end
+  def new
+    @plant = Plant.new
+    @version = @plant.user_version(current_user.id)
+    @version_id = @version.nil? ? nil : @version.id
+  end
 
   def edit
     @phylum_name = PlantBaseInfo.format_phylum_name
     @plant = Plant.find(params[:id])
     @version = @plant.user_version(current_user.id)
-    @version_id = @version.nil? ? nil : @version.id 
+    @version_id = @version.nil? ? nil : @version.id
     # phylum_id = @version.base_info_ids['phylum_id']
     # pclass_id = @version.base_info_ids['pclass_id']
     # porder_id = @version.base_info_ids['porder_id']
@@ -49,7 +47,7 @@ class PlantsController < ApplicationController
   #   end
   #   return redirect_to picture_path(params[:picture_id]) unless params[:picture_id].blank?
   #   redirect_to plant_path(params[:id])
-  #   #redirect_to edit_plant_path(plant, :version_id => version_id) 
+  #   #redirect_to edit_plant_path(plant, :version_id => version_id)
   # end
 
   def update
