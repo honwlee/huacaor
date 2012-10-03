@@ -18,9 +18,8 @@
 .plant-info
   .lt
     .character
-      .ico-flower-h6.ico{:title => "乔木"}
-      .ico-flower-fwmouth.ico{:title => "唇形"}
-      .ico-flower-red.ico{:title => "红花"}
+      - @picture.tags.each do |t|
+        %div{:class => "ico-flower-#{t.css_name} ico", :title => t.name}
   -#
     .rt
       %ul

@@ -1,0 +1,7 @@
+- tag_ids ||= []
+.character
+  - Tag.usages_except_normal.each do |u|
+    %p= "#{u[0]}："
+    .choosebox
+      - Tag.where(usage: u[1]).each do |tag|
+        = link_to tag.name, "javascript:void(0)", :class => "ico-flower-#{tag.css_name} ico #{tag_choose_class(tag_ids, tag.id)}", :'data-id' => tag.id, :title => tag.name

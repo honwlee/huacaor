@@ -26,7 +26,20 @@ class Plant
     version.save
     plant.name_list = plant.versions.collect{|v|v.name[:zh].nil? ? v.name['zh'] : v.name[:zh]}.flatten.uniq
     plant.save
+
     plant
+  end
+
+  def add_tags(tag_ids)
+    if tag_ids.class == String
+      tag_ids = tag_ids.split(',')
+    end
+    tag_ids.uniq!
+
+    self.tags.clear
+    tags = Tag.find(tag_ids)
+    puts "Tags: #{tags.count}"
+    self.tags = tags
   end
 
   def picture_path(thumb=nil)

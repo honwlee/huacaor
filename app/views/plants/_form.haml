@@ -39,8 +39,8 @@
     %dt
       = f.label :characteristic, "特征："
     %dd
-      = render '/widgets/category'
-      = hidden_field_tag :category_tag_ids
+      = render :partial => 'widgets/tags', :locals => {:tag_ids => @plant.tag_ids}
+      = hidden_field_tag :tag_ids, @plant.tag_ids.join(',')
 
     %dt
       = f.label :description, "介绍："

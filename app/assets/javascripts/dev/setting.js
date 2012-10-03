@@ -108,7 +108,7 @@ $(function(){
 
   // choose plants' characters
   $('.character a').on('click', function(){
-    var tags = $('#category_tag_ids'),
+    var tags = $('#tag_ids'),
         $this = $(this);
     if($this.hasClass('choose')){
       if(tags.val().length == 0){

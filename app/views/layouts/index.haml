@@ -35,7 +35,7 @@
           / search beginning
           #search
             %input#search-input.search-input{:placeholder => "名称、科属", :type => "text", :value => ""}/
-            - #= render '/widgets/category'
+            = render '/widgets/tags'
             %input#search-btn{:type => "submit", :value => "搜索", :onclick => "window.location.href='/plants'"}/
           / search finished
         .rt

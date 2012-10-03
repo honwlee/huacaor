@@ -1,6 +1,0 @@
-.character
-  - Tag.usages_except_normal.each do |u|
-    %p= "#{u[0]}："
-    .choosebox
-      - Tag.where(usage: u[1]).each do |tag|
-        = link_to tag.name, "javascript:void(0)", :class => "ico-flower-#{tag.icon_name} ico", :'data-id' => tag.id

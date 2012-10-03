@@ -5,7 +5,7 @@ class Tag
   field :name, :type => String
   field :usage, :type => Integer, :default => 0
   field :description, :type => String
-  field :icon_name, :type => String # 标签图标名称
+  field :css_name, :type => String # tag icon css name
 
   index :name
 

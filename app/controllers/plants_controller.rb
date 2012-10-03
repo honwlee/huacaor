@@ -52,7 +52,13 @@ class PlantsController < ApplicationController
 
   def update
     params[:plant][:user_id] = current_user.id
-    Plant.update_by_params_data(params[:plant],params[:version_id],params[:id])
+    plant = Plant.update_by_params_data(params[:plant],params[:version_id],params[:id])
+    
+    unless params[:tag_ids].blank?
+      puts "---tag_ids #{params[:tag_ids]}"
+      plant.add_tags(params[:tag_ids])
+    end
+
     return redirect_to picture_path(params[:picture_id]) unless params[:picture_id].blank?
     redirect_to plant_path(params[:id])
   end

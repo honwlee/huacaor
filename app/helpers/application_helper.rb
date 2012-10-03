@@ -28,5 +28,10 @@ module ApplicationHelper
   def onDev
     return Rails.env == "development"
   end
+
+  def tag_choose_class(tag_ids, tag_id)
+    return "choose" if tag_ids && tag_ids.include?(tag_id)
+    return ""
+  end
   
 end

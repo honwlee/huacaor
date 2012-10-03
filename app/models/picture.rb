@@ -55,4 +55,12 @@ class Picture
     end
   end
 
+  def tags
+    if self.plant
+      return self.plant.tags
+    else
+      return []
+    end
+  end
+
 end
