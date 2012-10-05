@@ -46,7 +46,7 @@ $(function () {
     var by = $(this),
         description = $('.description'),
         text = description.text();
-    if(by.text() == "[编辑]"){
+    if(by.text() == "[做笔记]"){
       $(this).text('[取消]');
       description.after('<div id="description"><textarea class="comm-content">'+ text +'</textarea>' +
                        '<button type="submit" id="descrption-btn">保存</button></div>');
@@ -54,14 +54,14 @@ $(function () {
     }else{
       $('#description').remove();
       description.show();
-      $(this).text('[编辑]');
+      $(this).text('[做笔记]');
     }
 
     $('#descrption-btn').click(function(){
       var by = $(this);
       description.html(by.prev().val()).show();
       by.parent().remove();
-      $('.edit-description').text('[编辑]');
+      $('.edit-description').text('[做笔记]');
     });
     // 此处应为ajax，求后台数据支援
   });
