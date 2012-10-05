@@ -109,14 +109,26 @@ $(function(){
   // choose plants' characters
   $('.character a').on('click', function(){
     var tags = $('#tag_ids'),
-        $this = $(this);
-    if($this.hasClass('choose')){
-      if(tags.val().length == 0){
-        tags.val($this.data('id'));
-      }else{
-        tags.val(tags.val() + ',' + $this.data('id'));
-      }
+        $this = $(this),
+        tag = $this.data('id');
+    if(tags.val().length ==0){
+      var target = [];
+    }else{
+      var target = tags.val().split(',');
     }
+    var _exist = $.inArray(tag, target);
+    if($this.hasClass('choose')){
+      if(_exist >= 0){
+        target.splice(_exist, 1);
+      }
+      $this.removeClass('choose');
+    }else{
+      if(_exist < 0){
+        target.push(tag);
+      }
+      $this.addClass('choose');
+    }
+    tags.val(target.join(','));
   });
 
 });

@@ -8,9 +8,9 @@ $(function () {
   });
 
   // choose plants' characters
-  $('.choosebox a').click(function(){
-    $(this).toggleClass('choose');
-  });
+  // $('.choosebox a').click(function(){
+  //   $(this).toggleClass('choose');
+  // });
 
   // show plants' name
   $('.p-lists li, .p-slide ul li').hover(function () {
