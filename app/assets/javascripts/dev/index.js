@@ -42,8 +42,7 @@ $(function () {
   // });
 
   // edit photo's description
-  $('.edit-description').click(function(){
-    console.log('edit-description click');
+  $('.edit-description').on('click', function(){
     var by = $(this),
         description = $('.description'),
         text = description.text();
@@ -58,42 +57,36 @@ $(function () {
       $(this).text('[做笔记]');
     }
 
-    $('#descrption-btn').click(function(){
-      console.log('descrption-btn click');
-      var by = $(this);
-      description.html(by.prev().val()).show();
-      by.parent().remove();
-      $('.edit-description').text('[做笔记]');
+  });
 
-      // 此处应为ajax，求后台数据支援
-      url = window.location.pathname + '/update_desc'
-      $.ajax({
-        type: 'post',
-        cache: false,
-        url: url,
-        data: {
-          desc: $('#plant-desc').val()
-        },
-        beforeSend: function(){
-          by.attr('disabled', 'disabled').addClass('disabled');
-          // $this.before('<img class="comm-load" src="' + loadingImg + '" />');
-        },
-        error: function(){
-          by.before('<b>错误</b>').slideUp();
-        },
-        success: function(data){
-          by.closest('li').before($(data)).hide().slideDown();
-          commBox.val('');
-        },
-        complete: function(){
-          by.removeAttr('disabled').removeClass('disabled');
-          //$this.prev('img').remove();
-        }
-      });
-
-
+  $('#descrption-btn').live('click', function(){
+    var by = $(this),
+        description = $('#plant-desc'),
+        url = window.location.pathname + '/update_desc';
+    $.ajax({
+      type: 'post',
+      cache: false,
+      url: url,
+      data: {
+        desc: description.val()
+      },
+      beforeSend: function(){
+        by.attr('disabled', 'disabled').addClass('disabled');
+        // $this.before('<img class="comm-load" src="' + loadingImg + '" />');
+      },
+      error: function(){
+        by.before('<b>错误</b>').slideUp();
+      },
+      success: function(data){
+        $('.description').html(description.val()).show();
+        $('#description').remove();
+        $('.edit-description').text('[做笔记]');
+      },
+      complete: function(){
+        by.removeAttr('disabled').removeClass('disabled');
+        //$this.prev('img').remove();
+      }
     });
-    
   });
 
   // comment
