@@ -30,4 +30,11 @@ class PicturesController < ApplicationController
     @user_pictures = @user.pictures.limit(8)
   end
 
+  def update_desc
+    @picture = Picture.find(params[:id])
+    @picture.describe_info['desc'] = params[:desc]
+    @picture.save
+    render :text => 1
+  end
+
 end

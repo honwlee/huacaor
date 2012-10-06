@@ -43,13 +43,14 @@ $(function () {
 
   // edit photo's description
   $('.edit-description').click(function(){
+    console.log('edit-description click');
     var by = $(this),
         description = $('.description'),
         text = description.text();
     if(by.text() == "[做笔记]"){
       $(this).text('[取消]');
-      description.after('<div id="description"><textarea class="comm-content">'+ text +'</textarea>' +
-                       '<button type="submit" id="descrption-btn">保存</button></div>');
+      description.after('<div id="description"><textarea class="comm-content" id="plant-desc">'+ text +'</textarea>' +
+                       '<button type="button" id="descrption-btn">保存</button></div>');
       description.hide();
     }else{
       $('#description').remove();
@@ -58,12 +59,41 @@ $(function () {
     }
 
     $('#descrption-btn').click(function(){
+      console.log('descrption-btn click');
       var by = $(this);
       description.html(by.prev().val()).show();
       by.parent().remove();
       $('.edit-description').text('[做笔记]');
+
+      // 此处应为ajax，求后台数据支援
+      url = window.location.pathname + '/update_desc'
+      $.ajax({
+        type: 'post',
+        cache: false,
+        url: url,
+        data: {
+          desc: $('#plant-desc').val()
+        },
+        beforeSend: function(){
+          by.attr('disabled', 'disabled').addClass('disabled');
+          // $this.before('<img class="comm-load" src="' + loadingImg + '" />');
+        },
+        error: function(){
+          by.before('<b>错误</b>').slideUp();
+        },
+        success: function(data){
+          by.closest('li').before($(data)).hide().slideDown();
+          commBox.val('');
+        },
+        complete: function(){
+          by.removeAttr('disabled').removeClass('disabled');
+          //$this.prev('img').remove();
+        }
+      });
+
+
     });
-    // 此处应为ajax，求后台数据支援
+    
   });
 
   // comment

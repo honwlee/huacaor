@@ -25,6 +25,7 @@ Huacaor::Application.routes.draw do
 
   resources :pictures do
     resources :comments, :only => [:create, :destroy]
+    post :update_desc, :on => :member
   end
 
   resources :plants do
