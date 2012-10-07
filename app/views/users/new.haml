@@ -1,8 +1,8 @@
 = form_for(@user, :html => {:id => 'loginform'}) do |f|
   %ul
     %li
-      = f.label :name, "名字：", :requried => "required"
-      = f.text_field :name, :class => "i-text"
+      = f.label :name, "名字："
+      = f.text_field :name, :class => "i-text", :requried => "required"
       %p.tips
     %li
       = f.label :email, "邮箱："

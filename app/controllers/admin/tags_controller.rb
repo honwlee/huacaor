@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Admin::TagsController < Admin::BaseController
-  
+
   Cls = 'n2'
 
   # GET /tags
@@ -40,7 +40,6 @@ class Admin::TagsController < Admin::BaseController
     @title = "修改标签"
     @tag = Tag.find(params[:id])
 
-    render :new
   end
 
   # PUT /tags/1
@@ -59,6 +58,7 @@ class Admin::TagsController < Admin::BaseController
     @tag = Tag.find(params[:id])
     @tag.destroy
 
-    redirect_to tags_url
+    flash[:notice] = flash_success()
+    redirect_to admin_tags_path
   end
 end

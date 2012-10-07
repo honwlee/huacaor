@@ -59,11 +59,11 @@ Huacaor::Application.routes.draw do
       resources :pictures
     end
 
-    resources :plant_base_info 
+    resources :plant_base_info
   end
 
   root :to => 'home#index'
- 
+
   match "/about" => "home#about"
   match "/forgot_pwd" => "settings#forget_pwd"
   match "/images/uploads/*path" => "gridfs#serve"

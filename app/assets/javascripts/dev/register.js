@@ -1,28 +1,28 @@
 $(function(){
 
   // 注册验证
-  $('#loginform').validate({
+  $('form').validate({
     rules: {
-      'user_name': {
+      'user[name]': {
         requird: true
       },
-      'user_email': {
+      'user[email]': {
         required: true,
         email:true
       },
-      'user_password': {
+      'user[password]': {
         required: true
       }
     },
     messages: {
-      'user_name': {
+      'user[name]': {
         required: '请输入名字'
       },
-      'user_email': {
+      'user[email]': {
         required: '请输入邮箱',
         email: '邮箱格式不正确'
       },
-      'user_password': {
+      'user[password]': {
         required: '请输入密码'
       }
     },

@@ -12,8 +12,9 @@
       %button{:type => "submit"} 登 录
       %a.forgot-pwd{:href => "/forgot_pwd"} 忘记密码？
       %a.reg{:href => "/register"} 还没注册？
-      %a{:href => new_douban_services_path}
-        %img{:src => "/assets/doubanicon-16-full.png"}
+      -#
+        %a{:href => new_douban_services_path}
+          %img{:src => "/assets/doubanicon-16-full.png"}
 
 - content_for :footers do
   = javascript_include_tag "plugin/validate", "dev/login"

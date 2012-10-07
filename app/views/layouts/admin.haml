@@ -49,11 +49,11 @@
           %a.n3{:href => "/admin/plant_base_info"} 植物信息库
 
     = yield
-    
+
     %footer © 2012 huacaor.com
 
-    = javascript_include_tag "plugin/jquery-1.7.min", "dev/index"
+    = javascript_include_tag "plugin/jquery-1.7.min", "plugin/validate", "dev/admin"
 
     = yield :footers
-    
+
     != flash[:notice]

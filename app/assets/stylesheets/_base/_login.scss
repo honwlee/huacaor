@@ -68,6 +68,7 @@
 .tips{
   display:block;
   position:absolute;
+  z-index:2;
   top:10px;
   right:-20px;
   font-size:14px;
@@ -119,6 +120,20 @@
         float:right;
         font-size:16px;
         padding-right:28px;
+      }
+    }
+  }
+}
+
+#getpwd{
+  @extend #loginform;
+  ul{
+    li{
+      label{
+        width: 100px;
+      }
+      input{
+        width: 180px;
       }
     }
   }
