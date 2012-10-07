@@ -2,7 +2,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
-  
+
   field :email, :type => String
   field :password_hash, :type => String
   field :password_salt, :type => String
@@ -15,11 +15,11 @@ class User
   field :douban_uid, :type => String
   field :avatar_id, :type => Integer
 
-  has_many :pictures 
+  has_many :pictures
   #has_many :plants
   belongs_to :avatar
   has_many :comments
-  
+
 
   index :is_admin
   index :name
@@ -37,20 +37,20 @@ class User
   #validates :name, :uniqueness => true
   #validates :username, :uniqueness => {:message => "此自定义URL已存在，请重新输入", :unless => "username.blank?"}
 
-  def encrypt_password  
-    if password.present?  
-      self.password_salt = BCrypt::Engine.generate_salt  
-      self.password_hash = User.encrypt(password, password_salt)  
-    end  
+  def encrypt_password
+    if password.present?
+      self.password_salt = BCrypt::Engine.generate_salt
+      self.password_hash = User.encrypt(password, password_salt)
+    end
   end
 
-  def self.authenticate(email, password)  
+  def self.authenticate(email, password)
     user = self.where(:email => email).first
-    if user && user.password_hash == self.encrypt(password, user.password_salt)  
-      user  
-    else  
-      nil  
-    end  
+    if user && user.password_hash == self.encrypt(password, user.password_salt)
+      user
+    else
+      nil
+    end
   end
 
   def self.encrypt(password, salt)
@@ -58,7 +58,7 @@ class User
   end
 
   def link
-    if self.username
+    if self.username.present?
       return "/" + self.username
     else
       return "/users/" + self.id.to_s

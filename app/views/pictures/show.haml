@@ -15,25 +15,26 @@
   .slide-nav
     .left-nav
     .right-nav
-.plant-info
-  .lt
-    .character
-      - @picture.tags.each do |t|
-        %div{:class => "ico-flower-#{t.css_name} ico", :title => t.name}
-  -#
-    .rt
-      %ul
+- if @picture.tags.present?
+  .plant-info
+    .lt
+      .character
+        - @picture.tags.each do |t|
+          %div{:class => "ico-flower-#{t.css_name} ico", :title => t.name}
+    -#
+      .rt
+        %ul
 
-        %li
-          %em= @picture.plant_porder_name
+          %li
+            %em= @picture.plant_porder_name
 
-        %li
-          %em= @picture.plant_genus_name
+          %li
+            %em= @picture.plant_genus_name
 
-        %li
-          %em> 783
-          喜爱
-      %a.ico-ui-follow.follow{:href => "jacascript:void(0);"}
+          %li
+            %em> 783
+            喜爱
+        %a.ico-ui-follow.follow{:href => "jacascript:void(0);"}
 
 .content
   .content-left
@@ -59,15 +60,16 @@
       = render 'pictures/comm'
 
   .content-right
-    .p-slide
-      .p-slide-nav
-        -#
-          .left-nav
-          .right-nav
-            = link_to '', "#"
-      .p-t 发布者的其它笔记
-      / %ul
-      /   = render :partial => 'slide', :collection => @picture.user_other_pictures(10), :as => :picture
+    - if @picture.user_other_pictures.blank?
+      .p-slide
+        .p-slide-nav
+          -#
+            .left-nav
+            .right-nav
+              = link_to '', "#"
+        .p-t 发布者的其它笔记
+        %ul
+          = render :partial => 'slide', :collection => @picture.user_other_pictures(10), :as => :picture
 
     .p-slide
       .p-slide-nav

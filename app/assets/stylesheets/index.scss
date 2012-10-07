@@ -191,6 +191,7 @@ a.more{
 .plant{
   position:relative;
   padding:20px;
+  margin-bottom: 20px;
   background:$white;
   text-align:center;
 }
@@ -199,7 +200,7 @@ a.more{
 }
 .plant-info{
   @extend .person-info;
-  margin:20px auto;
+  margin:0 auto 20px auto;
   height:auto;
   .character{
     padding:3px 0 1px 20px;
