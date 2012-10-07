@@ -24,7 +24,7 @@ module ApplicationHelper
   rescue
     nil
   end
-  
+
   def onDev
     return Rails.env == "development"
   end
@@ -33,5 +33,5 @@ module ApplicationHelper
     return "choose" if tag_ids && tag_ids.include?(tag_id)
     return ""
   end
-  
+
 end

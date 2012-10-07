@@ -1,22 +1,34 @@
-.single-main.setting
-  %h1 上传植物图片
-  = form_tag(pictures_path, :method => :post, :multipart => true) do
+.single-main
+  -#%h1 上传植物图片
+  = form_tag(pictures_path, :method => :post, :multipart => true, :id => 'uploadfile') do
 
-    %dl.form
-      %dt
-        = label_tag :filedata, "植物照片："
-      %dd
-        = file_field_tag "filedata"
+    %span.upload
+      %span 上传植物照片
+      = file_field_tag "filedata"
+    %p.tip 尺寸不小于500 x 500 px，请以植物图为主，无关图片会被无情删除，谢谢合作。
+    #progress
+      .bar{:style => "width: 0%;"}
 
-      %dt
-        = label_tag :plant_zh_name, "中文名称："
-      %dd
-        = text_field_tag :plant_zh_name, ""
+    -#
+      %dl.form
+        %dt
+          = label_tag :filedata, "植物照片："
+        %dd
 
-      %dt
-        = label_tag :desc, "笔记："
-      %dd
-        = text_area_tag "desc", "", {:style => "width:90%"}
 
-      %dt.submit
-        = submit_tag '保 存'
+
+        %dt
+          = label_tag :plant_zh_name, "中文名称："
+        %dd
+          = text_field_tag :plant_zh_name, ""
+
+        %dt
+          = label_tag :desc, "笔记："
+        %dd
+          = text_area_tag "desc", "", {:style => "width:90%"}
+
+        %dt.submit
+          = submit_tag '保 存'
+
+- content_for :footers do
+  = javascript_include_tag "plugin/upload/vendor/jquery.ui.widget","plugin/upload/jquery.iframe-transport","plugin/upload/jquery.fileupload", "dev/upload"

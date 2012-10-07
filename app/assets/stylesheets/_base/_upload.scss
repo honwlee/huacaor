@@ -1,5 +1,6 @@
 /* /// add /// */
 .upload{
+  position: relative;
   display:inline-block;
   height:80px;
   line-height:80px;
@@ -12,9 +13,35 @@
   border-radius:5px;
   cursor:pointer;
   font-size:40px;
+  input{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    border: solid transparent;
+    border-width: 0 ;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -moz-transform: translate(-300px, 0) scale(4);
+    direction: ltr;
+    cursor: pointer;
+  }
+}
+#progress{
+  margin: 0 70px;
+}
+.bar{
+  margin-top: 80px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 3px;
+  background: $green-lighter;
+  color: $gray;
+  font-size: 16px;
 }
 .tip{
-  color:$gray-light;
+  font-size: 14px;
+  color:$gray;
 }
 
 .choose-class{
