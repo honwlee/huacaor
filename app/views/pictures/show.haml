@@ -11,7 +11,7 @@
     = @picture.plant_name['latin']
 
 .plant
-  = link_to image_tag(@picture.image.url(:medium), :alt => @picture.plant_name['zh']), "#"
+  = link_to image_tag(@picture.image.url, :alt => @picture.plant_name['zh']), "#"
   .slide-nav
     .left-nav
     .right-nav

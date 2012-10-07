@@ -194,6 +194,10 @@ a.more{
   margin-bottom: 20px;
   background:$white;
   text-align:center;
+  img{
+    max-width: 800px;
+    max-height: 700px;
+  }
 }
 .character{
   @extend .contact;

@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'digest/sha1' 
+require 'digest/sha1'
 class Avatar
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -48,5 +48,5 @@ class Avatar
   def reprocess_image
     image.reprocess!
   end
-  
+
 end
