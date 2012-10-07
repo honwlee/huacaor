@@ -9,7 +9,7 @@
   %dl.form
     %dt= f.label :name, "名称："
     %dd
-      = f.text_field :name, :required => "required"
+      = f.text_field :name, :required => "required", :class => "{required:true, messages:{required:'请填写名称'}}"
       %p.tips
 
     %dt= f.label :usage, "类型："
@@ -18,7 +18,7 @@
 
     %dt= f.label :css_name, "样式标识："
     %dd
-      = f.text_field :css_name, :required => "required"
+      = f.text_field :css_name, :required => "required", :class => "{required: true, messages:{required:'请填写样式标识'}}"
       %p.tips
 
     %dt= f.label :description, "描述："

@@ -1,41 +1,36 @@
-.single-main.setting
-  %h1 编辑个人信息
-    
-  = form_for @user, {:url => "update_profile"} do |f|
-    %dl.form
-      %dt
-        = f.label :name, "名字："
-      %dd
-        = f.text_field :name, :required => "required"
-        = link_to "修改密码", "/settings/password"
-        %p.tips
+= form_for @user, {:url => "update_profile"} do |f|
+  %ul
+    %li
+      = f.label :name, "名字："
 
-      %dt
-        = f.label :email, "邮箱："
-      %dd
-        = f.email_field :email, :required => "required"
-        %p.tips
+      = f.text_field :name, :required => "required", :class => "{required:true, messages:{required:'请输入名字'}}"
+      %p.tips
 
-      %dt
-        = f.label :url, "个性域名：[唯一标识，填写后不能修改]"
-      %dd
-        http://huacao/people/
-        = f.text_field :username, :style => "width:212px;"
-        %p.tips
+    %li
+      = f.label :email, "邮箱："
 
-      %dt
-        = f.label :desc, "简介："
-      %dd
-        = f.text_area :desc, :autocomplete => "off"
-        %p.tips
-        
-      %dt.submit
-        = f.submit '保 存'
+      = f.email_field :email, :required => "required", :class => "{required:true, email:true,messages:{required:'请输入邮箱', email:'邮箱格式不正确'}}", :requried => "required"
+      %p.tips
 
-  .avatar-box
-    .avatar.normal<
-      %img{:src => @user.avatar_path(:normal)}/
-    = link_to "修改头像", "/settings/avatar"
+    %li
+      = f.label :url, "个性域名："
+
+      %p.url http://huacaor.com/people/
+      = f.text_field :username, :style => "width:162px;"
+      %p.tips
+        %label.normal 填写后不能修改
+
+    %li
+      = f.label :desc, "简介："
+
+      = f.text_area :desc, :autocomplete => "off"
+      %p.tips
+
+    %li.submit
+      %button{:type => "submit"} 保存个人信息
+      %a.link-l{:href => "/settings/avatar"} 修改头像
+      %a.link-l{:href => "/settings/password"} 修改密码
+      %a.link-r{:href => user_path(current_user)} 不做修改，返回个人页面
 
 - content_for :footers do
-  = javascript_include_tag "plugin/validate", "dev/setting"
+  = javascript_include_tag "plugin/validate","plugin/metadata", "dev/setting"

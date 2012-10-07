@@ -3,12 +3,12 @@
     %li
       请输入注册邮箱，新密码会被发送到该邮箱：
     %li
-      %input.i-text{:name => "email", :required => "required", :type => "email"}
+      %input{:name => "email", :required => "required", :type => "email", :class => "{required:true, email:true, messages:{required:'请输入邮箱', email:'邮箱格式不对'}}"}
       %p.tips
     %li.submit
       %button{:type => "submit"} 发 送 邮 件
       %a.login{:href => "/login"} 试试重新登录
 
 - content_for :footers do
-  = javascript_include_tag "plugin/validate", "dev/login"
+  = javascript_include_tag "plugin/validate", "plugin/metadata", "dev/setting"
 

@@ -3,13 +3,13 @@
     %dt
       = f.label :name, "名字："
     %dd
-      = f.text_field :name, :required => "required"
+      = f.text_field :name, :required => "required", :class => "{required:true, messages:{required:'请填写名字'}}"
       %p.tips
 
     %dt
       = f.label :email, "邮箱："
     %dd
-      = f.email_field :email, :required => "required"
+      = f.email_field :email, :required => "required", :class => "{required:true, email:true, messages:{required:'请填写邮箱', email: '邮箱格式不正确'}}"
       %p.tips
 
     %dt
@@ -24,6 +24,6 @@
     %dd
       = f.text_area :desc
       %p.tips
-      
+
     %dt.submit
       = f.submit '保 存'

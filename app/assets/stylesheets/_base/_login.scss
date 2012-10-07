@@ -50,15 +50,16 @@
           background:$green-light;
         }
       }
-      .forgot-pwd{
+      .link-l{
         float:left;
+        padding-right: 10px;
         color:$gray-light;
         font-size:16px;
         &:hover{
           color:$green;
         }
       }
-      .reg{
+      .link-r{
         float:right;
         font-size:16px;
       }
@@ -92,6 +93,12 @@
   border-color: $yellow transparent;
   display: block;
   width: 0;
+}
+.tips label.normal{
+  background:$gray-lighter;
+}
+.tips label::after{
+border-color:$gray-light transparent;
 }
 #loginform ul li .tips label{
   width:auto;
@@ -134,6 +141,43 @@
       }
       input{
         width: 180px;
+      }
+    }
+  }
+}
+
+.edit_user{
+  @extend #loginform;
+  ul{
+    width: 570px;
+    li{
+      label{
+        width: 100px;
+      }
+      input{
+        width: 400px;
+        color: $gray;
+      }
+      p.url{
+        float: left;
+        font-size: 14px;
+      }
+      textarea{
+        float:left;
+        width:400px;
+        height:120px;
+        line-height:30px;
+        border:1px solid $white;
+        resize:none;
+        color: $gray;
+        &:focus{
+          outline:none;
+        }
+      }
+    }
+    li.submit{
+      button{
+        width: 530px;
       }
     }
   }

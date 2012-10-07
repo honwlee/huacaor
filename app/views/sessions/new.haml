@@ -2,19 +2,19 @@
   %ul
     %li
       %label{:for => "login"} 邮箱：
-      %input.i-text{:name => "login", :required => "required", :type => "email"}
+      %input{:name => "login", :required => "required", :type => "email", :class => "{required:true, email:true, messages:{required:'请输入邮箱', email:'邮箱格式不对'}}"}
       %p.tips
     %li
       %label{:for => "password"} 密码：
-      %input.i-text{:name => "password", :required => "required", :type => "password"}
+      %input{:name => "password", :required => "required", :type => "password", :class => "{required:true, messages:{required:'请输入密码'}}"}
       %p.tips
     %li.submit
       %button{:type => "submit"} 登 录
-      %a.forgot-pwd{:href => "/forgot_pwd"} 忘记密码？
-      %a.reg{:href => "/register"} 还没注册？
+      %a.link-l{:href => "/forgot_pwd"} 忘记密码？
+      %a.link-r{:href => "/register"} 还没注册？
       -#
         %a{:href => new_douban_services_path}
           %img{:src => "/assets/doubanicon-16-full.png"}
 
 - content_for :footers do
-  = javascript_include_tag "plugin/validate", "dev/login"
+  = javascript_include_tag "plugin/validate","plugin/metadata", "dev/setting"
