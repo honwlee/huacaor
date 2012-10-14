@@ -1,4 +1,9 @@
 # encoding: utf-8
+############# 功能说明 ##############
+#
+#  针对ruby1.9.3 encoding 问题，这个脚本是在每个ruby文件首行加一行 "#encoding: utf-8"
+#  方法：ruby deal_with_dir.rb
+############### END ################
 class DealWithDir
   def initialize(path)
     @path = path || `pwd`.chomp

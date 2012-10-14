@@ -37,18 +37,18 @@ class PlantsController < ApplicationController
     # genus_id = @version.base_info_ids['genus_id']
   end
 
-  # def create
-  #   params[:plant][:user_id] = current_user.id
-  #   version_id = Plant.update_by_params_data(plant,params[:plant])
+  def create
+    params[:plant][:user_id] = current_user.id
+    plant = Plant.update_by_params_data(params[:plant])
 
-  #   unless params[:picture_id].blank?
-  #     picture = Picture.find(params[:picture_id])
-  #     plant.pictures << picture
-  #   end
-  #   return redirect_to picture_path(params[:picture_id]) unless params[:picture_id].blank?
-  #   redirect_to plant_path(params[:id])
-  #   #redirect_to edit_plant_path(plant, :version_id => version_id)
-  # end
+    unless params[:picture_id].blank?
+      picture = Picture.find(params[:picture_id])
+      plant.pictures << picture
+    end
+    return redirect_to picture_path(params[:picture_id]) unless params[:picture_id].blank?
+    redirect_to plant_path(params[:id])
+    #redirect_to edit_plant_path(plant, :version_id => version_id)
+  end
 
   def update
     params[:plant][:user_id] = current_user.id

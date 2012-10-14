@@ -1,4 +1,6 @@
 # encoding: utf-8
+#######################数据结构说明######################
+# name_list: 数组 
 require File.join(Rails.root,'lib/shared_methods/shared_methods.rb')
 class Plant 
   include SharedMethods
@@ -57,11 +59,13 @@ class Plant
 
   def name(user_id=nil)
     return nil if !user_id.nil? && user_version(user_id).nil?
+    return nil if hot_version.blank?
     user_id.nil? ? hot_version.name : user_version(user_id).name
   end
 
   def description(user_id=nil)
     return nil if !user_id.nil? && user_version(user_id).nil?
+    return nil if hot_version.blank?
     user_id.nil? ? hot_version.description : user_version(user_id).description
   end
   

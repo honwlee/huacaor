@@ -14,10 +14,11 @@ class PicturesController < ApplicationController
     params[:user_id] = current_user.id
     picture = Picture.create_picture(params)
 
-    unless params[:plant_zh_name].blank?
-      plant = picture.create_parent_plant(params[:plant_zh_name].strip)
-      redirect_to edit_plant_path(plant,:picture_id => picture.id) and return
-    end
+
+    # unless params[:plant_zh_name].blank?
+    #   plant = picture.create_parent_plant(params[:plant_zh_name].strip)
+    #   redirect_to edit_plant_path(plant,:picture_id => picture.id) and return
+    # end
 
     redirect_to picture_path(picture) 
   end
